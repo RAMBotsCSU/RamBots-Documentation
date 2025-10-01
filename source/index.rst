@@ -14,5 +14,12 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Hardware Documentation
+   
+   hardware_doc
+
+
 Indices and tables
 ==================
