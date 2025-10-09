@@ -14,11 +14,12 @@ documentation for details.
    :maxdepth: 2
    :caption: General
 
+   hardware_doc
+
 .. toctree::
    :maxdepth: 1
    :caption: Codebase
-   
-   hardware_doc
+
    reflash_odrive
 
 .. toctree::
