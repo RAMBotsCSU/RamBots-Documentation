@@ -14,17 +14,20 @@ documentation for details.
    :maxdepth: 2
    :caption: General
 
-   hardware_doc
+   bootup
 
 .. toctree::
    :maxdepth: 1
    :caption: Codebase
 
-   reflash_odrive
+
 
 .. toctree::
    :maxdepth: 1
-   :caption: Electrical
+   :caption: Electrical and Hardware
+
+   hardware_doc
+
 
 .. toctree::
    :maxdepth: 1
@@ -37,4 +40,6 @@ documentation for details.
 .. toctree::
    :maxdepth: 1
    :caption: Toubleshooting
-
+   
+   error_codes
+   reflash_odrive

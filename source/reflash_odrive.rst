@@ -1,8 +1,8 @@
 **Reflashing Odrives**
 ========================================================================================================================
 (If motors do not go into closed loop and Odrive will not connect, reflashing may be a temp fix)
-1. Install STM32CubeProgrammer software
-      `here <https://www.st.com/en/development-tools/stm32cubeprog.html>`__
+
+1. Install STM32CubeProgrammer software `here <https://www.st.com/en/development-tools/stm32cubeprog.html>`__
 
 2. Download appropriate firmware version `here <https://docs.odriverobotics.com/releases/firmware>`__ 
       (Current version used is 0.5.5, firmware file found
