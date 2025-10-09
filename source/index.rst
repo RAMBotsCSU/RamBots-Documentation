@@ -19,6 +19,7 @@ documentation for details.
    :caption: Hardware Documentation
    
    hardware_doc
+   reflash_odrive
 
 
 Indices and tables
