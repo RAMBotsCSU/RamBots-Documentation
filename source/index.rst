@@ -36,10 +36,12 @@ documentation for details.
 .. toctree::
    :maxdepth: 1
    :caption: How-Tos
-
+   motor_calibration
+   check_firmware
+   
 .. toctree::
    :maxdepth: 1
-   :caption: Toubleshooting
+   :caption: Troubleshooting
    
    error_codes
    reflash_odrive
