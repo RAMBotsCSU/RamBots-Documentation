@@ -36,6 +36,7 @@ documentation for details.
 .. toctree::
    :maxdepth: 1
    :caption: How-Tos
+   
    motor_calibration
    check_firmware
    
