@@ -5,14 +5,14 @@ Prerequisites
 -------------
 
 - Install odrivetool (instructions `here <https://docs.odriverobotics.com/v/latest/interfaces/odrivetool.html#installation>`__).
-- Install Visual Studio Code: `https://code.visualstudio.com/`__
-- Clone the motion repository: `https://github.com/RAMBotsCSU/motion`__
+- Install Visual Studio Code: `Download Visual Studio code <https://code.visualstudio.com/download>`__.
+- Clone the motion repository `here <https://github.com/RAMBotsCSU/motion>`__.
 - For best results, calibrate motors with no mechanical load.
 
 Preparation
 -----------
 
-1. Disassemble the leg enough so both motors on the ODESC can spin freely.
+1. `Disassemble the leg <https://rambots-documentation.readthedocs.io/en/latest/leg_disassembly.html>`__ enough so both motors on the ODESC can spin freely.
    - Do NOT remove the encoder plate from the back of either motor.
 
 .. note::
@@ -28,7 +28,7 @@ Running the Script
 3. Run the calibration script:
 
    - Script path: motion/tools/odrive/Calibrate.py
-
+   
    - Example using pipenv:
 
      .. code-block:: console

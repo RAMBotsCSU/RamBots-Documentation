@@ -10,10 +10,12 @@ Power check
 
 Startup steps
 -------------
-1. Power the RamBOT using the switch on the back of the robot.
-2. Wait for the Raspberry Pi to boot fully.
-3. On the Pi desktop, locate the script named `startup.sh` on the desktop.
-4. Run the script by double-clicking and selecting "Run in Terminal" (or run it manually from a terminal):
+1. Power the RamBOT using the red switch on the back of the robot.
+2. Power the Raspberry Pi using the black switch in front.
+3. Wait for the Raspberry Pi to boot fully.
+4. Turn on the PS4 controller and wait for it to connect.
+4. On the Pi desktop, locate the script named `startup.sh` on the desktop.
+5. Run the script by double-clicking and selecting "Run in Terminal" (or run it manually from a terminal):
 
    .. code-block:: console
 
