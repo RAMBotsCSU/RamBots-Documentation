@@ -1,18 +1,25 @@
-**How to Check Firmware Version**
-=====================================================================================================================
-*Useful for when you need to know the version for reflashing*
+How to Check Firmware Version
+=============================
 
-1. Open odrivetool on your computer (instructions for install found `here <https://docs.odriverobotics.com/v/latest/interfaces/odrivetool.html#installation>`__)
+This short guide shows how to read the ODrive firmware version using odrivetool.
 
-2. Connect your computer to the odrive in question
+Prerequisites
+-------------
+- Install odrivetool (installation instructions: `ODrive docs <https://docs.odriverobotics.com/v/latest/interfaces/odrivetool.html#installation>`__).
+- Connect the ODrive to your computer.
 
-3. Run these commands one after another:
+Procedure
+---------
+1. Start odrivetool (run `odrivetool` on the command line).
+2. In the odrivetool Python prompt, read the firmware fields for the connected device (typically `odrv0`):
 
-   a. <odrive name>.fw_version_major
+   .. code-block:: console
 
-   b. <odrive name>.fw_version_minor
+      odrv0.fw_version_major
+      odrv0.fw_version_minor
+      odrv0.fw_version_revision
 
-   c. <odrive name>.fw_version_revision
+3. Combine the values as major.minor.revision (for example: 0.5.6).
 
-4. That's the version! It's major.minor.revision e.g. if major = 0,
-      minor = 5, and revision = 6, the version is 0.5.6
+.. note::
+   If your device is not named `odrv0` in the session, replace `odrv0` with the appropriate variable shown when odrivetool connects.
