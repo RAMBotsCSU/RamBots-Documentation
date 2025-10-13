@@ -10,24 +10,28 @@ Encoder Errors
 |                                   | likely a fault in the wire        |
 |                                   | connections.                      |
 +===================================+===================================+
-+-----------------------------------+-----------------------------------+
 
 Motor Errors
 ------------
 
-+------------------------------------+-------------------------------------+
-|| MotorError.DRV_FAULT DRV fault:   || ODrive's motor driver chip         |
-|| none                              || *signaled a fault line* at some    |
-||                                   || point, but is reporting back fine  |
-||                                   || as of now. Check other errors first|
-+====================================+=====================================+
-|| M                                 || Check your                         |
-|| otorError.UNKNOWN_VOLTAGE_COMMAND || motor.config.torque_constant and   |
-||                                   || your pole-pairs. Usually, this     |
-||                                   || error is caused by invalid motor   |
-||                                   || parameters or invalid motor        |
-||                                   || calibration                        |
-+------------------------------------+-------------------------------------+
++-------------------------------------+------------------------------------+
+|| MotorError.DRV_FAULT DRV fault:    || ODrive's motor driver chip        |
+|| none                               || *signaled a fault line* at some   |
+||                                    || point, but is reporting back fine |
+||                                    ||                                   |
++=====================================+====================================+
+|| MotorError.DRV_FAULT DRV fault:    || ODrive's motor driver chip        |
+|| none                               || *signaled a fault line* at some   |
+||                                    || point, but is reporting back fine |
+||                                    ||                                   |
++-------------------------------------+------------------------------------+
+|| MotorError.UNKNOWN_VOLTAGE_COMMAND || Check your                        |
+||                                    || motor.config.torque_constant and  |
+||                                    || your pole-pairs. Usually, this    |
+||                                    || error is caused by invalid motor  |
+||                                    || parameters or invalid motor       |
+||                                    || calibration                       |
++-------------------------------------+------------------------------------+
 
 Controller Errors
 -----------------
