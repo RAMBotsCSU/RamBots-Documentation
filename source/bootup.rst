@@ -14,8 +14,8 @@ Startup steps
 2. Power the Raspberry Pi using the black switch in front.
 3. Wait for the Raspberry Pi to boot fully.
 4. Turn on the PS4 controller and wait for it to connect.
-4. On the Pi desktop, locate the script named `startup.sh` on the desktop.
-5. Run the script by double-clicking and selecting "Run in Terminal" (or run it manually from a terminal):
+5. On the Pi desktop, locate the script named `startup.sh` on the desktop.
+6. Run the script by double-clicking and selecting "Run in Terminal" (or run it manually from a terminal):
 
    .. code-block:: console
 
