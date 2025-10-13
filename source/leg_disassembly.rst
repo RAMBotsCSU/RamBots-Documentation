@@ -1,114 +1,125 @@
-**Disassembling a Leg**
-===============================================
-*This guide will show you how to disassemble a leg to the point where
-the motors have no load. This is especially useful for calibrating the encoders*
+Disassembling a Leg
+===================
 
-**Tools Needed:**
+*This guide shows how to disassemble a leg until the motors have no load (useful for encoder calibration).*
 
-1. A screwdriver that is compatible with the hex head screws.
-2. Allen Keys.
-3. 9/32 socket and wrench
+Tools Needed
+------------
 
-   1. Optional ½ socket for step 2.
+- A screwdriver compatible with the hex-head screws
+- Allen keys
+- 9/32" socket and wrench
+  - Optional: 1/2" socket for step 2
 
-When reassembling make sure to read the last step.
+.. note::
+   When reassembling, read the last step carefully.
 
-**Instructions:**
+Instructions
+------------
 
-1. Reference How-To take off a leg to get to the point where the leg is
-   off the robot.
-2. Take off the 2 screws holding the two halves of the robot together.
-   On the same side, you can remove the 2 screws that hold the tension
-   donuts in place. The 4 screws are shown below in Figure 1.
+1. Reference the "How-To take off a leg" guide to reach the point where the leg is removed from the robot.
+2. Remove the two screws holding the two halves together. On the same side, remove the two screws that hold the tension donuts in place (four screws total).
 
-.. image:: leg-images/image1.png
-   Figure 1.
+   .. figure:: leg-images/image1.png
+      :alt: screws holding halves and tension donuts
+      :align: center
 
-3. Now you can take off the 3 plates at the top of the leg which also
-   hold the leg parts together. Each plate has 4 screws, the location of
-   the plates is shown in Figures 2, 3, and 4. The order in which plates
-   come off does not matter.
+      Figure 1.
 
-.. image:: leg-images/image2.png
-   Figure 2.
+3. Remove the three plates at the top of the leg (each plate has four screws). The location of the plates is shown in Figures 2, 3, and 4. The order of removal does not matter.
 
-.. image:: leg-images/image3.png
-   Figure 3.
+   .. figure:: leg-images/image2.png
+      :alt: top plate 1
+      :align: center
 
-.. image:: leg-images/image4.png
-   Figure 4.
+      Figure 2.
 
-4. Now that all the plates have been taken off the two halves can be
-   taken off. During this process, the 2 tension donuts and the foot
-   should also come off with the 2 halves, these parts are shown in
-   figure 5. For the next steps, we are going to look at the right half,
-   which is the one that controls the foot motor.
+   .. figure:: leg-images/image3.png
+      :alt: top plate 2
+      :align: center
 
-.. image:: leg-images/image5.png
-   Figure 5.
+      Figure 3.
 
-1. Looking at the foot-controlling half, we will deconstruct this to the
-   point where the motor will have no load. The first step is to remove
-   spacers held by 2 screws, as shown in Figure 6.
+   .. figure:: leg-images/image4.png
+      :alt: top plate 3
+      :align: center
 
-.. image:: leg-images/image6.png
-   Figure 6.
+      Figure 4.
 
-6. After the spacer is taken off the part that holds the belt will be
-   taken off. This is done by taking off the 5 nuts that are holding it
-   in place shown in Figure 7.
+4. With the plates removed, take off the two halves. The two tension donuts and the foot should come off with the halves; see Figure 5. For the remaining steps we will examine the right half (the foot motor half).
 
-.. image:: leg-images/image7.png
-   Figure 7.
+   .. figure:: leg-images/image5.png
+      :alt: right half with foot and donuts
+      :align: center
 
-7. The next step is to take off the 10 screws that are holding the top
-   plate to the bottom as shown in Figure 8.
+      Figure 5.
 
-.. image:: leg-images/image8.png
-   Figure 8.
+5. On the foot-controlling half, remove the spacers held by two screws (Figure 6).
 
-8. After the plate comes off you will see the gadget that makes a
-   cycloidal drive. Now to take this apart use the right-sized Allen
-   keys to take the cap off. This is shown in Figure 9.
+   .. figure:: leg-images/image6.png
+      :alt: spacers held by screws
+      :align: center
 
-.. image:: leg-images/image9.png
-   Figure 9.
+      Figure 6.
 
-9. After this is done you will need to take off the 2 screws that hold
-   the bearing and gear in place. When this is done you can take off the
-   top gear, as shown in Figure 10.
+6. Remove the part that holds the belt by taking off the five nuts that secure it (Figure 7).
 
-.. image:: leg-images/image10.png
-   Figure 10.  
+   .. figure:: leg-images/image7.png
+      :alt: belt holder nuts
+      :align: center
 
-1.  For the second gear, there will be another 2 screws that will need
-    to be taken off as shown in figure 11.
+      Figure 7.
 
-.. image:: leg-images/image11.png
-   Figure 11.
+7. Remove the ten screws holding the top plate to the bottom (Figure 8).
 
-11. If you want to remove the cage that holds the motor in place, you
-    can put the large-cap taken off in Step 7 back on. Doing this will
-    help prevent the bearings from falling out. You can also take the
-    cage off before step 7 if you know the cage will need to be removed.
-    This requires to take off the 11 screws on the back shown in Figure
-    12. It is important to not take off the encoder plate. If this is
-    done the encoders will need to be reinitialized.
+   .. figure:: leg-images/image8.png
+      :alt: top plate screws
+      :align: center
 
-.. image:: leg-images/image12.png
-   Figure 12.
+      Figure 8.
 
-12. Now we will move on to the second half of the entire leg shown in
-    Figure 13. This half controls the shoulder. Disassembling this is
-    the exact same way as the other half, the only difference is that
-    there is a leg plate, rather than the piece that holds the belt in
-    place that was taken off in step 6.
+8. After removing the plate you will see the cycloidal drive assembly. Use the correct Allen key to remove the cap (Figure 9).
 
-.. image:: leg-images/image13.png
-   Figure 13.
+   .. figure:: leg-images/image9.png
+      :alt: cycloidal drive cap
+      :align: center
 
-13. To Disassemble completely repeat steps 6-11.
-14. To Reassemble do the same steps in reverse order. When putting on
-    any bolts/screws only hand tighten them. This includes the socket
-    wrench. Hold the socket in your hand, overtightening things can
-    cause inconvenient breaks in the plastic, and more issues.
+      Figure 9.
+
+9. Remove the two screws that hold the bearing and gear in place, then remove the top gear (Figure 10).
+
+   .. figure:: leg-images/image10.png
+      :alt: top gear removal
+      :align: center
+
+      Figure 10.
+
+10. Remove the two screws for the second gear as shown in Figure 11.
+
+   .. figure:: leg-images/image11.png
+      :alt: second gear screws
+      :align: center
+
+      Figure 11.
+
+11. To remove the motor cage: you can reinstall the large cap taken off in step 7 to help prevent bearings from falling out. Alternatively, remove the cage before step 7 if needed by taking off the eleven screws on the back (Figure 12). Do not remove the encoder plate unless you intend to reinitialize encoders.
+
+   .. figure:: leg-images/image12.png
+      :alt: motor cage back screws
+      :align: center
+
+      Figure 12.
+
+.. warning::
+   Do not remove the encoder plate unless you will reinitialize the encoders; removing it will require encoder reinitialization.
+
+12. Repeat steps 6–11 for the other half (shoulder control). The difference is a leg plate instead of the belt-holder piece (Figure 13).
+
+   .. figure:: leg-images/image13.png
+      :alt: second half / shoulder
+      :align: center
+
+      Figure 13.
+
+13. To fully disassemble, repeat steps 6–11 as needed for all subassemblies.
+14. To reassemble, follow the steps in reverse order. Hand-tighten all bolts/screws (including when using a socket; hold the socket by hand). Overtightening can crack plastics and cause damage.
