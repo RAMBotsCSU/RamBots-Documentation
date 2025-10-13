@@ -1,3 +1,8 @@
+**Disassembling a Leg**
+===============================================
+*This guide will show you how to disassemble a leg to the point where
+the motors have no load. This is especially useful for calibrating the encoders*
+
 **Tools Needed:**
 
 1. A screwdriver that is compatible with the hex head screws.
