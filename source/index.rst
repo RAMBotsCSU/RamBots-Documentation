@@ -39,6 +39,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    :caption: How-Tos
    
    motor_calibration
+   leg_removal
    leg_disassembly
    check_firmware
    
