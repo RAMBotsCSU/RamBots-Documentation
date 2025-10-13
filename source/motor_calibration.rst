@@ -4,36 +4,58 @@ How to Recalibrate Motors
 Prerequisites
 -------------
 
-1. If you have not downloaded odrivetool yet, download and install it `here <https://docs.odriverobotics.com/v/latest/interfaces/odrivetool.html#installation>`__
-2. Make sure you have `Visual Studio Code <https://code.visualstudio.com/>`__ and our `motion repository downloaded <https://github.com/RAMBotsCSU/motion>`__
-3. For the best results in calibration, the motors should be calibrated
-   with no load.
+- Install odrivetool (instructions `here <https://docs.odriverobotics.com/v/latest/interfaces/odrivetool.html#installation>`__).
+- Install Visual Studio Code: `https://code.visualstudio.com/`__
+- Clone the motion repository: `https://github.com/RAMBotsCSU/motion`__
+- For best results, calibrate motors with no mechanical load.
 
-   a. Take apart the leg to make sure both motors on the ODESC can spin
-      freely, BUT don't take off the encoder plate from the back of
-      either
-   b. Make sure both motors are facing up with the encoder plate down on
-      a flat and level surface
-   c. Note: You *can* run calibration with the legs assembled; however,
-      there may be stability issues, so run calibration at your own
-      risk.
+Preparation
+-----------
+
+1. Disassemble the leg enough so both motors on the ODESC can spin freely.
+   - Do NOT remove the encoder plate from the back of either motor.
+
+.. note::
+   Place both motors face-up (encoder plate down) on a flat, level surface during calibration.
+
+2. Optionally: You may run calibration with legs assembled, but stability issues can occur — run at your own risk.
 
 Running the Script
 ------------------
 
-4. Connect the ODESC to your computer via its micro USB port
-5. Power on the ODESC, either by bench supply or by batteries
-6. Run the calibration tool
+1. Connect the ODESC to your computer via micro USB.
+2. Power the ODESC (bench supply or batteries).
+3. Run the calibration script:
 
-   a. The script to run can be found under motion/tools/odrive/Calibrate.py
-   b. Note: We have set up Pipfile to make it easier to run the script
-      with the necessary dependencies, but you'll need `pip <https://pip.pypa.io/en/stable/installation/>`__ and `pipfile <https://pipenv.pypa.io/en/latest/pipfile.html>`__ setup
-      (*guide to be written later*)
+   - Script path: motion/tools/odrive/Calibrate.py
 
-7. If all has been set up correctly:
-   a. Each motor will make a beeping noise
-   b. Each move will move a short distance in each direction
-      i. MAKE SURE MOTOR CAN MOVE UNIMPEDED, if it can't, the calibration will fail.
+   - Example using pipenv:
 
-8. After each motor has finished being calibrated, disconnect the
-   computer from the ODESC and reassemble the leg
+     .. code-block:: console
+
+        pipenv run python motion/tools/odrive/Calibrate.py
+
+   - Example without pipenv (ensure dependencies installed):
+
+     .. code-block:: console
+
+        python motion/tools/odrive/Calibrate.py
+
+.. note::
+   A Pipfile is provided to simplify dependency management; install with pipenv if available.
+
+What to expect
+--------------
+
+- Each motor will emit audible beeps during calibration.
+- Motors will move short distances in both directions.
+- MAKE SURE each motor can move unimpeded; calibration will fail if movement is obstructed.
+
+After Calibration
+-----------------
+
+1. When calibration completes, disconnect the computer from the ODESC.
+2. Reassemble the leg.
+
+.. warning::
+   If you remove the encoder plate at any time, the encoders will need to be reinitialized. Only remove it if you intend to perform reinitialization.
