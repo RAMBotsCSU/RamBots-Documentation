@@ -13,8 +13,7 @@
 3. Flip switch on Odrive to DFU (left switch on ODESCS, not labeled),
       and power cycle Odrive.
 
-4. Follow directions under "Alternative DFU Tool" section of Odrive docs
-      `here <https://docs.odriverobotics.com/v/0.6.2/dfu.html#alternative-dfu-tool>`__
+4. Follow directions under "Alternative DFU Tool" section of Odrive docs  `here <https://docs.odriverobotics.com/v/0.6.2/dfu.html#alternative-dfu-tool>`__
 
 -  BE SURE TO CONNECT TO USB BEFORE OPENING FILE OR SOFTWARE WILL
       CRASH
