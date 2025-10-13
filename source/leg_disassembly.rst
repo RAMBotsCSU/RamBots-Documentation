@@ -22,8 +22,6 @@ When reassembling make sure to read the last step.
    donuts in place. The 4 screws are shown below in Figure 1.
 
 .. image:: leg-images/image1.png
-   :align: center
-   
    Figure 1.
 
 3. Now you can take off the 3 plates at the top of the leg which also
@@ -32,18 +30,12 @@ When reassembling make sure to read the last step.
    come off does not matter.
 
 .. image:: leg-images/image2.png
-   :align: center
-   
    Figure 2.
 
 .. image:: leg-images/image3.png
-   :align: center
-   
    Figure 3.
 
 .. image:: leg-images/image4.png
-   :align: center
-   
    Figure 4.
 
 4. Now that all the plates have been taken off the two halves can be
@@ -53,8 +45,6 @@ When reassembling make sure to read the last step.
    which is the one that controls the foot motor.
 
 .. image:: leg-images/image5.png
-   :align: center
-   
    Figure 5.
 
 1. Looking at the foot-controlling half, we will deconstruct this to the
@@ -62,8 +52,6 @@ When reassembling make sure to read the last step.
    spacers held by 2 screws, as shown in Figure 6.
 
 .. image:: leg-images/image6.png
-   :align: center
-   
    Figure 6.
 
 6. After the spacer is taken off the part that holds the belt will be
@@ -71,16 +59,12 @@ When reassembling make sure to read the last step.
    in place shown in Figure 7.
 
 .. image:: leg-images/image7.png
-   :align: center
-   
    Figure 7.
 
 7. The next step is to take off the 10 screws that are holding the top
    plate to the bottom as shown in Figure 8.
 
 .. image:: leg-images/image8.png
-   :align: center
-   
    Figure 8.
 
 8. After the plate comes off you will see the gadget that makes a
@@ -88,8 +72,6 @@ When reassembling make sure to read the last step.
    keys to take the cap off. This is shown in Figure 9.
 
 .. image:: leg-images/image9.png
-   :align: center
-   
    Figure 9.
 
 9. After this is done you will need to take off the 2 screws that hold
@@ -97,16 +79,12 @@ When reassembling make sure to read the last step.
    top gear, as shown in Figure 10.
 
 .. image:: leg-images/image10.png
-   :align: center
-   
    Figure 10.  
 
 1.  For the second gear, there will be another 2 screws that will need
     to be taken off as shown in figure 11.
 
 .. image:: leg-images/image11.png
-   :align: center
-   
    Figure 11.
 
 11. If you want to remove the cage that holds the motor in place, you
