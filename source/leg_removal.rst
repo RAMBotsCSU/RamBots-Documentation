@@ -6,7 +6,7 @@ Procedure
 
 1. Unscrew the motor connections from the ODESCs.
 
-   .. figure:: leg-removal-images/image1.png
+   .. figure:: leg-removal-images/image1.jpg
       :alt: make sure to disconnect correct cables
       :align: center
 
