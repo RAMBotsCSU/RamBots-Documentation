@@ -38,7 +38,7 @@ documentation for details.
    :caption: How-Tos
    
    motor_calibration
-   hardware-electrical/leg-dissassembly
+   leg-dissassembly
    check_firmware
    
 .. toctree::
