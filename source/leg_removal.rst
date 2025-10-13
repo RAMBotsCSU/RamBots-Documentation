@@ -6,11 +6,23 @@ Procedure
 
 1. Unscrew the motor connections from the ODESCs.
 
+   .. figure:: leg-removal-images/image1.png
+      :alt: make sure to disconnect correct cables
+      :align: center
+
+      Disconnecting correct cables is crucial.
+
 2. Remove the four screws that secure the top plate holding the ODESCs.
+
+   .. figure:: leg-removal-images/image2.png
+      :alt: enabling access to the electronics
+      :align: center
+
+      Top plate with ODESCs attached.
 
 3. With the top plate removed, you have access to the electronics inside Sparky. Carefully disconnect the encoder cables from the ODESCs as needed. Do not pull on the ODESCs or cables — excessive force can damage the connectors.
 
-   .. figure:: leg-removal-images/image1.png
+   .. figure:: leg-removal-images/image3.jpg
       :alt: access to electronics and encoder cables
       :align: center
 
@@ -18,19 +30,19 @@ Procedure
 
 4. Remove the sixteen screws that hold the leg to the robot. The views below show screw locations:
 
-   .. figure:: leg-removal-images/image2.png
+   .. figure:: leg-removal-images/image4.jpg
       :alt: side view of leg with 8 screws
       :align: center
 
       Side view — 8 screws.
 
-   .. figure:: leg-removal-images/image3.png
+   .. figure:: leg-removal-images/image5.jpg
       :alt: bottom view of leg with 4 screws
       :align: center
 
       Bottom view — 4 screws.
 
-   .. figure:: leg-removal-images/image4.png
+   .. figure:: leg-removal-images/image6.png
       :alt: top view of leg with remaining 4 screws
       :align: center
 
