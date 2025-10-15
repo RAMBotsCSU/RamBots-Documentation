@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disassembling a Leg &mdash; RamBots_Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to Check Firmware Version" href="check_firmware.html" />
+    <link rel="prev" title="Removing a Leg" href="leg_removal.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            RamBots_Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bootup.html"><strong>Booting Up the RAMBot</strong></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Electrical and Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Hardware Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-Tos</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">How to Recalibrate Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg_removal.html">Removing a Leg</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Disassembling a Leg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tools-needed">Tools Needed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instructions">Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="check_firmware.html">How to Check Firmware Version</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="error_codes.html">Common ODrive Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflash_odrive.html"><strong>Reflashing Odrives</strong></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RamBots_Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Disassembling a Leg</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/leg_disassembly.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="disassembling-a-leg">
+<h1>Disassembling a Leg<a class="headerlink" href="#disassembling-a-leg" title="Link to this heading"></a></h1>
+<p><em>This guide shows how to disassemble a leg until the motors have no load (useful for encoder calibration).</em></p>
+<section id="tools-needed">
+<h2>Tools Needed<a class="headerlink" href="#tools-needed" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>A screwdriver compatible with the hex-head screws</p></li>
+<li><p>Allen keys</p></li>
+<li><p>9/32” socket and wrench
+- Optional: 1/2” socket for step 2</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When reassembling, read the last step carefully.</p>
+</div>
+</section>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Reference the “How-To take off a leg” guide to reach the point where the leg is removed from the robot.</p></li>
+<li><p>Remove the two screws holding the two halves together. On the same side, remove the two screws that hold the tension donuts in place (four screws total).</p>
+<figure class="align-center" id="id1">
+<img alt="screws holding halves and tension donuts" src="_images/image1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Remove the three plates at the top of the leg (each plate has four screws). The location of the plates is shown in Figures 2, 3, and 4. The order of removal does not matter.</p>
+<figure class="align-center" id="id2">
+<img alt="top plate 1" src="_images/image2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<img alt="top plate 2" src="_images/image3.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<img alt="top plate 3" src="_images/image4.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>With the plates removed, take off the two halves. The two tension donuts and the foot should come off with the halves; see Figure 5. For the remaining steps we will examine the right half (the foot motor half).</p>
+<figure class="align-center" id="id5">
+<img alt="right half with foot and donuts" src="_images/image5.png" />
+<figcaption>
+<p><span class="caption-text">Figure 5.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>On the foot-controlling half, remove the spacers held by two screws (Figure 6).</p>
+<figure class="align-center" id="id6">
+<img alt="spacers held by screws" src="_images/image6.png" />
+<figcaption>
+<p><span class="caption-text">Figure 6.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Remove the part that holds the belt by taking off the five nuts that secure it (Figure 7).</p>
+<figure class="align-center" id="id7">
+<img alt="belt holder nuts" src="_images/image7.png" />
+<figcaption>
+<p><span class="caption-text">Figure 7.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Remove the ten screws holding the top plate to the bottom (Figure 8).</p>
+<figure class="align-center" id="id8">
+<img alt="top plate screws" src="_images/image8.png" />
+<figcaption>
+<p><span class="caption-text">Figure 8.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>After removing the plate you will see the cycloidal drive assembly. Use the correct Allen key to remove the cap (Figure 9).</p>
+<figure class="align-center" id="id9">
+<img alt="cycloidal drive cap" src="_images/image9.png" />
+<figcaption>
+<p><span class="caption-text">Figure 9.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Remove the two screws that hold the bearing and gear in place, then remove the top gear (Figure 10).</p>
+<figure class="align-center" id="id10">
+<img alt="top gear removal" src="_images/image10.png" />
+<figcaption>
+<p><span class="caption-text">Figure 10.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Remove the two screws for the second gear as shown in Figure 11.</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-center" id="id11">
+<img alt="second gear screws" src="_images/image11.png" />
+<figcaption>
+<p><span class="caption-text">Figure 11.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<ol class="arabic simple" start="11">
+<li><p>To remove the motor cage: you can reinstall the large cap taken off in step 7 to help prevent bearings from falling out. Alternatively, remove the cage before step 7 if needed by taking off the eleven screws on the back (Figure 12). Do not remove the encoder plate unless you intend to reinitialize encoders.</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-center" id="id12">
+<img alt="motor cage back screws" src="_images/image12.png" />
+<figcaption>
+<p><span class="caption-text">Figure 12.</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not remove the encoder plate unless you will reinitialize the encoders; removing it will require encoder reinitialization.</p>
+</div>
+<ol class="arabic simple" start="12">
+<li><p>Repeat steps 6–11 for the other half (shoulder control). The difference is a leg plate instead of the belt-holder piece (Figure 13).</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-center" id="id13">
+<img alt="second half / shoulder" src="_images/image13.png" />
+<figcaption>
+<p><span class="caption-text">Figure 13.</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<ol class="arabic simple" start="13">
+<li><p>To fully disassemble, repeat steps 6–11 as needed for all subassemblies.</p></li>
+<li><p>To reassemble, follow the steps in reverse order. Hand-tighten all bolts/screws (including when using a socket; hold the socket by hand). Overtightening can crack plastics and cause damage.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="leg_removal.html" class="btn btn-neutral float-left" title="Removing a Leg" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="check_firmware.html" class="btn btn-neutral float-right" title="How to Check Firmware Version" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Rambots.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
