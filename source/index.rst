@@ -21,6 +21,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    :maxdepth: 1
    :caption: Codebase
 
+   codebase
 
 
 .. toctree::
