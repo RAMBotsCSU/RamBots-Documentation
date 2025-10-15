@@ -1,6 +1,179 @@
 Code Repository
 ================
 Motion/src
-----------
+==========
+
 High-Level Code Overview
 ------------------------
+
+axis.cpp
+~~~~~~~~
+
+Contains methods for initializing axis, fetching coordinates, and
+resetting ODrives. Contains method for sending position to ODrives.
+
+kinematics.cpp
+~~~~~~~~~~~~~~
+
+Contains method for inverse kinematics calculations, which takes
+position (x, y, z, roll, pitch, yaw), and translates them to relative
+ODrive movements for each joint. Contains methods for walking, pushups,
+and dancing.
+
+leg.cpp
+~~~~~~~
+
+Contains helper method for movement of all joints in a leg.
+
+log.cpp
+~~~~~~~
+
+Contains helper method for logging errors/information while DEBUG flag
+is set. Running in debug mode slows serial communications for the rest
+of the robot.
+
+main.cpp
+~~~~~~~~
+
+Initializes serial communications of the robot, then calls setup method
+in sparky.cpp. Contains loop code, which calls update method in
+sparky.cpp.
+
+odrive.cpp
+~~~~~~~~~~
+
+Contains methods for initializing and connecting to an ODrive.
+Initializes axis for each ODrive. Defines parameters for ODrive setup.
+
+sparky.cpp
+~~~~~~~~~~
+
+Contains setup method, which initializes all serial communications on
+the robot. Contains update method, which is called in the main.cpp loop.
+Update checks tick time so that the robot is updated every 10ms, then
+checks which mode (walk, pushup, dance) the robot is in. IMU data is
+sent to the respective kinematics function. The IMU is then updated with
+current values. Updates to internal states are then made (button
+presses, operation mode).
+
+utils.cpp
+~~~~~~~~~
+
+Contains methods for trimming stick positions (controller deadzone) and
+filtering motions.
+
+High Level Summary
+~~~~~~~~~~~~~~~~~~
+
+Upon running setup in main.cpp, the following happen: \* A serial
+monitor is set up \* sparky.setup() is called \* In sparky.setup(),
+serial connections are created for all 6 of the ODrives. The IMU is then
+initialized, and all ODrive connections are made
+
+The majority of functionality occurs in sparky.update(), which is called
+from main.loop(). The following happen: \* The current time is fetched.
+If it has been < 10ms since the last update, sparky does not update \*
+Ensures controller and ODrives are connected \* Checks current mode,
+then calls the respective method in kinematics.cpp (walk, pushUp, or
+dance) \* Checks the IMU for current roll/pitch, and stores them in
+class variables \* Checks for updates to controller state, and stores
+button values in class variables \* Checks for ODrive errors
+
+Low-Level Code Overview
+-----------------------
+
+.. _axis.cpp-1:
+
+axis.cpp
+~~~~~~~~
+
+Axis::Axis(Odrive& \_odrive, int \_id): \* Sets ODrive and id of axis to
+specified parameters (there are 2 Odrives per axis)
+
+Axis::init(): \* Checks for errors then tries to reset them by calling
+Axis::reset() \* Updates zero position offsets \* Sets the axis to
+closed loop by calling Axis::setClosedLoop() \* Calls Axis::fetchState()
+and logs the state of the axis \* Sends axis config to ODrives on each
+axis \* Checks if ODrive response has a nonzero length \* If the
+response length is nonzero, sending the axis config failed \* ODrive
+response is logged if setting the axis config failed
+
+Axis::fetchOffset(): \* Gets the position estimate of the odrive,
+converts it to a float, and stores it in offset
+
+Axis::reset(): \* Attempts to reset the ODrive by setting controller,
+enoder, motor, and general error flags to 0 \* Sends “sc:raw-latex:`\n`”
+to the ODrive, clearing communications (I presume this is short for
+serial clear, but I was unable to find it in the ODrive documentation)
+
+Axis::setClosedLoop(): \* Sends data to the ODrive, requesting closed
+loop state
+
+Axis::fetchState(): \* Returns an integer state of the ODrive’s control
+mode
+
+Axis::move(float pos): \* Checks if provided position is different from
+target position \* If positions are different, sets target position to
+pos, then sends targetPos + offset to the ODrive
+
+Axis::getOffset(): \* Returns the current offset from starting position
+
+Axis::fetchError(): \* Returns ODrive error as an integer
+
+Axis::setSpeed(float speed): \* Takes a float in, multiplies it by
+static GLOBAL_SPEED variable, then logs the calculated speed \* Sets
+speed of each axis of the ODrive to calculated speed
+
+.. _kinematics.cpp-1:
+
+kinematics.cpp
+~~~~~~~~~~~~~~
+
+Kinematics::translate(int leg, float xIn, float yIn, float zIn, float
+roll, float pitch, float yawIn) \* Inverse kinematics calculation that
+takes in the requested position of a leg, then outputs necessary
+hip/shoulder/knee angles \* Figure it out if you really need to. You
+probably don’t.
+
+Kinematics::walk(int RFB, int RLR, int LT, float IMUpitch, float
+IMUroll) \*
+
+Kinematics::pushUp(bool cross_press, bool triangle_press, float
+IMUpitch, float IMUroll) \* Checks if cross or triangle are pressed. If
+cross is pressed, all legs go down. If triangle is pressed, only the
+back legs go down. If both are pressed, all legs go down \* Corrects for
+roll and pitch based on IMU data, scaled by 0.3
+
+Kinematics::dance(bool up, bool down, bool left, bool right, float
+IMUpitch, float IMUroll) \* Loops through step 1-4 \* Based on the given
+D-pad input, chooses one of the following
+
+.. _leg.cpp-1:
+
+leg.cpp
+~~~~~~~
+
+.. _log.cpp-1:
+
+log.cpp
+~~~~~~~
+
+.. _main.cpp-1:
+
+main.cpp
+~~~~~~~~
+
+.. _odrive.cpp-1:
+
+odrive.cpp
+~~~~~~~~~~
+
+.. _sparky.cpp-1:
+
+sparky.cpp
+~~~~~~~~~~
+
+.. _utils.cpp-1:
+
+utils.cpp
+~~~~~~~~~
