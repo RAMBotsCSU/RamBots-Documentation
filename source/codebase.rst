@@ -1,15 +1,21 @@
 Motion Repository
 ================
-Motion/src
-==========
 
 High-Level Code Overview
 ------------------------
 
-axis.cpp
+Provides a general overview of each code file, what it does on a high level 
+
+Axis.cpp
 ~~~~~~~~
-Contains methods for initializing axis, fetching coordinates, and
-resetting ODrives. Contains method for sending position to ODrives.
+    Contains methods for initializing axis, fetching coordinates, and resetting ODrives. Contains method for sending position to ODrives.
+    .. dropdown:: axis.cpp
+      .. tabs:: 
+        .. tab:: 
+          .. code-block:: 
+            Axis::Axis(Odrive& _odrive, int _id)
+            Sets ODrive and id of axis to specified parameters (there are 2 Odrives per axis)
+
 
 kinematics.cpp
 ~~~~~~~~~~~~~~
@@ -74,13 +80,6 @@ from main.loop(). The following happen:
 Low-Level Code Overview
 ------------------------
 
-axis.cpp
-~~~~~~~~
-
-.. code-block:: none
-
-   • Axis::Axis(Odrive& _odrive, int _id)
-     - Sets ODrive and id of axis to specified parameters (there are 2 Odrives per axis)
 
 .. code-block:: none
 
