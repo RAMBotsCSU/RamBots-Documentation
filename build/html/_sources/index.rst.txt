@@ -3,16 +3,50 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-RamBots_Documentation documentation
-===================================
+RamBots Documentation 
+======================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+Everything you need to know about building, using, and troubleshooting the RamBOT!
+`Homepage <https://projects-web.engr.colostate.edu/ece-sr-design/AY25/RamBOTs/>`__
+`GitHub <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`__
+`YouTube <https://www.youtube.com/@RamBOTsCSU>`__
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: General
 
-Indices and tables
-==================
+   bootup
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Codebase
+
+   codebase
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Electrical and Hardware
+
+   hardware_doc
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Mechanical
+
+.. toctree::
+   :maxdepth: 1
+   :caption: How-Tos
+   
+   motor_calibration
+   leg_removal
+   leg_disassembly
+   check_firmware
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: Troubleshooting
+   
+   error_codes
+   reflash_odrive

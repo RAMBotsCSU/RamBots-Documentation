@@ -1,0 +1,1040 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motion Repository &mdash; RamBots_Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hardware Documentation" href="hardware_doc.html" />
+    <link rel="prev" title="Booting Up the RAMBot" href="bootup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            RamBots_Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bootup.html"><strong>Booting Up the RAMBot</strong></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Codebase</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Motion Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#motion-src">Motion/src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#high-level-code-overview">High-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#axis-cpp">axis.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kinematics-cpp">kinematics.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#leg-cpp">leg.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log-cpp">log.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main-cpp">main.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#odrive-cpp">odrive.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sparky-cpp">sparky.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils-cpp">utils.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#high-level-summary">High Level Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#low-level-code-overview">Low-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">axis.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">kinematics.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">leg.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">log.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">main.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">odrive.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">sparky.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">utils.cpp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#platform-repository">Platform Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#platform-motionprotocol">platform/MotionProtocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id9">High-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#message-py">Message.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-pyi">Message.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messagetype-py">MessageType.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messagetype-pyi">MessageType.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#odrivestatus-py">ODriveStatus.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#odrivestatus-pyi">ODriveStatus.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-py">Remote.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-pyi">Remote.pyi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">Low-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Message.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Message.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">MessageType.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">MessageType.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">ODriveStatus.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">ODriveStatus.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Remote.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Remote.pyi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#platform-robot">platform/robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id19">High-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#audio-manager-py">audio_manager.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controller-py">controller.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mode-py">mode.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#motion-py">motion.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sparky-py">sparky.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ui-py">ui.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">Low-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">audio_manager.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">controller.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">mode.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">motion.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">sparky.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">ui.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Electrical and Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Hardware Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-Tos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">How to Recalibrate Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg_removal.html">Removing a Leg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg_disassembly.html">Disassembling a Leg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="check_firmware.html">How to Check Firmware Version</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="error_codes.html">Common ODrive Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflash_odrive.html"><strong>Reflashing Odrives</strong></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RamBots_Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Motion Repository</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/codebase.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="motion-repository">
+<h1>Motion Repository<a class="headerlink" href="#motion-repository" title="Link to this heading"></a></h1>
+</section>
+<section id="motion-src">
+<h1>Motion/src<a class="headerlink" href="#motion-src" title="Link to this heading"></a></h1>
+<section id="high-level-code-overview">
+<h2>High-Level Code Overview<a class="headerlink" href="#high-level-code-overview" title="Link to this heading"></a></h2>
+<section id="axis-cpp">
+<h3>axis.cpp<a class="headerlink" href="#axis-cpp" title="Link to this heading"></a></h3>
+<p>Contains methods for initializing axis, fetching coordinates, and
+resetting ODrives. Contains method for sending position to ODrives.</p>
+</section>
+<section id="kinematics-cpp">
+<h3>kinematics.cpp<a class="headerlink" href="#kinematics-cpp" title="Link to this heading"></a></h3>
+<p>Contains method for inverse kinematics calculations, which takes
+position (x, y, z, roll, pitch, yaw), and translates them to relative
+ODrive movements for each joint. Contains methods for walking, pushups,
+and dancing.</p>
+</section>
+<section id="leg-cpp">
+<h3>leg.cpp<a class="headerlink" href="#leg-cpp" title="Link to this heading"></a></h3>
+<p>Contains helper method for movement of all joints in a leg.</p>
+</section>
+<section id="log-cpp">
+<h3>log.cpp<a class="headerlink" href="#log-cpp" title="Link to this heading"></a></h3>
+<p>Contains helper method for logging errors/information while DEBUG flag
+is set. Running in debug mode slows serial communications for the rest
+of the robot.</p>
+</section>
+<section id="main-cpp">
+<h3>main.cpp<a class="headerlink" href="#main-cpp" title="Link to this heading"></a></h3>
+<p>Initializes serial communications of the robot, then calls setup method
+in sparky.cpp. Contains loop code, which calls update method in
+sparky.cpp.</p>
+</section>
+<section id="odrive-cpp">
+<h3>odrive.cpp<a class="headerlink" href="#odrive-cpp" title="Link to this heading"></a></h3>
+<p>Contains methods for initializing and connecting to an ODrive.
+Initializes axis for each ODrive. Defines parameters for ODrive setup.</p>
+</section>
+<section id="sparky-cpp">
+<h3>sparky.cpp<a class="headerlink" href="#sparky-cpp" title="Link to this heading"></a></h3>
+<p>Contains setup method, which initializes all serial communications on
+the robot. Contains update method, which is called in the main.cpp loop.
+Update checks tick time so that the robot is updated every 10ms, then
+checks which mode (walk, pushup, dance) the robot is in. IMU data is
+sent to the respective kinematics function. The IMU is then updated with
+current values. Updates to internal states are then made (button
+presses, operation mode).</p>
+</section>
+<section id="utils-cpp">
+<h3>utils.cpp<a class="headerlink" href="#utils-cpp" title="Link to this heading"></a></h3>
+<p>Contains methods for trimming stick positions (controller deadzone) and
+filtering motions.</p>
+</section>
+<section id="high-level-summary">
+<h3>High Level Summary<a class="headerlink" href="#high-level-summary" title="Link to this heading"></a></h3>
+<p>Upon running setup in main.cpp, the following happen:
+* A serial monitor is set up
+* sparky.setup() is called
+* In sparky.setup(), serial connections are created for all 6 of the ODrives. The IMU is then initialized, and all ODrive connections are made</p>
+<p>The majority of functionality occurs in sparky.update(), which is called
+from main.loop(). The following happen:
+* The current time is fetched. If it has been &lt; 10ms since the last update, sparky does not update
+* Ensures controller and ODrives are connected
+* Checks current mode, then calls the respective method in kinematics.cpp (walk, pushUp, or dance)
+* Checks the IMU for current roll/pitch, and stores them in class variables
+* Checks for updates to controller state, and stores button values in class variables
+* Checks for ODrive errors</p>
+</section>
+</section>
+<section id="low-level-code-overview">
+<h2>Low-Level Code Overview<a class="headerlink" href="#low-level-code-overview" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>axis.cpp<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::Axis(Odrive&amp; _odrive, int _id)
+  - Sets ODrive and id of axis to specified parameters (there are 2 Odrives per axis)
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::init()
+  - Checks for errors then tries to reset them by calling
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::reset()
+  - Updates zero position offsets
+  - Sets the axis to closed loop by calling Axis::setClosedLoop()
+  - Calls Axis::fetchState() and logs the state of the axis
+  - Sends axis config to ODrives on each axis
+  - Checks if ODrive response has a nonzero length
+  - If the response length is nonzero, sending the axis config failed
+  - ODrive response is logged if setting the axis config failed
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchOffset()
+  - Gets the position estimate of the ODrive, converts it to a float, and stores it in offset
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::reset()
+  - Attempts to reset the ODrive by setting controller, encoder, motor, and general error flags to 0
+  - Sends “sc:\n” to the ODrive, clearing communications
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::setClosedLoop()
+  - Sends data to the ODrive, requesting closed loop state
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchState()
+  - Returns an integer state of the ODrive’s control mode
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::move(float pos)
+  - Checks if provided position is different from target position
+  - If positions are different, sets target position to pos, then sends targetPos + offset to the ODrive
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::getOffset()
+  - Returns the current offset from starting position
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchError()
+  - Returns ODrive error as an integer
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::setSpeed(float speed)
+  - Takes a float in, multiplies it by static GLOBAL_SPEED variable, then logs the calculated speed
+  - Sets speed of each axis of the ODrive to calculated speed
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>kinematics.cpp<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Kinematics::translate(int leg, float xIn, float yIn, float zIn, float roll, float pitch, float yawIn)
+  - Inverse kinematics calculation that takes in the requested position of a leg, then outputs necessary
+    hip/shoulder/knee angles
+  - Figure it out if you really need to. You probably don’t.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Kinematics::walk(int RFB, int RLR, int LT, float IMUpitch, float IMUroll)
+  - (Implementation handles walking logic)
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Kinematics::pushUp(bool cross_press, bool triangle_press, float IMUpitch, float IMUroll)
+  - Checks if cross or triangle are pressed. If cross is pressed, all legs go down. If triangle is pressed, only the
+    back legs go down. If both are pressed, all legs go down.
+  - Corrects for roll and pitch based on IMU data, scaled by 0.3
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Kinematics::dance(bool up, bool down, bool left, bool right, float IMUpitch, float IMUroll)
+  - Loops through step 1–4
+  - Based on the given D-pad input, chooses one of the following
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>leg.cpp<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Leg::move(JointAngles angles)
+  - Moves the leg by updating all three joint motors (hip, shoulder, knee) to their respective target angles.
+  - Calls hip.move(), shoulder.move(), and knee.move() with the given joint angles.
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>log.cpp<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Log(const char* format, ...)
+  - Variadic function that prints formatted messages to the serial monitor.
+  - Executes only when the DEBUG flag is enabled to prevent slowdowns during normal operation.
+  - Uses va_list to handle variable arguments and SerialMon.vprintf() for formatted output.
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>main.cpp<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• setup()
+  - Initializes the serial monitor at 115200 baud.
+  - Prints crash reports if available.
+  - Logs initialization message.
+  - Calls sparky.setup() to initialize all components.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• loop()
+  - Main loop repeatedly calls sparky.update() to process robot logic and motion control.
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>odrive.cpp<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODrive::init()
+  - Sends configuration commands to the ODrive hardware from a predefined array.
+  - Logs any failed configuration responses.
+  - Initializes both axis0 and axis1.
+  - Sends &quot;ss&quot; to save the ODrive configuration.
+  - Marks the ODrive as initialized.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODrive::connect()
+  - Establishes serial communication with the ODrive.
+  - Flushes input/output buffers to clear any previous communication.
+  - Reads firmware version and serial number to verify a valid connection.
+  - If connection succeeds, reconstructs and stores the serial number.
+  - Logs connection status and initializes the ODrive.
+  - Sets timeouts and flags _connected to true.
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>sparky.cpp<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky::Sparky()
+  - Constructor initializing six ODrive objects, four Leg objects, and a Kinematics instance.
+  - Maps legs and axes to specific ODrives and serial interfaces.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky::setup()
+  - Initializes serial communication for USB and six ODrives.
+  - Initializes and configures the MPU6050 IMU with acceleration and gyro ranges.
+  - Connects to each ODrive by calling od.connect().
+  - Logs setup status.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky::update()
+  - Called every TICK_MS (10ms).
+  - Updates IMU readings, calculates pitch and roll using a complementary filter.
+  - Handles remote control communication and updates robot motion mode.
+  - Commands kinematics functions (walk, push-up, dance) based on mode.
+  - Manages ODrive and axis error checking, reconnections, and resets as needed.
+  - Handles MotionProtocol messages received via SerialUSB.
+  - Sends ODrive connection and error status back through USB using FlatBuffers.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky::setSpeed(float speed)
+  - Updates the motion speed scaling factor across all ODrives.
+  - Calls axis0.setSpeed() and axis1.setSpeed() for every ODrive.
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h3>utils.cpp<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• thresholdStick(int pos)
+  - Applies a deadzone threshold (±10) to controller stick input.
+  - Returns 0 if the stick value is within threshold; otherwise returns the raw value.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• filter(float prevValue, float currentValue, int filter)
+  - Applies a simple weighted moving average filter.
+  - Smooths motion input by blending previous and current values based on filter weight.
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="platform-repository">
+<h1>Platform Repository<a class="headerlink" href="#platform-repository" title="Link to this heading"></a></h1>
+</section>
+<section id="platform-motionprotocol">
+<h1>platform/MotionProtocol<a class="headerlink" href="#platform-motionprotocol" title="Link to this heading"></a></h1>
+<section id="id9">
+<h2>High-Level Code Overview<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<section id="message-py">
+<h3>Message.py<a class="headerlink" href="#message-py" title="Link to this heading"></a></h3>
+<p>Automatically generated FlatBuffers module defining the <cite>Message</cite> object
+for robot communication. Handles serialization and deserialization of
+messages containing type information and optional <cite>Remote</cite> data.</p>
+</section>
+<section id="message-pyi">
+<h3>Message.pyi<a class="headerlink" href="#message-pyi" title="Link to this heading"></a></h3>
+<p>Type stub providing signatures and type hints for the generated
+<cite>Message</cite> FlatBuffers class and helper functions.</p>
+</section>
+<section id="messagetype-py">
+<h3>MessageType.py<a class="headerlink" href="#messagetype-py" title="Link to this heading"></a></h3>
+<p>Enumerates message types for FlatBuffers communication schema. Defines
+integer constants representing message categories.</p>
+</section>
+<section id="messagetype-pyi">
+<h3>MessageType.pyi<a class="headerlink" href="#messagetype-pyi" title="Link to this heading"></a></h3>
+<p>Type stub defining type hints and integer constants for message types.</p>
+</section>
+<section id="odrivestatus-py">
+<h3>ODriveStatus.py<a class="headerlink" href="#odrivestatus-py" title="Link to this heading"></a></h3>
+<p>Automatically generated FlatBuffers module defining the structure for
+ODrive connection and error reporting across six motor controllers.
+Contains helper functions for FlatBuffers serialization.</p>
+</section>
+<section id="odrivestatus-pyi">
+<h3>ODriveStatus.pyi<a class="headerlink" href="#odrivestatus-pyi" title="Link to this heading"></a></h3>
+<p>Type stub defining methods and type hints for the <cite>ODriveStatus</cite> class
+and its FlatBuffers builder helper functions.</p>
+</section>
+<section id="remote-py">
+<h3>Remote.py<a class="headerlink" href="#remote-py" title="Link to this heading"></a></h3>
+<p>Automatically generated FlatBuffers module defining the <cite>Remote</cite> class
+used for representing remote control input state (buttons, sticks, and
+triggers). Includes methods for reading, constructing, and serializing
+controller data fields.</p>
+</section>
+<section id="remote-pyi">
+<h3>Remote.pyi<a class="headerlink" href="#remote-pyi" title="Link to this heading"></a></h3>
+<p>Type stub defining method signatures, field types, and FlatBuffers
+builder helpers for the Remote object.</p>
+</section>
+</section>
+<section id="id10">
+<h2>Low-Level Code Overview<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<section id="id11">
+<h3>Message.py<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAs(buf, offset=0)
+  - Returns a new Message instance from a FlatBuffer, initializing its internal table at the given offset.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAsMessage(buf, offset=0)
+  - Deprecated version of GetRootAs maintained for backward compatibility.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Init(buf, pos)
+  - Initializes the FlatBuffers table reference for the Message.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Type()
+  - Returns the message type as an integer enum (e.g., UNKNOWN, REMOTE).
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Remote()
+  - Returns a Remote object if present; otherwise returns None.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageStart(builder)
+  - Begins FlatBuffers object construction for a Message.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageAddType(builder, type)
+  - Adds the message type field to the FlatBuffer.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageAddRemote(builder, remote)
+  - Adds a Remote object reference to the FlatBuffer.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageEnd(builder)
+  - Finishes and returns the offset of the Message object.
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h3>Message.pyi<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAs(buf, offset)
+  - Type-annotated version of GetRootAs that returns a Message instance.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Init(buf, pos)
+  - Type-hinted initialization of internal buffer for the Message.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Type()
+  - Returns a literal type from MessageType (UNKNOWN or REMOTE).
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Remote()
+  - Returns a Remote object or None, with type hints applied.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageStart(builder)
+  - Type-annotated helper to start FlatBuffer construction.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageAddType(builder, type)
+  - Adds the type field with explicit MessageType hint.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageAddRemote(builder, remote)
+  - Adds a Remote reference using FlatBuffers offset alias.
+</pre></div>
+</div>
+</section>
+<section id="id13">
+<h3>MessageType.py<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.UNKNOWN
+  - Integer constant (0) representing an unknown message type.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.REMOTE
+  - Integer constant (1) representing a remote control message.
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h3>MessageType.pyi<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.UNKNOWN
+  - Type stub constant matching generated FlatBuffers enum.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.REMOTE
+  - Type stub constant representing a remote message type.
+</pre></div>
+</div>
+</section>
+<section id="id15">
+<h3>ODriveStatus.py<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAs(buf, offset=0)
+  - Initializes an ODriveStatus object from FlatBuffer data.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAsODriveStatus(buf, offset=0)
+  - Deprecated alias for GetRootAs for backward compatibility.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Init(buf, pos)
+  - Initializes the internal FlatBuffers table reference.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Connected0() through ODriveStatus.Connected5()
+  - Return boolean connection statuses for each of the six ODrives.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Error00() through ODriveStatus.Error51()
+  - Return integer error codes for each of the 12 ODrive axes.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusStart(builder)
+  - Begins FlatBuffers object creation for ODriveStatus.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusAddConnectedX(builder, connectedX)
+  - Adds boolean connection field X (0–5) to the FlatBuffer.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusAddErrorXY(builder, errorXY)
+  - Adds integer error code field for axis Y of ODrive X.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusEnd(builder)
+  - Finalizes the FlatBuffer construction and returns the offset.
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h3>ODriveStatus.pyi<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAs(buf, offset)
+  - Type-stub version returning ODriveStatus instance.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Init(buf, pos)
+  - Initializes typed FlatBuffers table.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Connected0()–Connected5()
+  - Return typed bool values for ODrive connection flags.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Error00()–Error51()
+  - Return typed int values for error codes.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusStart(builder)
+  - Type-stub FlatBuffers builder initialization.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusAddConnectedX(builder, connectedX)
+  - Adds connection field with type annotations.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusAddErrorXY(builder, errorXY)
+  - Adds error fields with proper FlatBuffers slot typing.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusEnd(builder)
+  - Finalizes FlatBuffers construction in the type stub.
+</pre></div>
+</div>
+</section>
+<section id="id17">
+<h3>Remote.py<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAs(buf, offset=0)
+  - Initializes a Remote object from FlatBuffer data at the given offset.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAsRemote(buf, offset=0)
+  - Deprecated alias for GetRootAs, kept for backward compatibility.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Init(buf, pos)
+  - Initializes FlatBuffers table reference for Remote.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Enabled()
+  - Returns True if the remote control is enabled.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Mode()
+  - Returns the current operating mode as an integer flag.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Rlr(), Remote.Rfb(), Remote.Rt()
+  - Return signed or unsigned 8-bit integer stick or trigger values for the right side controls.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Llr(), Remote.Lfb(), Remote.Lt()
+  - Return signed or unsigned 8-bit integer stick or trigger values for the left side controls.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.DpadU(), Remote.DpadD(), Remote.DpadL(), Remote.DpadR()
+  - Return boolean values for each directional pad input.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Triangle(), Remote.Cross(), Remote.Square(), Remote.Circle()
+  - Return boolean values representing button presses.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteStart(builder)
+  - Begins FlatBuffers object creation for Remote.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddEnabled(builder, enabled)
+  - Adds a boolean indicating whether the remote is active.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddMode(builder, mode)
+  - Adds mode selection field to the FlatBuffer.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
+  - Add right stick and trigger fields to the FlatBuffer.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
+  - Add left stick and trigger fields to the FlatBuffer.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
+  - Add boolean D-pad state fields to the FlatBuffer.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
+  - Add boolean button state fields to the FlatBuffer.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteEnd(builder)
+  - Finalizes and returns the offset of the Remote object in the FlatBuffer.
+</pre></div>
+</div>
+</section>
+<section id="id18">
+<h3>Remote.pyi<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAs(buf, offset)
+  - Returns a Remote object from a typed buffer.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Init(buf, pos)
+  - Initializes a typed FlatBuffers table reference.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Enabled()
+  - Returns a typed boolean for the enabled state.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Mode(), Rlr(), Rfb(), Rt(), Llr(), Lfb(), Lt()
+  - Typed integer accessors for analog stick and trigger values.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.DpadU(), DpadD(), DpadL(), DpadR()
+  - Typed boolean accessors for directional pad inputs.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Triangle(), Cross(), Square(), Circle()
+  - Typed boolean accessors for button inputs.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteStart(builder)
+  - Type-stub FlatBuffers builder start helper.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddEnabled(), RemoteAddMode(), RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
+  - Type-stub helpers for adding right-hand control fields.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
+  - Type-stub helpers for adding left-hand control fields.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
+  - Type-stub helpers for D-pad field creation.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
+  - Type-stub helpers for button field creation.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteEnd(builder)
+  - Finalizes the typed FlatBuffers Remote object.
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="platform-robot">
+<h1>platform/robot<a class="headerlink" href="#platform-robot" title="Link to this heading"></a></h1>
+<section id="id19">
+<h2>High-Level Code Overview<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<section id="audio-manager-py">
+<h3>audio_manager.py<a class="headerlink" href="#audio-manager-py" title="Link to this heading"></a></h3>
+<p>Handles audio playback for the robot.
+Initializes Pygame mixer, loads sound effects and songs, manages volumes, and provides
+methods for playing mode-specific or random sounds.</p>
+</section>
+<section id="controller-py">
+<h3>controller.py<a class="headerlink" href="#controller-py" title="Link to this heading"></a></h3>
+<p>Manages DualShock/PS4 controller input via <cite>evdev</cite>.
+Reads button and stick states asynchronously, updates LEDs, and communicates input
+state to the robot. Includes asynchronous polling for controller battery status.</p>
+</section>
+<section id="mode-py">
+<h3>mode.py<a class="headerlink" href="#mode-py" title="Link to this heading"></a></h3>
+<p>Defines the base <cite>Mode</cite> class, representing a robot operating mode (e.g., walk, push-up).
+Provides coroutine management, loop setup, and graceful start/stop task handling.</p>
+</section>
+<section id="motion-py">
+<h3>motion.py<a class="headerlink" href="#motion-py" title="Link to this heading"></a></h3>
+<p>Handles serial communication between the robot and the Teensy motion controller.
+Sends FlatBuffers messages containing remote input data and receives ODrive status responses.
+Implements connection, reconnection, and command streaming via <cite>aioserial</cite>.</p>
+</section>
+<section id="sparky-py">
+<h3>sparky.py<a class="headerlink" href="#sparky-py" title="Link to this heading"></a></h3>
+<p>Main robot orchestration file.
+Initializes subsystems (UI, controller, motion, and mode).
+Manages runtime tasks, LED heartbeat indicator, and dynamic mode loading.</p>
+</section>
+<section id="ui-py">
+<h3>ui.py<a class="headerlink" href="#ui-py" title="Link to this heading"></a></h3>
+<p>Provides the PyQt6-based graphical user interface for the robot.
+Defines the <cite>MainWindow</cite> class that manages enable/disable buttons, mode selection, and
+asynchronous communication with the <cite>Sparky</cite> backend.
+Integrates <cite>qasync</cite> to bridge the PyQt6 event loop with asyncio for concurrent UI and
+robot control operation.</p>
+</section>
+</section>
+<section id="id20">
+<h2>Low-Level Code Overview<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
+<section id="id21">
+<h3>audio_manager.py<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.__init__(self)
+  - Initializes the Pygame mixer and loads all sound effects and songs.
+  - Sets individual volume levels and maps sound keys to audio objects.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.play_sound(self, sound_key)
+  - Plays the sound corresponding to the provided key if audio is enabled.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.play_mode_sounds(self, mode)
+  - Maps numeric mode IDs (0–5) to mode switch sounds and plays the associated clip.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.play_songs(self, song)
+  - Plays a random or specific song depending on the input argument.
+</pre></div>
+</div>
+</section>
+<section id="id22">
+<h3>controller.py<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ControllerLED.__init__(self, base_path)
+  - Initializes LED color paths (red, green, blue) using the system device path.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ControllerLED._write_color(self, path, value)
+  - Writes a brightness value asynchronously to the LED color file.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ControllerLED.set_color(self, color)
+  - Sets LED color by writing RGB values asynchronously.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.__init__(self, robot)
+  - Initializes controller input device and LED.
+  - Reads initial button and axis states.
+  - Creates asyncio event flag `is_ready`.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller._find_controller_dev(self)
+  - Scans available input devices and returns the correct PS4 controller device.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.update_event(self, event)
+  - Updates controller state fields (buttons, sticks, triggers) from evdev input events.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.events(self)
+  - Asynchronously reads controller events in real time and updates robot input.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.polling(self)
+  - Asynchronously polls controller battery level once per minute.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.stop(self)
+  - Placeholder for stopping controller event processing.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.__str__(self)
+  - Returns a formatted string summarizing controller input states.
+</pre></div>
+</div>
+</section>
+<section id="id23">
+<h3>mode.py<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.__init__(self, robot)
+  - Initializes a Mode with references to the robot and motion subsystem.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.start(self)
+  - Coroutine placeholder to be implemented by derived mode classes.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode._run(self)
+  - Executes the mode’s coroutine and handles cancellation.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.run(self)
+  - Creates a new asyncio loop and runs the mode coroutine indefinitely.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.stop(self)
+  - Cancels all running tasks within the mode’s event loop and stops execution.
+</pre></div>
+</div>
+</section>
+<section id="id24">
+<h3>motion.py<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.__init__(self, robot)
+  - Initializes serial communication and sets up remote control state variables.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion._connect(self)
+  - Establishes a serial connection to the Teensy motion controller.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.reconnect(self)
+  - Attempts to reconnect indefinitely if serial communication fails.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion._find_serial_dev(self)
+  - Scans available ports for a Teensyduino device and returns its path.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.move(self, rfb, rlr, lfb, llr, rt, lt, dpad_u, dpad_d, dpad_l, dpad_r, triangle, cross, square, circle)
+  - Updates current controller state values for transmission to the motion controller.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.stop(self)
+  - Resets all control input values to their neutral state.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.run(self)
+  - Builds FlatBuffers messages with Remote data.
+  - Sends serialized data to the Teensy controller and reads ODrive status responses.
+  - Handles reconnection and serial errors gracefully.
+  - Runs continuously at 10 Hz (approx.) until cancelled.
+</pre></div>
+</div>
+</section>
+<section id="id25">
+<h3>sparky.py<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.__init__(self)
+  - Initializes thread pool executor and sets default mode and enable state.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.__aenter__(self)
+  - Asynchronous context entry method for use with `async with`.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.__aexit__(self, exc_type, exc, tb)
+  - Handles cleanup and exception printing on context exit.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.set_enabled(self, en)
+  - Dynamically loads and starts a robot mode if `en` is True.
+  - Stops motion and active mode if disabled.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.heartbeat(self)
+  - Controls LED heartbeat pattern to indicate robot enable/disable status.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.move(self, *args, **kwargs)
+  - Passes movement commands to the motion subsystem.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.run(self)
+  - Starts UI and main asyncio event loop.
+  - Initializes controller, motion, and heartbeat tasks.
+  - Runs the UI event loop indefinitely.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.stop(self)
+  - Cancels all active tasks, resets controller LED, and shuts down executor threads.
+</pre></div>
+</div>
+</section>
+<section id="id26">
+<h3>ui.py<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.__init__(self, robot)
+  - Loads the UI layout from `platform.ui`.
+  - Initializes buttons for enabling/disabling the robot and selecting operating modes.
+  - Connects button click events to asynchronous handlers.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.set_mode_buttons_disabled(self, disabled)
+  - Enables or disables all mode selection buttons based on the `disabled` flag.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.set_enabled(self, en)
+  - Asynchronously enables or disables the robot by calling `robot.set_enabled(en)`.
+  - Updates the enable/disable button states and mode button interactivity.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.on_enable(self)
+  - Async slot triggered when the &quot;Enable&quot; button is clicked.
+  - Determines the selected mode and starts the robot in that mode.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.on_disable(self)
+  - Async slot triggered when the &quot;Disable&quot; button is clicked.
+  - Calls `set_enabled(False)` to disable the robot safely.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.on_mode_button(self)
+  - Handles mutual exclusivity of mode selection buttons.
+  - Ensures only one mode button can be active at a time.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.start(cls, robot)
+  - Initializes the PyQt6 application and event loop via `QEventLoop`.
+  - Creates and displays the main window instance connected to the given `Sparky` robot.
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.closeEvent(self, event)
+  - Handles window close events.
+  - Stops the robot gracefully when the UI is closed.
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bootup.html" class="btn btn-neutral float-left" title="Booting Up the RAMBot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hardware_doc.html" class="btn btn-neutral float-right" title="Hardware Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Rambots.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

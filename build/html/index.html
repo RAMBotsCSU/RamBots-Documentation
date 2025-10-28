@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RamBots_Documentation documentation &mdash; RamBots_Documentation  documentation</title>
+  <title>RamBots Documentation &mdash; RamBots_Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -18,7 +18,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Booting Up the RAMBot" href="bootup.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,12 +41,35 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">RamBots_Documentation documentation</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bootup.html"><strong>Booting Up the RAMBot</strong></a></li>
 </ul>
-</div>
+<p class="caption" role="heading"><span class="caption-text">Codebase</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html">Motion Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#motion-src">Motion/src</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-repository">Platform Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-motionprotocol">platform/MotionProtocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-robot">platform/robot</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Electrical and Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Hardware Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-Tos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">How to Recalibrate Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg_removal.html">Removing a Leg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg_disassembly.html">Disassembling a Leg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="check_firmware.html">How to Check Firmware Version</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="error_codes.html">Common ODrive Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflash_odrive.html"><strong>Reflashing Odrives</strong></a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -60,7 +84,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">RamBots_Documentation documentation</li>
+      <li class="breadcrumb-item active">RamBots Documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -70,22 +94,65 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="rambots-documentation-documentation">
-<h1>RamBots_Documentation documentation<a class="headerlink" href="#rambots-documentation-documentation" title="Link to this heading"></a></h1>
-<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
-documentation for details.</p>
+  <section id="rambots-documentation">
+<h1>RamBots Documentation<a class="headerlink" href="#rambots-documentation" title="Link to this heading"></a></h1>
+<p>Everything you need to know about building, using, and troubleshooting the RamBOT!
+<a class="reference external" href="https://projects-web.engr.colostate.edu/ece-sr-design/AY25/RamBOTs/">Homepage</a>
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">GitHub</a>
+<a class="reference external" href="https://www.youtube.com/&#64;RamBOTsCSU">YouTube</a></p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bootup.html"><strong>Booting Up the RAMBot</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bootup.html#power-check">Power check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bootup.html#startup-steps">Startup steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bootup.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Codebase</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html">Motion Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#motion-src">Motion/src</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-repository">Platform Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-motionprotocol">platform/MotionProtocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-robot">platform/robot</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Electrical and Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Hardware Documentation</a></li>
+</ul>
+</div>
 <div class="toctree-wrapper compound">
 </div>
-</section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">How-Tos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">How to Recalibrate Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg_removal.html">Removing a Leg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg_disassembly.html">Disassembling a Leg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="check_firmware.html">How to Check Firmware Version</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="error_codes.html">Common ODrive Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflash_odrive.html"><strong>Reflashing Odrives</strong></a></li>
+</ul>
+</div>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bootup.html" class="btn btn-neutral float-right" title="Booting Up the RAMBot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
