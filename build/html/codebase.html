@@ -9,6 +9,8 @@
   <title>Motion Repository &mdash; RamBots_Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -16,6 +18,9 @@
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -48,10 +53,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Codebase</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Motion Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#motion-src">Motion/src</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Motion Repository</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#high-level-code-overview">High-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#axis-cpp">axis.cpp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#kinematics-cpp">kinematics.cpp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#leg-cpp">leg.cpp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#log-cpp">log.cpp</a></li>
@@ -63,21 +66,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#low-level-code-overview">Low-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">axis.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">kinematics.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">leg.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">log.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">main.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">odrive.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">sparky.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">utils.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">kinematics.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">leg.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">log.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">main.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">odrive.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">sparky.cpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">utils.cpp</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#platform-repository">Platform Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#platform-motionprotocol">platform/MotionProtocol</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id9">High-Level Code Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id8">High-Level Code Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#message-py">Message.py</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#message-pyi">Message.pyi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#messagetype-py">MessageType.py</a></li>
@@ -88,21 +90,21 @@
 <li class="toctree-l3"><a class="reference internal" href="#remote-pyi">Remote.pyi</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">Low-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id11">Message.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">Message.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">MessageType.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">MessageType.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id15">ODriveStatus.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id16">ODriveStatus.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id17">Remote.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id18">Remote.pyi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">Low-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Message.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Message.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">MessageType.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">MessageType.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">ODriveStatus.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">ODriveStatus.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Remote.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Remote.pyi</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#platform-robot">platform/robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id19">High-Level Code Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id18">High-Level Code Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#audio-manager-py">audio_manager.py</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#controller-py">controller.py</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mode-py">mode.py</a></li>
@@ -111,13 +113,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#ui-py">ui.py</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id20">Low-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id21">audio_manager.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id22">controller.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id23">mode.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id24">motion.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id25">sparky.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id26">ui.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">Low-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">audio_manager.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">controller.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">mode.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">motion.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">sparky.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">ui.py</a></li>
 </ul>
 </li>
 </ul>
@@ -166,16 +168,86 @@
              
   <section id="motion-repository">
 <h1>Motion Repository<a class="headerlink" href="#motion-repository" title="Link to this heading"></a></h1>
-</section>
-<section id="motion-src">
-<h1>Motion/src<a class="headerlink" href="#motion-src" title="Link to this heading"></a></h1>
 <section id="high-level-code-overview">
 <h2>High-Level Code Overview<a class="headerlink" href="#high-level-code-overview" title="Link to this heading"></a></h2>
-<section id="axis-cpp">
-<h3>axis.cpp<a class="headerlink" href="#axis-cpp" title="Link to this heading"></a></h3>
-<p>Contains methods for initializing axis, fetching coordinates, and
-resetting ODrives. Contains method for sending position to ODrives.</p>
-</section>
+<p>Provides a general overview of each code file, what it does on a high level</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Axis.cpp</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains methods for initializing axis, fetching coordinates, and resetting ODrives. Contains method for sending position to ODrives.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Axis:Axis()</label><div class="sd-tab-content docutils">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Axis</span><span class="o">::</span><span class="n">Axis</span><span class="p">(</span><span class="n">Odrive</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_odrive</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Sets ODrive and id of axis to specified parameters (there are 2 Odrives per axis)</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Axis :: init()</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Checks for errors then tries to reset them by calling</p>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Axis :: reset()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Updates zero position offsets
+
+Sets the axis to closed loop by calling ``--Axis::setClosedLoop()``
+
+Calls Axis::fetchState() and logs the state of the axis
+
+Sends axis config to ODrives on each axis
+
+Checks if ODrive response has a nonzero length
+
+If the response length is nonzero, sending the axis config failed
+
+ODrive response is logged if setting the axis config failed
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Axis :: fetchOffset()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Gets the position estimate of the ODrive, converts it to a float, and stores it in offset
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</details><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::reset()
+  - Attempts to reset the ODrive by setting controller, encoder, motor, and general error flags to 0
+  - Sends “sc:\n” to the ODrive, clearing communications
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::setClosedLoop()
+  - Sends data to the ODrive, requesting closed loop state
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchState()
+  - Returns an integer state of the ODrive’s control mode
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::move(float pos)
+  - Checks if provided position is different from target position
+  - If positions are different, sets target position to pos, then sends targetPos + offset to the ODrive
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::getOffset()
+  - Returns the current offset from starting position
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchError()
+  - Returns ODrive error as an integer
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::setSpeed(float speed)
+  - Takes a float in, multiplies it by static GLOBAL_SPEED variable, then logs the calculated speed
+  - Sets speed of each axis of the ODrive to calculated speed
+</pre></div>
+</div>
 <section id="kinematics-cpp">
 <h3>kinematics.cpp<a class="headerlink" href="#kinematics-cpp" title="Link to this heading"></a></h3>
 <p>Contains method for inverse kinematics calculations, which takes
@@ -238,63 +310,7 @@ from main.loop(). The following happen:
 <section id="low-level-code-overview">
 <h2>Low-Level Code Overview<a class="headerlink" href="#low-level-code-overview" title="Link to this heading"></a></h2>
 <section id="id1">
-<h3>axis.cpp<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::Axis(Odrive&amp; _odrive, int _id)
-  - Sets ODrive and id of axis to specified parameters (there are 2 Odrives per axis)
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::init()
-  - Checks for errors then tries to reset them by calling
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::reset()
-  - Updates zero position offsets
-  - Sets the axis to closed loop by calling Axis::setClosedLoop()
-  - Calls Axis::fetchState() and logs the state of the axis
-  - Sends axis config to ODrives on each axis
-  - Checks if ODrive response has a nonzero length
-  - If the response length is nonzero, sending the axis config failed
-  - ODrive response is logged if setting the axis config failed
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchOffset()
-  - Gets the position estimate of the ODrive, converts it to a float, and stores it in offset
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::reset()
-  - Attempts to reset the ODrive by setting controller, encoder, motor, and general error flags to 0
-  - Sends “sc:\n” to the ODrive, clearing communications
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::setClosedLoop()
-  - Sends data to the ODrive, requesting closed loop state
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchState()
-  - Returns an integer state of the ODrive’s control mode
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::move(float pos)
-  - Checks if provided position is different from target position
-  - If positions are different, sets target position to pos, then sends targetPos + offset to the ODrive
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::getOffset()
-  - Returns the current offset from starting position
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchError()
-  - Returns ODrive error as an integer
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::setSpeed(float speed)
-  - Takes a float in, multiplies it by static GLOBAL_SPEED variable, then logs the calculated speed
-  - Sets speed of each axis of the ODrive to calculated speed
-</pre></div>
-</div>
-</section>
-<section id="id2">
-<h3>kinematics.cpp<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<h3>kinematics.cpp<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Kinematics::translate(int leg, float xIn, float yIn, float zIn, float roll, float pitch, float yawIn)
   - Inverse kinematics calculation that takes in the requested position of a leg, then outputs necessary
     hip/shoulder/knee angles
@@ -317,16 +333,16 @@ from main.loop(). The following happen:
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h3>leg.cpp<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<section id="id2">
+<h3>leg.cpp<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Leg::move(JointAngles angles)
   - Moves the leg by updating all three joint motors (hip, shoulder, knee) to their respective target angles.
   - Calls hip.move(), shoulder.move(), and knee.move() with the given joint angles.
 </pre></div>
 </div>
 </section>
-<section id="id4">
-<h3>log.cpp<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id3">
+<h3>log.cpp<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Log(const char* format, ...)
   - Variadic function that prints formatted messages to the serial monitor.
   - Executes only when the DEBUG flag is enabled to prevent slowdowns during normal operation.
@@ -334,8 +350,8 @@ from main.loop(). The following happen:
 </pre></div>
 </div>
 </section>
-<section id="id5">
-<h3>main.cpp<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<section id="id4">
+<h3>main.cpp<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• setup()
   - Initializes the serial monitor at 115200 baud.
   - Prints crash reports if available.
@@ -348,8 +364,8 @@ from main.loop(). The following happen:
 </pre></div>
 </div>
 </section>
-<section id="id6">
-<h3>odrive.cpp<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<section id="id5">
+<h3>odrive.cpp<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODrive::init()
   - Sends configuration commands to the ODrive hardware from a predefined array.
   - Logs any failed configuration responses.
@@ -368,8 +384,8 @@ from main.loop(). The following happen:
 </pre></div>
 </div>
 </section>
-<section id="id7">
-<h3>sparky.cpp<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<section id="id6">
+<h3>sparky.cpp<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky::Sparky()
   - Constructor initializing six ODrive objects, four Leg objects, and a Kinematics instance.
   - Maps legs and axes to specific ODrives and serial interfaces.
@@ -398,8 +414,8 @@ from main.loop(). The following happen:
 </pre></div>
 </div>
 </section>
-<section id="id8">
-<h3>utils.cpp<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<section id="id7">
+<h3>utils.cpp<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• thresholdStick(int pos)
   - Applies a deadzone threshold (±10) to controller stick input.
   - Returns 0 if the stick value is within threshold; otherwise returns the raw value.
@@ -418,8 +434,8 @@ from main.loop(). The following happen:
 </section>
 <section id="platform-motionprotocol">
 <h1>platform/MotionProtocol<a class="headerlink" href="#platform-motionprotocol" title="Link to this heading"></a></h1>
-<section id="id9">
-<h2>High-Level Code Overview<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<section id="id8">
+<h2>High-Level Code Overview<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <section id="message-py">
 <h3>Message.py<a class="headerlink" href="#message-py" title="Link to this heading"></a></h3>
 <p>Automatically generated FlatBuffers module defining the <cite>Message</cite> object
@@ -464,10 +480,10 @@ controller data fields.</p>
 builder helpers for the Remote object.</p>
 </section>
 </section>
+<section id="id9">
+<h2>Low-Level Code Overview<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
 <section id="id10">
-<h2>Low-Level Code Overview<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
-<section id="id11">
-<h3>Message.py<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<h3>Message.py<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAs(buf, offset=0)
   - Returns a new Message instance from a FlatBuffer, initializing its internal table at the given offset.
 </pre></div>
@@ -505,8 +521,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id12">
-<h3>Message.pyi<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<section id="id11">
+<h3>Message.pyi<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAs(buf, offset)
   - Type-annotated version of GetRootAs that returns a Message instance.
 </pre></div>
@@ -536,8 +552,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id13">
-<h3>MessageType.py<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<section id="id12">
+<h3>MessageType.py<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.UNKNOWN
   - Integer constant (0) representing an unknown message type.
 </pre></div>
@@ -547,8 +563,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id14">
-<h3>MessageType.pyi<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<section id="id13">
+<h3>MessageType.pyi<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.UNKNOWN
   - Type stub constant matching generated FlatBuffers enum.
 </pre></div>
@@ -558,8 +574,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id15">
-<h3>ODriveStatus.py<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<section id="id14">
+<h3>ODriveStatus.py<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAs(buf, offset=0)
   - Initializes an ODriveStatus object from FlatBuffer data.
 </pre></div>
@@ -597,8 +613,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id16">
-<h3>ODriveStatus.pyi<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<section id="id15">
+<h3>ODriveStatus.pyi<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAs(buf, offset)
   - Type-stub version returning ODriveStatus instance.
 </pre></div>
@@ -632,8 +648,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id17">
-<h3>Remote.py<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<section id="id16">
+<h3>Remote.py<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAs(buf, offset=0)
   - Initializes a Remote object from FlatBuffer data at the given offset.
 </pre></div>
@@ -703,8 +719,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id18">
-<h3>Remote.pyi<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<section id="id17">
+<h3>Remote.pyi<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAs(buf, offset)
   - Returns a Remote object from a typed buffer.
 </pre></div>
@@ -758,8 +774,8 @@ builder helpers for the Remote object.</p>
 </section>
 <section id="platform-robot">
 <h1>platform/robot<a class="headerlink" href="#platform-robot" title="Link to this heading"></a></h1>
-<section id="id19">
-<h2>High-Level Code Overview<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<section id="id18">
+<h2>High-Level Code Overview<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
 <section id="audio-manager-py">
 <h3>audio_manager.py<a class="headerlink" href="#audio-manager-py" title="Link to this heading"></a></h3>
 <p>Handles audio playback for the robot.
@@ -798,10 +814,10 @@ Integrates <cite>qasync</cite> to bridge the PyQt6 event loop with asyncio for c
 robot control operation.</p>
 </section>
 </section>
+<section id="id19">
+<h2>Low-Level Code Overview<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
 <section id="id20">
-<h2>Low-Level Code Overview<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
-<section id="id21">
-<h3>audio_manager.py<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<h3>audio_manager.py<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.__init__(self)
   - Initializes the Pygame mixer and loads all sound effects and songs.
   - Sets individual volume levels and maps sound keys to audio objects.
@@ -820,8 +836,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id22">
-<h3>controller.py<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<section id="id21">
+<h3>controller.py<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ControllerLED.__init__(self, base_path)
   - Initializes LED color paths (red, green, blue) using the system device path.
 </pre></div>
@@ -865,8 +881,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id23">
-<h3>mode.py<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<section id="id22">
+<h3>mode.py<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.__init__(self, robot)
   - Initializes a Mode with references to the robot and motion subsystem.
 </pre></div>
@@ -888,8 +904,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id24">
-<h3>motion.py<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<section id="id23">
+<h3>motion.py<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.__init__(self, robot)
   - Initializes serial communication and sets up remote control state variables.
 </pre></div>
@@ -922,8 +938,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id25">
-<h3>sparky.py<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<section id="id24">
+<h3>sparky.py<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.__init__(self)
   - Initializes thread pool executor and sets default mode and enable state.
 </pre></div>
@@ -960,8 +976,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id26">
-<h3>ui.py<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<section id="id25">
+<h3>ui.py<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.__init__(self, robot)
   - Loads the UI layout from `platform.ui`.
   - Initializes buttons for enabling/disabling the robot and selecting operating modes.

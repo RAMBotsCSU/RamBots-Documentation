@@ -14,7 +14,6 @@ author = 'Rambots'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['sphinx_design',
-              'sphinx_tabs.tabs',
               'sphinx_copybutton']
 
 templates_path = ['_templates']

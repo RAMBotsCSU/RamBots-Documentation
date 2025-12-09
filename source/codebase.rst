@@ -6,17 +6,84 @@ High-Level Code Overview
 
 Provides a general overview of each code file, what it does on a high level 
 
-Axis.cpp
-~~~~~~~~
-    Contains methods for initializing axis, fetching coordinates, and resetting ODrives. Contains method for sending position to ODrives.
-    .. dropdown:: axis.cpp
-      .. tabs:: 
-        .. tab:: 
-          .. code-block:: 
+.. dropdown:: Axis.cpp
+
+   Contains methods for initializing axis, fetching coordinates, and resetting ODrives. Contains method for sending position to ODrives.
+   
+   .. tab-set:: 
+   
+      .. tab-item:: Axis:Axis()
+      
+         .. code-block:: c
+         
             Axis::Axis(Odrive& _odrive, int _id)
-            Sets ODrive and id of axis to specified parameters (there are 2 Odrives per axis)
+   
+         Sets ODrive and id of axis to specified parameters (there are 2 Odrives per axis)
+   
+      .. tab-item:: Axis :: init()
+   
+         Checks for errors then tries to reset them by calling
 
+      .. tab-item:: Axis :: reset()
 
+        .. code-block:: none
+
+          Updates zero position offsets
+
+          Sets the axis to closed loop by calling ``--Axis::setClosedLoop()``
+
+          Calls Axis::fetchState() and logs the state of the axis
+
+          Sends axis config to ODrives on each axis
+
+          Checks if ODrive response has a nonzero length
+
+          If the response length is nonzero, sending the axis config failed
+
+          ODrive response is logged if setting the axis config failed
+
+      .. tab-item:: Axis :: fetchOffset()
+
+          .. code-block:: none
+
+            Gets the position estimate of the ODrive, converts it to a float, and stores it in offset
+.. code-block:: none
+
+   • Axis::reset()
+     - Attempts to reset the ODrive by setting controller, encoder, motor, and general error flags to 0
+     - Sends “sc:\n” to the ODrive, clearing communications
+
+.. code-block:: none
+
+   • Axis::setClosedLoop()
+     - Sends data to the ODrive, requesting closed loop state
+
+.. code-block:: none
+
+   • Axis::fetchState()
+     - Returns an integer state of the ODrive’s control mode
+
+.. code-block:: none
+
+   • Axis::move(float pos)
+     - Checks if provided position is different from target position
+     - If positions are different, sets target position to pos, then sends targetPos + offset to the ODrive
+
+.. code-block:: none
+
+   • Axis::getOffset()
+     - Returns the current offset from starting position
+
+.. code-block:: none
+
+   • Axis::fetchError()
+     - Returns ODrive error as an integer
+
+.. code-block:: none
+
+   • Axis::setSpeed(float speed)
+     - Takes a float in, multiplies it by static GLOBAL_SPEED variable, then logs the calculated speed
+     - Sets speed of each axis of the ODrive to calculated speed
 kinematics.cpp
 ~~~~~~~~~~~~~~
 Contains method for inverse kinematics calculations, which takes
@@ -81,64 +148,6 @@ Low-Level Code Overview
 ------------------------
 
 
-.. code-block:: none
-
-   • Axis::init()
-     - Checks for errors then tries to reset them by calling
-
-.. code-block:: none
-
-   • Axis::reset()
-     - Updates zero position offsets
-     - Sets the axis to closed loop by calling Axis::setClosedLoop()
-     - Calls Axis::fetchState() and logs the state of the axis
-     - Sends axis config to ODrives on each axis
-     - Checks if ODrive response has a nonzero length
-     - If the response length is nonzero, sending the axis config failed
-     - ODrive response is logged if setting the axis config failed
-
-.. code-block:: none
-
-   • Axis::fetchOffset()
-     - Gets the position estimate of the ODrive, converts it to a float, and stores it in offset
-
-.. code-block:: none
-
-   • Axis::reset()
-     - Attempts to reset the ODrive by setting controller, encoder, motor, and general error flags to 0
-     - Sends “sc:\n” to the ODrive, clearing communications
-
-.. code-block:: none
-
-   • Axis::setClosedLoop()
-     - Sends data to the ODrive, requesting closed loop state
-
-.. code-block:: none
-
-   • Axis::fetchState()
-     - Returns an integer state of the ODrive’s control mode
-
-.. code-block:: none
-
-   • Axis::move(float pos)
-     - Checks if provided position is different from target position
-     - If positions are different, sets target position to pos, then sends targetPos + offset to the ODrive
-
-.. code-block:: none
-
-   • Axis::getOffset()
-     - Returns the current offset from starting position
-
-.. code-block:: none
-
-   • Axis::fetchError()
-     - Returns ODrive error as an integer
-
-.. code-block:: none
-
-   • Axis::setSpeed(float speed)
-     - Takes a float in, multiplies it by static GLOBAL_SPEED variable, then logs the calculated speed
-     - Sets speed of each axis of the ODrive to calculated speed
 
 
 kinematics.cpp
