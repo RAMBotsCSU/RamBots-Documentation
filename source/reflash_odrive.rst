@@ -1,4 +1,4 @@
-**Reflashing Odrives**
+Reflashing Odrives
 ========================================================================================================================
 (If motors do not go into closed loop and Odrive will not connect, reflashing may be a temp fix)
 
