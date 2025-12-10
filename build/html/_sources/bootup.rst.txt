@@ -1,4 +1,4 @@
-**Booting Up the RAMBot**
+Booting Up the RAMBot
 ========================
 
 Follow these steps to power up the RAMBot safely and start the onboard startup script.
@@ -21,13 +21,6 @@ Startup steps
 
       ./Desktop/startup.sh
 
-.. note::
-   If the script requires elevated permissions, run it with the appropriate user or sudo as needed.
-
-Troubleshooting
----------------
-- If the Pi does not boot, check power, SD card integrity, and display/keyboard output for errors.
-- If the robot does not power up, re-check battery voltage or bench supply settings.
 
 .. warning::
    Do not connect batteries or apply power if cell voltages are below the safe threshold — this can damage the battery pack.

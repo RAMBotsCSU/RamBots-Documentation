@@ -22,6 +22,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    :caption: Codebase
 
    codebase
+   testing_code
 
 
 .. toctree::

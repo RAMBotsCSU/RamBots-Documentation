@@ -1,8 +1,8 @@
 Motion Repository
-================
+==================
 
 High-Level Code Overview
-------------------------
+-------------------------
 
 Provides a general overview of each code file, what it does on a high level 
 
@@ -143,7 +143,9 @@ Provides a general overview of each code file, what it does on a high level
 
 .. dropdown:: leg.cpp
 
-Contains helper method for movement of all joints in a leg.
+   Contains helper method for movement of all joints in a leg.
+
+   .. tab-set::
 
       .. tab-item:: Leg::move(JointAngles angles)
 
@@ -157,7 +159,9 @@ Contains helper method for movement of all joints in a leg.
 
 .. dropdown:: log.cpp
 
-Contains helper method for logging errors/information while DEBUG flag is set. Running in debug mode slows serial communications for the rest of the robot.
+   Contains helper method for logging errors/information while DEBUG flag is set. Running in debug mode slows serial communications for the rest of the robot.
+
+   .. tab-set::
 
       .. tab-item:: Leg::move(JointAngles angles)
 
@@ -173,7 +177,7 @@ Contains helper method for logging errors/information while DEBUG flag is set. R
 
 .. dropdown:: main.cpp
 
-Initializes serial communications of the robot, then calls setup method in sparky.cpp. Contains loop code, which calls update method in sparky.cpp.
+   Initializes serial communications of the robot, then calls setup method in sparky.cpp. Contains loop code, which calls update method in sparky.cpp.
 
    .. tab-set::
 
@@ -197,41 +201,41 @@ Initializes serial communications of the robot, then calls setup method in spark
 
 .. dropdown:: odrive.cpp
 
-Contains methods for initializing and connecting to an ODrive. Initializes axis for each ODrive. Defines parameters for ODrive setup.
+   Contains methods for initializing and connecting to an ODrive. Initializes axis for each ODrive. Defines parameters for ODrive setup.
 
    .. tab-set::
 
       .. tab-item:: ODrive::init()
 
-         .. code-block:: c
+         - Sends configuration commands to the ODrive hardware from a predefined array.
 
-      - Sends configuration commands to the ODrive hardware from a predefined array.
+         - Logs any failed configuration responses.
 
-      - Logs any failed configuration responses.
+         - Initializes both axis0 and axis1.
 
-      - Initializes both axis0 and axis1.
+         - Sends "ss" to save the ODrive configuration.
 
-      - Sends "ss" to save the ODrive configuration.
-
-      - Marks the ODrive as initialized.
+         - Marks the ODrive as initialized.
 
       .. tab-item:: ODrive::connect()
 
-      - Establishes serial communication with the ODrive.
+         .. code-block:: none
 
-      - Flushes input/output buffers to clear any previous communication.
+            - Establishes serial communication with the ODrive.
 
-      - Reads firmware version and serial number to verify a valid connection.
+            - Flushes input/output buffers to clear any previous communication.
 
-      - If connection succeeds, reconstructs and stores the serial number.
+            - Reads firmware version and serial number to verify a valid connection.
 
-      - Logs connection status and initializes the ODrive.
+            - If connection succeeds, reconstructs and stores the serial number.
 
-      - Sets timeouts and flags _connected to true.
+            - Logs connection status and initializes the ODrive.
+
+            - Sets timeouts and flags _connected to true.
 
 .. dropdown:: sparky.cpp
 
-Contains setup method, which initializes all serial communications on the robot. Contains update method, which is called in the main.cpp loop. Update checks tick time so that the robot is updated every 10ms, then checks which mode (walk, pushup, dance) the robot is in. IMU data is sent to the respective kinematics function. The IMU is then updated with current values. Updates to internal states are then made (button presses, operation mode).
+   Contains setup method, which initializes all serial communications on the robot. Contains update method, which is called in the main.cpp loop. Update checks tick time so that the robot is updated every 10ms, then checks which mode (walk, pushup, dance) the robot is in. IMU data is sent to the respective kinematics function. The IMU is then updated with current values. Updates to internal states are then made (button presses, operation mode).
 
    .. tab-set::
 
@@ -283,7 +287,8 @@ Contains setup method, which initializes all serial communications on the robot.
 
 .. dropdown:: utils.cpp
 
-Contains methods for trimming stick positions (controller deadzone) and filtering motions.
+   Contains methods for trimming stick positions (controller deadzone) and filtering motions.
+
    .. tab-set::
 
       .. tab-item:: thresholdStick(int pos)
@@ -332,8 +337,6 @@ The majority of functionality occurs in sparky.update(), which is called from ma
 
 Platform Repository
 ===================
-platform/MotionProtocol
-=======================
 
 High-Level Code Overview
 ------------------------
@@ -748,7 +751,7 @@ Remote.pyi
      - Finalizes the typed FlatBuffers Remote object.
 
 
-platform/robot
+Robot
 ==============
 
 High-Level Code Overview

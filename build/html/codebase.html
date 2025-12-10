@@ -24,7 +24,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Hardware Documentation" href="hardware_doc.html" />
+    <link rel="next" title="Testing Repository" href="testing_code.html" />
     <link rel="prev" title="Booting Up the RAMBot" href="bootup.html" /> 
 </head>
 
@@ -49,37 +49,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="bootup.html"><strong>Booting Up the RAMBot</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="bootup.html">Booting Up the RAMBot</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Codebase</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Motion Repository</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#high-level-code-overview">High-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#kinematics-cpp">kinematics.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#leg-cpp">leg.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#log-cpp">log.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#main-cpp">main.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#odrive-cpp">odrive.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sparky-cpp">sparky.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils-cpp">utils.cpp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#high-level-summary">High Level Summary</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#low-level-code-overview">Low-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">kinematics.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">leg.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">log.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">main.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">odrive.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">sparky.cpp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">utils.cpp</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#platform-repository">Platform Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#platform-motionprotocol">platform/MotionProtocol</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id8">High-Level Code Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">High-Level Code Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#message-py">Message.py</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#message-pyi">Message.pyi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#messagetype-py">MessageType.py</a></li>
@@ -90,21 +73,21 @@
 <li class="toctree-l3"><a class="reference internal" href="#remote-pyi">Remote.pyi</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">Low-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Message.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">Message.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">MessageType.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">MessageType.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">ODriveStatus.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id15">ODriveStatus.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id16">Remote.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id17">Remote.pyi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#low-level-code-overview">Low-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Message.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Message.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">MessageType.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">MessageType.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">ODriveStatus.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">ODriveStatus.pyi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Remote.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Remote.pyi</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#platform-robot">platform/robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id18">High-Level Code Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id10">High-Level Code Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#audio-manager-py">audio_manager.py</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#controller-py">controller.py</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mode-py">mode.py</a></li>
@@ -113,17 +96,18 @@
 <li class="toctree-l3"><a class="reference internal" href="#ui-py">ui.py</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id19">Low-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id20">audio_manager.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id21">controller.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id22">mode.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id23">motion.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id24">sparky.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id25">ui.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">Low-Level Code Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">audio_manager.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">controller.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">mode.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">motion.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">sparky.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">ui.py</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testing_code.html">Testing Repository</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Electrical and Hardware</span></p>
 <ul>
@@ -139,7 +123,7 @@
 <p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="error_codes.html">Common ODrive Errors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reflash_odrive.html"><strong>Reflashing Odrives</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflash_odrive.html">Reflashing Odrives</a></li>
 </ul>
 
         </div>
@@ -215,217 +199,312 @@ Axis :: fetchOffset()</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-</details><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::reset()
-  - Attempts to reset the ODrive by setting controller, encoder, motor, and general error flags to 0
-  - Sends “sc:\n” to the ODrive, clearing communications
+<input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+Axis::reset()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Attempts to reset the ODrive by setting controller, encoder, motor, and general error flags to 0
+
+- Sends “sc:\n” to the ODrive, clearing communications
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::setClosedLoop()
-  - Sends data to the ODrive, requesting closed loop state
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+Axis::setClosedLoop()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Sends data to the ODrive, requesting closed loop state
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchState()
-  - Returns an integer state of the ODrive’s control mode
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+Axis::fetchState()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Returns an integer state of the ODrive&#39;s control mode
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::move(float pos)
-  - Checks if provided position is different from target position
-  - If positions are different, sets target position to pos, then sends targetPos + offset to the ODrive
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+Axis::move(float pos)</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Checks if provided position is different from target position
+
+- If positions are different, sets target position to pos, then sends targetPos + offset to the ODrive
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::getOffset()
-  - Returns the current offset from starting position
+</div>
+<input id="sd-tab-item-8" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+Axis::getOffset()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Returns the current offset from starting position
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::fetchError()
-  - Returns ODrive error as an integer
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+Axis::fetchError()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Returns ODrive error as an integer
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Axis::setSpeed(float speed)
-  - Takes a float in, multiplies it by static GLOBAL_SPEED variable, then logs the calculated speed
-  - Sets speed of each axis of the ODrive to calculated speed
+</div>
+<input id="sd-tab-item-10" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+Axis::setSpeed(float speed)</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Takes a float in, multiplies it by static GLOBAL_SPEED variable, then logs the calculated speed
+
+- Sets speed of each axis of the ODrive to calculated speed
 </pre></div>
 </div>
-<section id="kinematics-cpp">
-<h3>kinematics.cpp<a class="headerlink" href="#kinematics-cpp" title="Link to this heading"></a></h3>
-<p>Contains method for inverse kinematics calculations, which takes
-position (x, y, z, roll, pitch, yaw), and translates them to relative
-ODrive movements for each joint. Contains methods for walking, pushups,
-and dancing.</p>
-</section>
-<section id="leg-cpp">
-<h3>leg.cpp<a class="headerlink" href="#leg-cpp" title="Link to this heading"></a></h3>
-<p>Contains helper method for movement of all joints in a leg.</p>
-</section>
-<section id="log-cpp">
-<h3>log.cpp<a class="headerlink" href="#log-cpp" title="Link to this heading"></a></h3>
-<p>Contains helper method for logging errors/information while DEBUG flag
-is set. Running in debug mode slows serial communications for the rest
-of the robot.</p>
-</section>
-<section id="main-cpp">
-<h3>main.cpp<a class="headerlink" href="#main-cpp" title="Link to this heading"></a></h3>
-<p>Initializes serial communications of the robot, then calls setup method
-in sparky.cpp. Contains loop code, which calls update method in
-sparky.cpp.</p>
-</section>
-<section id="odrive-cpp">
-<h3>odrive.cpp<a class="headerlink" href="#odrive-cpp" title="Link to this heading"></a></h3>
-<p>Contains methods for initializing and connecting to an ODrive.
-Initializes axis for each ODrive. Defines parameters for ODrive setup.</p>
-</section>
-<section id="sparky-cpp">
-<h3>sparky.cpp<a class="headerlink" href="#sparky-cpp" title="Link to this heading"></a></h3>
-<p>Contains setup method, which initializes all serial communications on
-the robot. Contains update method, which is called in the main.cpp loop.
-Update checks tick time so that the robot is updated every 10ms, then
-checks which mode (walk, pushup, dance) the robot is in. IMU data is
-sent to the respective kinematics function. The IMU is then updated with
-current values. Updates to internal states are then made (button
-presses, operation mode).</p>
-</section>
-<section id="utils-cpp">
-<h3>utils.cpp<a class="headerlink" href="#utils-cpp" title="Link to this heading"></a></h3>
-<p>Contains methods for trimming stick positions (controller deadzone) and
-filtering motions.</p>
-</section>
-<section id="high-level-summary">
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">kinematics.cpp</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains method for inverse kinematics calculations, which takes position (x, y, z, roll, pitch, yaw), and translates them to relative ODrive movements for each joint. Contains methods for walking, pushups, and dancing.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-11" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+Kinematics::translate</label><div class="sd-tab-content docutils">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Kinematics</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">leg</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">xIn</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">yIn</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">zIn</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">roll</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">yawIn</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="sd-card-text">Inverse kinematics calculation that takes in the requested position of a leg, then outputs necessary hip/shoulder/knee angles</p></li>
+<li><p class="sd-card-text">Figure it out if you really need to. You probably don’t.</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-12" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
+Kinematics::walk</label><div class="sd-tab-content docutils">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Kinematics</span><span class="o">::</span><span class="n">walk</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">RFB</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">RLR</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LT</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">IMUpitch</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">IMUroll</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sd-card-text">(Implementation handles walking logic)</p>
+</div>
+<input id="sd-tab-item-13" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
+Kinematics::pushUp</label><div class="sd-tab-content docutils">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Kinematics</span><span class="o">::</span><span class="n">pushUp</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">cross_press</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">triangle_press</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">IMUpitch</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">IMUroll</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="sd-card-text">Checks if cross or triangle are pressed. If cross is pressed, all legs go down. If triangle is pressed, only the back legs go down. If both are pressed, all legs go down.</p></li>
+<li><p class="sd-card-text">Corrects for roll and pitch based on IMU data, scaled by 0.3</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-14" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-14">
+Kinematics::dance</label><div class="sd-tab-content docutils">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Kinematics</span><span class="o">::</span><span class="n">dance</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">up</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">down</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">IMUpitch</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">IMUroll</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="sd-card-text">Loops through step 1-4</p></li>
+<li><p class="sd-card-text">Based on the given D-pad input, chooses one of the following</p></li>
+</ul>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">leg.cpp</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains helper method for movement of all joints in a leg.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-15" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-15">
+Leg::move(JointAngles angles)</label><div class="sd-tab-content docutils">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Leg</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">JointAngles</span><span class="w"> </span><span class="n">angles</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="sd-card-text">Moves the leg by updating all three joint motors (hip, shoulder, knee) to their respective target angles.</p></li>
+<li><p class="sd-card-text">Calls hip.move(), shoulder.move(), and knee.move() with the given joint angles.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">log.cpp</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains helper method for logging errors/information while DEBUG flag is set. Running in debug mode slows serial communications for the rest of the robot.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-16" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-16">
+Leg::move(JointAngles angles)</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Log(const char* format, ...)
+
+- Variadic function that prints formatted messages to the serial monitor.
+
+- Executes only when the DEBUG flag is enabled to prevent slowdowns during normal operation.
+
+- Uses va_list to handle variable arguments and SerialMon.vprintf() for formatted output.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">main.cpp</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Initializes serial communications of the robot, then calls setup method in sparky.cpp. Contains loop code, which calls update method in sparky.cpp.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-17" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-17">
+setup()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Initializes the serial monitor at 115200 baud.
+
+- Prints crash reports if available.
+
+- Logs initialization message.
+
+- Calls sparky.setup() to initialize all components.
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-18" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-18">
+loop()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Main loop repeatedly calls sparky.update() to process robot logic and motion control.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">odrive.cpp</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains methods for initializing and connecting to an ODrive. Initializes axis for each ODrive. Defines parameters for ODrive setup.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-19" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-19">
+ODrive::init()</label><div class="sd-tab-content docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Sends configuration commands to the ODrive hardware from a predefined array.</p></li>
+<li><p class="sd-card-text">Logs any failed configuration responses.</p></li>
+<li><p class="sd-card-text">Initializes both axis0 and axis1.</p></li>
+<li><p class="sd-card-text">Sends “ss” to save the ODrive configuration.</p></li>
+<li><p class="sd-card-text">Marks the ODrive as initialized.</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-20" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-20">
+ODrive::connect()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Establishes serial communication with the ODrive.
+
+- Flushes input/output buffers to clear any previous communication.
+
+- Reads firmware version and serial number to verify a valid connection.
+
+- If connection succeeds, reconstructs and stores the serial number.
+
+- Logs connection status and initializes the ODrive.
+
+- Sets timeouts and flags _connected to true.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">sparky.cpp</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains setup method, which initializes all serial communications on the robot. Contains update method, which is called in the main.cpp loop. Update checks tick time so that the robot is updated every 10ms, then checks which mode (walk, pushup, dance) the robot is in. IMU data is sent to the respective kinematics function. The IMU is then updated with current values. Updates to internal states are then made (button presses, operation mode).</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-21" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-21">
+Sparky::Sparky()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Constructor initializing six ODrive objects, four Leg objects, and a Kinematics instance.
+
+- Maps legs and axes to specific ODrives and serial interfaces.
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-22" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-22">
+Sparky::setup()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Initializes serial communication for USB and six ODrives.
+
+- Initializes and configures the MPU6050 IMU with acceleration and gyro ranges.
+
+- Connects to each ODrive by calling od.connect().
+
+- Logs setup status.
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-23" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-23">
+Sparky::update()</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Called every TICK_MS (10ms).
+
+- Updates IMU readings, calculates pitch and roll using a complementary filter.
+
+- Handles remote control communication and updates robot motion mode.
+
+- Commands kinematics functions (walk, push-up, dance) based on mode.
+
+- Manages ODrive and axis error checking, reconnections, and resets as needed.
+
+- Handles MotionProtocol messages received via SerialUSB.
+
+- Sends ODrive connection and error status back through USB using FlatBuffers.
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-24" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-24">
+Sparky::setSpeed(float speed)</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Updates the motion speed scaling factor across all ODrives.
+
+- Calls axis0.setSpeed() and axis1.setSpeed() for every ODrive.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">utils.cpp</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains methods for trimming stick positions (controller deadzone) and filtering motions.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-25" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-25">
+thresholdStick(int pos)</label><div class="sd-tab-content docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Applies a deadzone threshold (±10) to controller stick input.
+
+- Returns 0 if the stick value is within threshold; otherwise returns the raw value.
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-26" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-26">
+filter()</label><div class="sd-tab-content docutils">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">filter</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">prevValue</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">currentValue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">filter</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="sd-card-text">Applies a simple weighted moving average filter.</p></li>
+<li><p class="sd-card-text">Smooths motion input by blending previous and current values based on filter weight.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</details><section id="high-level-summary">
 <h3>High Level Summary<a class="headerlink" href="#high-level-summary" title="Link to this heading"></a></h3>
-<p>Upon running setup in main.cpp, the following happen:
-* A serial monitor is set up
-* sparky.setup() is called
-* In sparky.setup(), serial connections are created for all 6 of the ODrives. The IMU is then initialized, and all ODrive connections are made</p>
-<p>The majority of functionality occurs in sparky.update(), which is called
-from main.loop(). The following happen:
-* The current time is fetched. If it has been &lt; 10ms since the last update, sparky does not update
-* Ensures controller and ODrives are connected
-* Checks current mode, then calls the respective method in kinematics.cpp (walk, pushUp, or dance)
-* Checks the IMU for current roll/pitch, and stores them in class variables
-* Checks for updates to controller state, and stores button values in class variables
-* Checks for ODrive errors</p>
-</section>
-</section>
-<section id="low-level-code-overview">
-<h2>Low-Level Code Overview<a class="headerlink" href="#low-level-code-overview" title="Link to this heading"></a></h2>
-<section id="id1">
-<h3>kinematics.cpp<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Kinematics::translate(int leg, float xIn, float yIn, float zIn, float roll, float pitch, float yawIn)
-  - Inverse kinematics calculation that takes in the requested position of a leg, then outputs necessary
-    hip/shoulder/knee angles
-  - Figure it out if you really need to. You probably don’t.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Kinematics::walk(int RFB, int RLR, int LT, float IMUpitch, float IMUroll)
-  - (Implementation handles walking logic)
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Kinematics::pushUp(bool cross_press, bool triangle_press, float IMUpitch, float IMUroll)
-  - Checks if cross or triangle are pressed. If cross is pressed, all legs go down. If triangle is pressed, only the
-    back legs go down. If both are pressed, all legs go down.
-  - Corrects for roll and pitch based on IMU data, scaled by 0.3
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Kinematics::dance(bool up, bool down, bool left, bool right, float IMUpitch, float IMUroll)
-  - Loops through step 1–4
-  - Based on the given D-pad input, chooses one of the following
-</pre></div>
-</div>
-</section>
-<section id="id2">
-<h3>leg.cpp<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Leg::move(JointAngles angles)
-  - Moves the leg by updating all three joint motors (hip, shoulder, knee) to their respective target angles.
-  - Calls hip.move(), shoulder.move(), and knee.move() with the given joint angles.
-</pre></div>
-</div>
-</section>
-<section id="id3">
-<h3>log.cpp<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Log(const char* format, ...)
-  - Variadic function that prints formatted messages to the serial monitor.
-  - Executes only when the DEBUG flag is enabled to prevent slowdowns during normal operation.
-  - Uses va_list to handle variable arguments and SerialMon.vprintf() for formatted output.
-</pre></div>
-</div>
-</section>
-<section id="id4">
-<h3>main.cpp<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• setup()
-  - Initializes the serial monitor at 115200 baud.
-  - Prints crash reports if available.
-  - Logs initialization message.
-  - Calls sparky.setup() to initialize all components.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• loop()
-  - Main loop repeatedly calls sparky.update() to process robot logic and motion control.
-</pre></div>
-</div>
-</section>
-<section id="id5">
-<h3>odrive.cpp<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODrive::init()
-  - Sends configuration commands to the ODrive hardware from a predefined array.
-  - Logs any failed configuration responses.
-  - Initializes both axis0 and axis1.
-  - Sends &quot;ss&quot; to save the ODrive configuration.
-  - Marks the ODrive as initialized.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODrive::connect()
-  - Establishes serial communication with the ODrive.
-  - Flushes input/output buffers to clear any previous communication.
-  - Reads firmware version and serial number to verify a valid connection.
-  - If connection succeeds, reconstructs and stores the serial number.
-  - Logs connection status and initializes the ODrive.
-  - Sets timeouts and flags _connected to true.
-</pre></div>
-</div>
-</section>
-<section id="id6">
-<h3>sparky.cpp<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky::Sparky()
-  - Constructor initializing six ODrive objects, four Leg objects, and a Kinematics instance.
-  - Maps legs and axes to specific ODrives and serial interfaces.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky::setup()
-  - Initializes serial communication for USB and six ODrives.
-  - Initializes and configures the MPU6050 IMU with acceleration and gyro ranges.
-  - Connects to each ODrive by calling od.connect().
-  - Logs setup status.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky::update()
-  - Called every TICK_MS (10ms).
-  - Updates IMU readings, calculates pitch and roll using a complementary filter.
-  - Handles remote control communication and updates robot motion mode.
-  - Commands kinematics functions (walk, push-up, dance) based on mode.
-  - Manages ODrive and axis error checking, reconnections, and resets as needed.
-  - Handles MotionProtocol messages received via SerialUSB.
-  - Sends ODrive connection and error status back through USB using FlatBuffers.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky::setSpeed(float speed)
-  - Updates the motion speed scaling factor across all ODrives.
-  - Calls axis0.setSpeed() and axis1.setSpeed() for every ODrive.
-</pre></div>
-</div>
-</section>
-<section id="id7">
-<h3>utils.cpp<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• thresholdStick(int pos)
-  - Applies a deadzone threshold (±10) to controller stick input.
-  - Returns 0 if the stick value is within threshold; otherwise returns the raw value.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• filter(float prevValue, float currentValue, int filter)
-  - Applies a simple weighted moving average filter.
-  - Smooths motion input by blending previous and current values based on filter weight.
-</pre></div>
-</div>
+<p>Upon running setup in main.cpp, the following happen:</p>
+<ul class="simple">
+<li><p>A serial monitor is set up</p></li>
+<li><p>sparky.setup() is called</p></li>
+<li><p>In sparky.setup(), serial connections are created for all 6 of the ODrives. The IMU is then initialized, and all ODrive connections are made</p></li>
+</ul>
+<p>The majority of functionality occurs in sparky.update(), which is called from main.loop(). The following happen:</p>
+<ul class="simple">
+<li><p>The current time is fetched. If it has been &lt; 10ms since the last update, sparky does not update</p></li>
+<li><p>Ensures controller and ODrives are connected</p></li>
+<li><p>Checks current mode, then calls the respective method in kinematics.cpp (walk, pushUp, or dance)</p></li>
+<li><p>Checks the IMU for current roll/pitch, and stores them in class variables</p></li>
+<li><p>Checks for updates to controller state, and stores button values in class variables</p></li>
+<li><p>Checks for ODrive errors</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -434,8 +513,8 @@ from main.loop(). The following happen:
 </section>
 <section id="platform-motionprotocol">
 <h1>platform/MotionProtocol<a class="headerlink" href="#platform-motionprotocol" title="Link to this heading"></a></h1>
-<section id="id8">
-<h2>High-Level Code Overview<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<section id="id1">
+<h2>High-Level Code Overview<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <section id="message-py">
 <h3>Message.py<a class="headerlink" href="#message-py" title="Link to this heading"></a></h3>
 <p>Automatically generated FlatBuffers module defining the <cite>Message</cite> object
@@ -480,10 +559,10 @@ controller data fields.</p>
 builder helpers for the Remote object.</p>
 </section>
 </section>
-<section id="id9">
-<h2>Low-Level Code Overview<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
-<section id="id10">
-<h3>Message.py<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<section id="low-level-code-overview">
+<h2>Low-Level Code Overview<a class="headerlink" href="#low-level-code-overview" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>Message.py<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAs(buf, offset=0)
   - Returns a new Message instance from a FlatBuffer, initializing its internal table at the given offset.
 </pre></div>
@@ -521,8 +600,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id11">
-<h3>Message.pyi<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<section id="id3">
+<h3>Message.pyi<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAs(buf, offset)
   - Type-annotated version of GetRootAs that returns a Message instance.
 </pre></div>
@@ -552,8 +631,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id12">
-<h3>MessageType.py<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<section id="id4">
+<h3>MessageType.py<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.UNKNOWN
   - Integer constant (0) representing an unknown message type.
 </pre></div>
@@ -563,8 +642,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id13">
-<h3>MessageType.pyi<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<section id="id5">
+<h3>MessageType.pyi<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.UNKNOWN
   - Type stub constant matching generated FlatBuffers enum.
 </pre></div>
@@ -574,8 +653,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id14">
-<h3>ODriveStatus.py<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<section id="id6">
+<h3>ODriveStatus.py<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAs(buf, offset=0)
   - Initializes an ODriveStatus object from FlatBuffer data.
 </pre></div>
@@ -613,8 +692,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id15">
-<h3>ODriveStatus.pyi<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<section id="id7">
+<h3>ODriveStatus.pyi<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAs(buf, offset)
   - Type-stub version returning ODriveStatus instance.
 </pre></div>
@@ -648,8 +727,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id16">
-<h3>Remote.py<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<section id="id8">
+<h3>Remote.py<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAs(buf, offset=0)
   - Initializes a Remote object from FlatBuffer data at the given offset.
 </pre></div>
@@ -719,8 +798,8 @@ builder helpers for the Remote object.</p>
 </pre></div>
 </div>
 </section>
-<section id="id17">
-<h3>Remote.pyi<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<section id="id9">
+<h3>Remote.pyi<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAs(buf, offset)
   - Returns a Remote object from a typed buffer.
 </pre></div>
@@ -774,8 +853,8 @@ builder helpers for the Remote object.</p>
 </section>
 <section id="platform-robot">
 <h1>platform/robot<a class="headerlink" href="#platform-robot" title="Link to this heading"></a></h1>
-<section id="id18">
-<h2>High-Level Code Overview<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
+<section id="id10">
+<h2>High-Level Code Overview<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
 <section id="audio-manager-py">
 <h3>audio_manager.py<a class="headerlink" href="#audio-manager-py" title="Link to this heading"></a></h3>
 <p>Handles audio playback for the robot.
@@ -814,10 +893,10 @@ Integrates <cite>qasync</cite> to bridge the PyQt6 event loop with asyncio for c
 robot control operation.</p>
 </section>
 </section>
-<section id="id19">
-<h2>Low-Level Code Overview<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
-<section id="id20">
-<h3>audio_manager.py<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<section id="id11">
+<h2>Low-Level Code Overview<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<section id="id12">
+<h3>audio_manager.py<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.__init__(self)
   - Initializes the Pygame mixer and loads all sound effects and songs.
   - Sets individual volume levels and maps sound keys to audio objects.
@@ -836,8 +915,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id21">
-<h3>controller.py<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<section id="id13">
+<h3>controller.py<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ControllerLED.__init__(self, base_path)
   - Initializes LED color paths (red, green, blue) using the system device path.
 </pre></div>
@@ -881,8 +960,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id22">
-<h3>mode.py<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<section id="id14">
+<h3>mode.py<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.__init__(self, robot)
   - Initializes a Mode with references to the robot and motion subsystem.
 </pre></div>
@@ -904,8 +983,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id23">
-<h3>motion.py<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<section id="id15">
+<h3>motion.py<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.__init__(self, robot)
   - Initializes serial communication and sets up remote control state variables.
 </pre></div>
@@ -938,8 +1017,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id24">
-<h3>sparky.py<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<section id="id16">
+<h3>sparky.py<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.__init__(self)
   - Initializes thread pool executor and sets default mode and enable state.
 </pre></div>
@@ -976,8 +1055,8 @@ robot control operation.</p>
 </pre></div>
 </div>
 </section>
-<section id="id25">
-<h3>ui.py<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<section id="id17">
+<h3>ui.py<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.__init__(self, robot)
   - Loads the UI layout from `platform.ui`.
   - Initializes buttons for enabling/disabling the robot and selecting operating modes.
@@ -1027,7 +1106,7 @@ robot control operation.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="bootup.html" class="btn btn-neutral float-left" title="Booting Up the RAMBot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hardware_doc.html" class="btn btn-neutral float-right" title="Hardware Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="testing_code.html" class="btn btn-neutral float-right" title="Testing Repository" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
