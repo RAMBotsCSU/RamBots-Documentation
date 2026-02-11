@@ -44,6 +44,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    leg_removal
    leg_disassembly
    check_firmware
+   github-python
    
 .. toctree::
    :maxdepth: 1
