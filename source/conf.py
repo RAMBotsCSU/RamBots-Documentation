@@ -29,8 +29,10 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     "relbarbgcolor": "#1e5e11",
     "sidebarbgcolor": "black",
-    "html_logo": "logo.png",
+    
     "logo_only": True,
 }
+
+html_logo = "logo.png"
 
 html_static_path = ['_static']
