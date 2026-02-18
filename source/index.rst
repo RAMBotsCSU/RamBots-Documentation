@@ -6,6 +6,10 @@
 RamBots Documentation 
 ======================
 
+.. image:: rambots-docs-banner.png
+   :alt: RamBots Documentation Banner
+   :align: center
+
 Everything you need to know about building, using, and troubleshooting the RamBOT!
 `Homepage <https://projects-web.engr.colostate.edu/ece-sr-design/AY25/RamBOTs/>`__
 `GitHub <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`__
@@ -16,6 +20,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    :caption: General
 
    bootup
+   running_tests
 
 .. toctree::
    :maxdepth: 1
