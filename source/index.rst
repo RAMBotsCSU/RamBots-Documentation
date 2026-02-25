@@ -35,6 +35,8 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    :caption: Electrical and Hardware
 
    hardware_doc
+   daughterboards
+   communication
 
 
 .. toctree::
