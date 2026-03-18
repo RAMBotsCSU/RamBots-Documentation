@@ -7,46 +7,43 @@ High-Level Code Overview
 Provides a general overview of each code file, what it does on a high level 
 
 .. dropdown:: Axis.cpp
-
    Contains methods for initializing axis, fetching coordinates, and resetting ODrives. Contains method for sending position to ODrives.
    
-   .. tab-set:: 
-   
-      .. tab-item:: Axis:Axis()
-      
+   .. tab-set::
+
+      .. tab-item:: Axis::Axis()
+
          .. code-block:: c
-         
+
             Axis::Axis(Odrive& _odrive, int _id)
-   
-         Sets ODrive and id of axis to specified parameters (there are 2 Odrives per axis)
-   
-      .. tab-item:: Axis :: init()
-   
-         Checks for errors then tries to reset them by calling
 
-      .. tab-item:: Axis :: reset()
+         Sets ODrive and id of axis to specified parameters (there are 2 ODrives per axis)
 
-        .. code-block:: none
+      .. tab-item:: Axis::init()
 
-         Updates zero position offsets
+         .. code-block:: none
 
-         Sets the axis to closed loop by calling ``--Axis::setClosedLoop()``
+            - Checks for errors, then tries to reset them by calling ``Axis::reset()``
 
-         Calls Axis::fetchState() and logs the state of the axis
+            - Updates zero position offsets
 
-         Sends axis config to ODrives on each axis
+            - Sets the axis to closed loop by calling ``Axis::setClosedLoop()``
 
-         Checks if ODrive response has a nonzero length
+            - Calls ``Axis::fetchState()`` and logs the state of the axis
 
-         If the response length is nonzero, sending the axis config failed
+            - Sends axis config to ODrives on each axis
 
-         ODrive response is logged if setting the axis config failed
+            - Checks if ODrive response has a nonzero length
 
-      .. tab-item:: Axis :: fetchOffset()
+            - If the response length is nonzero, sending the axis config failed
 
-          .. code-block:: none
+            - ODrive response is logged if setting the axis config failed
 
-            Gets the position estimate of the ODrive, converts it to a float, and stores it in offset
+      .. tab-item:: Axis::fetchOffset()
+
+         .. code-block:: none
+
+            - Gets the position estimate of the ODrive, converts it to a float, and stores it in ``offset``
 
       .. tab-item:: Axis::reset()
 
@@ -74,7 +71,7 @@ Provides a general overview of each code file, what it does on a high level
 
             - Checks if provided position is different from target position
 
-            - If positions are different, sets target position to pos, then sends targetPos + offset to the ODrive
+            - If positions are different, sets target position to ``pos``, then sends ``targetPos + offset`` to the ODrive
 
       .. tab-item:: Axis::getOffset()
 
@@ -92,12 +89,11 @@ Provides a general overview of each code file, what it does on a high level
 
          .. code-block:: none
 
-            - Takes a float in, multiplies it by static GLOBAL_SPEED variable, then logs the calculated speed
+            - Takes a float in, multiplies it by static ``GLOBAL_SPEED`` variable, then logs the calculated speed
 
             - Sets speed of each axis of the ODrive to calculated speed
 
 .. dropdown:: kinematics.cpp
-
    Contains method for inverse kinematics calculations, which takes position (x, y, z, roll, pitch, yaw), and translates them to relative ODrive movements for each joint. Contains methods for walking, pushups, and dancing.
 
    .. tab-set::
@@ -158,22 +154,18 @@ Provides a general overview of each code file, what it does on a high level
          - Calls hip.move(), shoulder.move(), and knee.move() with the given joint angles.
 
 .. dropdown:: log.cpp
-
    Contains helper method for logging errors/information while DEBUG flag is set. Running in debug mode slows serial communications for the rest of the robot.
-
    .. tab-set::
 
-      .. tab-item:: Leg::move(JointAngles angles)
+      .. tab-item:: Log(const char* format, ...)
 
          .. code-block:: none
-
-            Log(const char* format, ...)
 
             - Variadic function that prints formatted messages to the serial monitor.
 
             - Executes only when the DEBUG flag is enabled to prevent slowdowns during normal operation.
 
-            - Uses va_list to handle variable arguments and SerialMon.vprintf() for formatted output.
+            - Uses ``va_list`` to handle variable arguments and ``SerialMon.vprintf()`` for formatted output.
 
 .. dropdown:: main.cpp
 
@@ -207,15 +199,17 @@ Provides a general overview of each code file, what it does on a high level
 
       .. tab-item:: ODrive::init()
 
-         - Sends configuration commands to the ODrive hardware from a predefined array.
+         .. code-block:: none
 
-         - Logs any failed configuration responses.
+            - Sends configuration commands to the ODrive hardware from a predefined array.
 
-         - Initializes both axis0 and axis1.
+            - Logs any failed configuration responses.
 
-         - Sends "ss" to save the ODrive configuration.
+            - Initializes both ``axis0`` and ``axis1``.
 
-         - Marks the ODrive as initialized.
+            - Sends ``ss`` to save the ODrive configuration.
+
+            - Marks the ODrive as initialized.
 
       .. tab-item:: ODrive::connect()
 
@@ -390,365 +384,451 @@ builder helpers for the Remote object.
 Low-Level Code Overview
 ------------------------
 
-Message.py
-~~~~~~~~~~
+.. dropdown:: Message.py
 
-.. code-block:: none
+   Contains FlatBuffers methods for reading, constructing, and manipulating Message objects.
 
-   • Message.GetRootAs(buf, offset=0)
-     - Returns a new Message instance from a FlatBuffer, initializing its internal table at the given offset.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: Message.GetRootAs(buf, offset=0)
 
-   • Message.GetRootAsMessage(buf, offset=0)
-     - Deprecated version of GetRootAs maintained for backward compatibility.
+         .. code-block:: none
 
-.. code-block:: none
+            - Returns a new Message instance from a FlatBuffer, initializing its internal table at the given offset.
 
-   • Message.Init(buf, pos)
-     - Initializes the FlatBuffers table reference for the Message.
+      .. tab-item:: Message.GetRootAsMessage(buf, offset=0)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Message.Type()
-     - Returns the message type as an integer enum (e.g., UNKNOWN, REMOTE).
+            - Deprecated version of GetRootAs maintained for backward compatibility.
 
-.. code-block:: none
+      .. tab-item:: Message.Init(buf, pos)
 
-   • Message.Remote()
-     - Returns a Remote object if present; otherwise returns None.
+         .. code-block:: none
 
-.. code-block:: none
+            - Initializes the FlatBuffers table reference for the Message.
 
-   • MessageStart(builder)
-     - Begins FlatBuffers object construction for a Message.
+      .. tab-item:: Message.Type()
 
-.. code-block:: none
+         .. code-block:: none
 
-   • MessageAddType(builder, type)
-     - Adds the message type field to the FlatBuffer.
+            - Returns the message type as an integer enum (e.g., UNKNOWN, REMOTE).
 
-.. code-block:: none
+      .. tab-item:: Message.Remote()
 
-   • MessageAddRemote(builder, remote)
-     - Adds a Remote object reference to the FlatBuffer.
+         .. code-block:: none
 
-.. code-block:: none
+            - Returns a Remote object if present; otherwise returns None.
 
-   • MessageEnd(builder)
-     - Finishes and returns the offset of the Message object.
+      .. tab-item:: MessageStart(builder)
 
+         .. code-block:: none
 
-Message.pyi
-~~~~~~~~~~~
+            - Begins FlatBuffers object construction for a Message.
 
-.. code-block:: none
+      .. tab-item:: MessageAddType(builder, type)
 
-   • Message.GetRootAs(buf, offset)
-     - Type-annotated version of GetRootAs that returns a Message instance.
+         .. code-block:: none
 
-.. code-block:: none
+            - Adds the message type field to the FlatBuffer.
 
-   • Message.Init(buf, pos)
-     - Type-hinted initialization of internal buffer for the Message.
+      .. tab-item:: MessageAddRemote(builder, remote)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Message.Type()
-     - Returns a literal type from MessageType (UNKNOWN or REMOTE).
+            - Adds a Remote object reference to the FlatBuffer.
 
-.. code-block:: none
+      .. tab-item:: MessageEnd(builder)
 
-   • Message.Remote()
-     - Returns a Remote object or None, with type hints applied.
+         .. code-block:: none
 
-.. code-block:: none
+            - Finishes and returns the offset of the Message object.
 
-   • MessageStart(builder)
-     - Type-annotated helper to start FlatBuffer construction.
+.. dropdown:: Message.pyi
 
-.. code-block:: none
+   Type stub providing signatures and type hints for the Message FlatBuffers class and helper functions.
 
-   • MessageAddType(builder, type)
-     - Adds the type field with explicit MessageType hint.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: Message.GetRootAs(buf, offset)
 
-   • MessageAddRemote(builder, remote)
-     - Adds a Remote reference using FlatBuffers offset alias.
+         .. code-block:: none
 
+            - Type-annotated version of GetRootAs that returns a Message instance.
 
-MessageType.py
-~~~~~~~~~~~~~~
+      .. tab-item:: Message.Init(buf, pos)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • MessageType.UNKNOWN
-     - Integer constant (0) representing an unknown message type.
+            - Type-hinted initialization of internal buffer for the Message.
 
-.. code-block:: none
+      .. tab-item:: Message.Type()
 
-   • MessageType.REMOTE
-     - Integer constant (1) representing a remote control message.
+         .. code-block:: none
 
+            - Returns a literal type from MessageType (UNKNOWN or REMOTE).
 
-MessageType.pyi
-~~~~~~~~~~~~~~~
+      .. tab-item:: Message.Remote()
 
-.. code-block:: none
+         .. code-block:: none
 
-   • MessageType.UNKNOWN
-     - Type stub constant matching generated FlatBuffers enum.
+            - Returns a Remote object or None, with type hints applied.
 
-.. code-block:: none
+      .. tab-item:: MessageStart(builder)
 
-   • MessageType.REMOTE
-     - Type stub constant representing a remote message type.
+         .. code-block:: none
 
+            - Type-annotated helper to start FlatBuffer construction.
 
-ODriveStatus.py
-~~~~~~~~~~~~~~~
+      .. tab-item:: MessageAddType(builder, type)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • ODriveStatus.GetRootAs(buf, offset=0)
-     - Initializes an ODriveStatus object from FlatBuffer data.
+            - Adds the type field with explicit MessageType hint.
 
-.. code-block:: none
+      .. tab-item:: MessageAddRemote(builder, remote)
 
-   • ODriveStatus.GetRootAsODriveStatus(buf, offset=0)
-     - Deprecated alias for GetRootAs for backward compatibility.
+         .. code-block:: none
 
-.. code-block:: none
+            - Adds a Remote reference using FlatBuffers offset alias.
 
-   • ODriveStatus.Init(buf, pos)
-     - Initializes the internal FlatBuffers table reference.
 
-.. code-block:: none
+.. dropdown:: MessageType.py
 
-   • ODriveStatus.Connected0() through ODriveStatus.Connected5()
-     - Return boolean connection statuses for each of the six ODrives.
+   Enumerates message types for FlatBuffers communication schema.
 
-.. code-block:: none
+   .. tab-set::
 
-   • ODriveStatus.Error00() through ODriveStatus.Error51()
-     - Return integer error codes for each of the 12 ODrive axes.
+      .. tab-item:: MessageType.UNKNOWN
 
-.. code-block:: none
+         .. code-block:: none
 
-   • ODriveStatusStart(builder)
-     - Begins FlatBuffers object creation for ODriveStatus.
+            - Integer constant (0) representing an unknown message type.
 
-.. code-block:: none
+      .. tab-item:: MessageType.REMOTE
 
-   • ODriveStatusAddConnectedX(builder, connectedX)
-     - Adds boolean connection field X (0–5) to the FlatBuffer.
+         .. code-block:: none
 
-.. code-block:: none
+            - Integer constant (1) representing a remote control message.
 
-   • ODriveStatusAddErrorXY(builder, errorXY)
-     - Adds integer error code field for axis Y of ODrive X.
+.. dropdown:: MessageType.pyi
 
-.. code-block:: none
+   Type stub defining type hints and integer constants for message types.
 
-   • ODriveStatusEnd(builder)
-     - Finalizes the FlatBuffer construction and returns the offset.
+   .. tab-set::
 
+      .. tab-item:: MessageType.UNKNOWN
 
-ODriveStatus.pyi
-~~~~~~~~~~~~~~~~
+         .. code-block:: none
 
-.. code-block:: none
+            - Type stub constant matching generated FlatBuffers enum.
 
-   • ODriveStatus.GetRootAs(buf, offset)
-     - Type-stub version returning ODriveStatus instance.
+      .. tab-item:: MessageType.REMOTE
 
-.. code-block:: none
+         .. code-block:: none
 
-   • ODriveStatus.Init(buf, pos)
-     - Initializes typed FlatBuffers table.
+            - Type stub constant representing a remote message type.
 
-.. code-block:: none
 
-   • ODriveStatus.Connected0()–Connected5()
-     - Return typed bool values for ODrive connection flags.
+.. dropdown:: ODriveStatus.py
 
-.. code-block:: none
+   Automatically generated FlatBuffers module defining the structure for ODrive connection and error reporting.
 
-   • ODriveStatus.Error00()–Error51()
-     - Return typed int values for error codes.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.GetRootAs(buf, offset=0)
 
-   • ODriveStatusStart(builder)
-     - Type-stub FlatBuffers builder initialization.
+         .. code-block:: none
 
-.. code-block:: none
+            - Initializes an ODriveStatus object from FlatBuffer data.
 
-   • ODriveStatusAddConnectedX(builder, connectedX)
-     - Adds connection field with type annotations.
+      .. tab-item:: ODriveStatus.GetRootAsODriveStatus(buf, offset=0)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • ODriveStatusAddErrorXY(builder, errorXY)
-     - Adds error fields with proper FlatBuffers slot typing.
+            - Deprecated alias for GetRootAs for backward compatibility.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.Init(buf, pos)
 
-   • ODriveStatusEnd(builder)
-     - Finalizes FlatBuffers construction in the type stub.
+         .. code-block:: none
 
-Remote.py
-~~~~~~~~~~
+            - Initializes the internal FlatBuffers table reference.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.Connected0() through Connected5()
 
-   • Remote.GetRootAs(buf, offset=0)
-     - Initializes a Remote object from FlatBuffer data at the given offset.
+         .. code-block:: none
 
-.. code-block:: none
+            - Return boolean connection statuses for each of the six ODrives.
 
-   • Remote.GetRootAsRemote(buf, offset=0)
-     - Deprecated alias for GetRootAs, kept for backward compatibility.
+      .. tab-item:: ODriveStatus.Error00() through Error51()
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Remote.Init(buf, pos)
-     - Initializes FlatBuffers table reference for Remote.
+            - Return integer error codes for each of the 12 ODrive axes.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatusStart(builder)
 
-   • Remote.Enabled()
-     - Returns True if the remote control is enabled.
+         .. code-block:: none
 
-.. code-block:: none
+            - Begins FlatBuffers object creation for ODriveStatus.
 
-   • Remote.Mode()
-     - Returns the current operating mode as an integer flag.
+      .. tab-item:: ODriveStatusAddConnectedX(builder, connectedX)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Remote.Rlr(), Remote.Rfb(), Remote.Rt()
-     - Return signed or unsigned 8-bit integer stick or trigger values for the right side controls.
+            - Adds boolean connection field X (0–5) to the FlatBuffer.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatusAddErrorXY(builder, errorXY)
 
-   • Remote.Llr(), Remote.Lfb(), Remote.Lt()
-     - Return signed or unsigned 8-bit integer stick or trigger values for the left side controls.
+         .. code-block:: none
 
-.. code-block:: none
+            - Adds integer error code field for axis Y of ODrive X.
 
-   • Remote.DpadU(), Remote.DpadD(), Remote.DpadL(), Remote.DpadR()
-     - Return boolean values for each directional pad input.
+      .. tab-item:: ODriveStatusEnd(builder)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Remote.Triangle(), Remote.Cross(), Remote.Square(), Remote.Circle()
-     - Return boolean values representing button presses.
+            - Finalizes the FlatBuffer construction and returns the offset.
 
-.. code-block:: none
+.. dropdown:: ODriveStatus.pyi
 
-   • RemoteStart(builder)
-     - Begins FlatBuffers object creation for Remote.
+   Type stub defining methods and type hints for the ODriveStatus class.
 
-.. code-block:: none
+   .. tab-set::
 
-   • RemoteAddEnabled(builder, enabled)
-     - Adds a boolean indicating whether the remote is active.
+      .. tab-item:: ODriveStatus.GetRootAs(buf, offset)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • RemoteAddMode(builder, mode)
-     - Adds mode selection field to the FlatBuffer.
+            - Type-stub version returning ODriveStatus instance.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.Init(buf, pos)
 
-   • RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
-     - Add right stick and trigger fields to the FlatBuffer.
+         .. code-block:: none
 
-.. code-block:: none
+            - Initializes typed FlatBuffers table.
 
-   • RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
-     - Add left stick and trigger fields to the FlatBuffer.
+      .. tab-item:: ODriveStatus.Connected0()–Connected5()
 
-.. code-block:: none
+         .. code-block:: none
 
-   • RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
-     - Add boolean D-pad state fields to the FlatBuffer.
+            - Return typed bool values for ODrive connection flags.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.Error00()–Error51()
 
-   • RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
-     - Add boolean button state fields to the FlatBuffer.
+         .. code-block:: none
 
-.. code-block:: none
+            - Return typed int values for error codes.
 
-   • RemoteEnd(builder)
-     - Finalizes and returns the offset of the Remote object in the FlatBuffer.
+      .. tab-item:: ODriveStatusStart(builder)
 
+         .. code-block:: none
 
-Remote.pyi
-~~~~~~~~~~
+            - Type-stub FlatBuffers builder initialization.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatusAddConnectedX(builder, connectedX)
 
-   • Remote.GetRootAs(buf, offset)
-     - Returns a Remote object from a typed buffer.
+         .. code-block:: none
 
-.. code-block:: none
+            - Adds connection field with type annotations.
 
-   • Remote.Init(buf, pos)
-     - Initializes a typed FlatBuffers table reference.
+      .. tab-item:: ODriveStatusAddErrorXY(builder, errorXY)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Remote.Enabled()
-     - Returns a typed boolean for the enabled state.
+            - Adds error fields with proper FlatBuffers slot typing.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatusEnd(builder)
 
-   • Remote.Mode(), Rlr(), Rfb(), Rt(), Llr(), Lfb(), Lt()
-     - Typed integer accessors for analog stick and trigger values.
+         .. code-block:: none
 
-.. code-block:: none
+            - Finalizes FlatBuffers construction in the type stub.
 
-   • Remote.DpadU(), DpadD(), DpadL(), DpadR()
-     - Typed boolean accessors for directional pad inputs.
+.. dropdown:: Remote.py
 
-.. code-block:: none
+   Automatically generated FlatBuffers module defining the Remote class for remote control input state.
 
-   • Remote.Triangle(), Cross(), Square(), Circle()
-     - Typed boolean accessors for button inputs.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: Remote.GetRootAs(buf, offset=0)
 
-   • RemoteStart(builder)
-     - Type-stub FlatBuffers builder start helper.
+         .. code-block:: none
 
-.. code-block:: none
+            - Initializes a Remote object from FlatBuffer data at the given offset.
 
-   • RemoteAddEnabled(), RemoteAddMode(), RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
-     - Type-stub helpers for adding right-hand control fields.
+      .. tab-item:: Remote.GetRootAsRemote(buf, offset=0)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
-     - Type-stub helpers for adding left-hand control fields.
+            - Deprecated alias for GetRootAs, kept for backward compatibility.
 
-.. code-block:: none
+      .. tab-item:: Remote.Init(buf, pos)
 
-   • RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
-     - Type-stub helpers for D-pad field creation.
+         .. code-block:: none
 
-.. code-block:: none
+            - Initializes FlatBuffers table reference for Remote.
 
-   • RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
-     - Type-stub helpers for button field creation.
+      .. tab-item:: Remote.Enabled()
 
-.. code-block:: none
+         .. code-block:: none
 
-   • RemoteEnd(builder)
-     - Finalizes the typed FlatBuffers Remote object.
+            - Returns True if the remote control is enabled.
+
+      .. tab-item:: Remote.Mode()
+
+         .. code-block:: none
+
+            - Returns the current operating mode as an integer flag.
+
+      .. tab-item:: Remote.Rlr(), Rfb(), Rt()
+
+         .. code-block:: none
+
+            - Return signed or unsigned 8-bit integer stick or trigger values for the right side controls.
+
+      .. tab-item:: Remote.Llr(), Lfb(), Lt()
+
+         .. code-block:: none
+
+            - Return signed or unsigned 8-bit integer stick or trigger values for the left side controls.
+
+      .. tab-item:: Remote.DpadU(), DpadD(), DpadL(), DpadR()
+
+         .. code-block:: none
+
+            - Return boolean values for each directional pad input.
+
+      .. tab-item:: Remote.Triangle(), Cross(), Square(), Circle()
+
+         .. code-block:: none
+
+            - Return boolean values representing button presses.
+
+      .. tab-item:: RemoteStart(builder)
+
+         .. code-block:: none
+
+            - Begins FlatBuffers object creation for Remote.
+
+      .. tab-item:: RemoteAddEnabled(builder, enabled)
+
+         .. code-block:: none
+
+            - Adds a boolean indicating whether the remote is active.
+
+      .. tab-item:: RemoteAddMode(builder, mode)
+
+         .. code-block:: none
+
+            - Adds mode selection field to the FlatBuffer.
+
+      .. tab-item:: RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
+
+         .. code-block:: none
+
+            - Add right stick and trigger fields to the FlatBuffer.
+
+      .. tab-item:: RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
+
+         .. code-block:: none
+
+            - Add left stick and trigger fields to the FlatBuffer.
+
+      .. tab-item:: RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
+
+         .. code-block:: none
+
+            - Add boolean D-pad state fields to the FlatBuffer.
+
+      .. tab-item:: RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
+
+         .. code-block:: none
+
+            - Add boolean button state fields to the FlatBuffer.
+
+      .. tab-item:: RemoteEnd(builder)
+
+         .. code-block:: none
+
+            - Finalizes and returns the offset of the Remote object in the FlatBuffer.
+
+.. dropdown:: Remote.pyi
+
+   Type stub defining method signatures and type hints for the Remote object.
+
+   .. tab-set::
+
+      .. tab-item:: Remote.GetRootAs(buf, offset)
+
+         .. code-block:: none
+
+            - Returns a Remote object from a typed buffer.
+
+      .. tab-item:: Remote.Init(buf, pos)
+
+         .. code-block:: none
+
+            - Initializes a typed FlatBuffers table reference.
+
+      .. tab-item:: Remote.Enabled()
+
+         .. code-block:: none
+
+            - Returns a typed boolean for the enabled state.
+
+      .. tab-item:: Remote.Mode(), Rlr(), Rfb(), Rt(), Llr(), Lfb(), Lt()
+
+         .. code-block:: none
+
+            - Typed integer accessors for analog stick and trigger values.
+
+      .. tab-item:: Remote.DpadU(), DpadD(), DpadL(), DpadR()
+
+         .. code-block:: none
+
+            - Typed boolean accessors for directional pad inputs.
+
+      .. tab-item:: Remote.Triangle(), Cross(), Square(), Circle()
+
+         .. code-block:: none
+
+            - Typed boolean accessors for button inputs.
+
+      .. tab-item:: RemoteStart(builder)
+
+         .. code-block:: none
+
+            - Type-stub FlatBuffers builder start helper.
+
+      .. tab-item:: RemoteAddEnabled(), RemoteAddMode(), RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
+
+         .. code-block:: none
+
+            - Type-stub helpers for adding right-hand control fields.
+
+      .. tab-item:: RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
+
+         .. code-block:: none
+
+            - Type-stub helpers for adding left-hand control fields.
+
+      .. tab-item:: RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
+
+         .. code-block:: none
+
+            - Type-stub helpers for D-pad field creation.
+
+      .. tab-item:: RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
+
+         .. code-block:: none
+
+            - Type-stub helpers for button field creation.
+
+      .. tab-item:: RemoteEnd(builder)
+
+         .. code-block:: none
+
+            - Finalizes the typed FlatBuffers Remote object.
 
 
 Robot
@@ -798,251 +878,310 @@ robot control operation.
 Low-Level Code Overview
 ------------------------
 
-audio_manager.py
-~~~~~~~~~~~~~~~~
+.. dropdown:: audio_manager.py
 
-.. code-block:: none
+   Handles audio playback for the robot, managing sound effects and songs.
 
-   • AudioManager.__init__(self)
-     - Initializes the Pygame mixer and loads all sound effects and songs.
-     - Sets individual volume levels and maps sound keys to audio objects.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: AudioManager.__init__(self)
 
-   • AudioManager.play_sound(self, sound_key)
-     - Plays the sound corresponding to the provided key if audio is enabled.
+         .. code-block:: none
 
-.. code-block:: none
+            - Initializes the Pygame mixer and loads all sound effects and songs.
+            - Sets individual volume levels and maps sound keys to audio objects.
 
-   • AudioManager.play_mode_sounds(self, mode)
-     - Maps numeric mode IDs (0–5) to mode switch sounds and plays the associated clip.
+      .. tab-item:: AudioManager.play_sound(self, sound_key)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • AudioManager.play_songs(self, song)
-     - Plays a random or specific song depending on the input argument.
+            - Plays the sound corresponding to the provided key if audio is enabled.
 
+      .. tab-item:: AudioManager.play_mode_sounds(self, mode)
 
-controller.py
-~~~~~~~~~~~~~
+         .. code-block:: none
 
-.. code-block:: none
+            - Maps numeric mode IDs (0–5) to mode switch sounds and plays the associated clip.
 
-   • ControllerLED.__init__(self, base_path)
-     - Initializes LED color paths (red, green, blue) using the system device path.
+      .. tab-item:: AudioManager.play_songs(self, song)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • ControllerLED._write_color(self, path, value)
-     - Writes a brightness value asynchronously to the LED color file.
+            - Plays a random or specific song depending on the input argument.
 
-.. code-block:: none
+.. dropdown:: controller.py
 
-   • ControllerLED.set_color(self, color)
-     - Sets LED color by writing RGB values asynchronously.
+   Manages DualShock/PS4 controller input and LED control.
 
-.. code-block:: none
+   .. tab-set::
 
-   • Controller.__init__(self, robot)
-     - Initializes controller input device and LED.
-     - Reads initial button and axis states.
-     - Creates asyncio event flag `is_ready`.
+      .. tab-item:: ControllerLED.__init__(self, base_path)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Controller._find_controller_dev(self)
-     - Scans available input devices and returns the correct PS4 controller device.
+            - Initializes LED color paths (red, green, blue) using the system device path.
 
-.. code-block:: none
+      .. tab-item:: ControllerLED._write_color(self, path, value)
 
-   • Controller.update_event(self, event)
-     - Updates controller state fields (buttons, sticks, triggers) from evdev input events.
+         .. code-block:: none
 
-.. code-block:: none
+            - Writes a brightness value asynchronously to the LED color file.
 
-   • Controller.events(self)
-     - Asynchronously reads controller events in real time and updates robot input.
+      .. tab-item:: ControllerLED.set_color(self, color)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Controller.polling(self)
-     - Asynchronously polls controller battery level once per minute.
+            - Sets LED color by writing RGB values asynchronously.
 
-.. code-block:: none
+      .. tab-item:: Controller.__init__(self, robot)
 
-   • Controller.stop(self)
-     - Placeholder for stopping controller event processing.
+         .. code-block:: none
 
-.. code-block:: none
+            - Initializes controller input device and LED.
+            - Reads initial button and axis states.
+            - Creates asyncio event flag ``is_ready``.
 
-   • Controller.__str__(self)
-     - Returns a formatted string summarizing controller input states.
+      .. tab-item:: Controller._find_controller_dev(self)
 
+         .. code-block:: none
 
-mode.py
-~~~~~~~
+            - Scans available input devices and returns the correct PS4 controller device.
 
-.. code-block:: none
+      .. tab-item:: Controller.update_event(self, event)
 
-   • Mode.__init__(self, robot)
-     - Initializes a Mode with references to the robot and motion subsystem.
+         .. code-block:: none
 
-.. code-block:: none
+            - Updates controller state fields (buttons, sticks, triggers) from evdev input events.
 
-   • Mode.start(self)
-     - Coroutine placeholder to be implemented by derived mode classes.
+      .. tab-item:: Controller.events(self)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Mode._run(self)
-     - Executes the mode’s coroutine and handles cancellation.
+            - Asynchronously reads controller events in real time and updates robot input.
 
-.. code-block:: none
+      .. tab-item:: Controller.polling(self)
 
-   • Mode.run(self)
-     - Creates a new asyncio loop and runs the mode coroutine indefinitely.
+         .. code-block:: none
 
-.. code-block:: none
+            - Asynchronously polls controller battery level once per minute.
 
-   • Mode.stop(self)
-     - Cancels all running tasks within the mode’s event loop and stops execution.
+      .. tab-item:: Controller.stop(self)
 
+         .. code-block:: none
 
-motion.py
-~~~~~~~~~
+            - Placeholder for stopping controller event processing.
 
-.. code-block:: none
+      .. tab-item:: Controller.__str__(self)
 
-   • Motion.__init__(self, robot)
-     - Initializes serial communication and sets up remote control state variables.
+         .. code-block:: none
 
-.. code-block:: none
+            - Returns a formatted string summarizing controller input states.
 
-   • Motion._connect(self)
-     - Establishes a serial connection to the Teensy motion controller.
 
-.. code-block:: none
+.. dropdown:: mode.py
 
-   • Motion.reconnect(self)
-     - Attempts to reconnect indefinitely if serial communication fails.
+   Defines the base Mode class for robot operating modes.
 
-.. code-block:: none
+   .. tab-set::
 
-   • Motion._find_serial_dev(self)
-     - Scans available ports for a Teensyduino device and returns its path.
+      .. tab-item:: Mode.__init__(self, robot)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Motion.move(self, rfb, rlr, lfb, llr, rt, lt, dpad_u, dpad_d, dpad_l, dpad_r, triangle, cross, square, circle)
-     - Updates current controller state values for transmission to the motion controller.
+            - Initializes a Mode with references to the robot and motion subsystem.
 
-.. code-block:: none
+      .. tab-item:: Mode.start(self)
 
-   • Motion.stop(self)
-     - Resets all control input values to their neutral state.
+         .. code-block:: none
 
-.. code-block:: none
+            - Coroutine placeholder to be implemented by derived mode classes.
 
-   • Motion.run(self)
-     - Builds FlatBuffers messages with Remote data.
-     - Sends serialized data to the Teensy controller and reads ODrive status responses.
-     - Handles reconnection and serial errors gracefully.
-     - Runs continuously at 10 Hz (approx.) until cancelled.
+      .. tab-item:: Mode._run(self)
 
+         .. code-block:: none
 
-sparky.py
-~~~~~~~~~
+            - Executes the mode's coroutine and handles cancellation.
 
-.. code-block:: none
+      .. tab-item:: Mode.run(self)
 
-   • Sparky.__init__(self)
-     - Initializes thread pool executor and sets default mode and enable state.
+         .. code-block:: none
 
-.. code-block:: none
+            - Creates a new asyncio loop and runs the mode coroutine indefinitely.
 
-   • Sparky.__aenter__(self)
-     - Asynchronous context entry method for use with `async with`.
+      .. tab-item:: Mode.stop(self)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Sparky.__aexit__(self, exc_type, exc, tb)
-     - Handles cleanup and exception printing on context exit.
+            - Cancels all running tasks within the mode's event loop and stops execution.
 
-.. code-block:: none
 
-   • Sparky.set_enabled(self, en)
-     - Dynamically loads and starts a robot mode if `en` is True.
-     - Stops motion and active mode if disabled.
+.. dropdown:: motion.py
 
-.. code-block:: none
+   Handles serial communication between the robot and the Teensy motion controller.
 
-   • Sparky.heartbeat(self)
-     - Controls LED heartbeat pattern to indicate robot enable/disable status.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: Motion.__init__(self, robot)
 
-   • Sparky.move(self, *args, **kwargs)
-     - Passes movement commands to the motion subsystem.
+         .. code-block:: none
 
-.. code-block:: none
+            - Initializes serial communication and sets up remote control state variables.
 
-   • Sparky.run(self)
-     - Starts UI and main asyncio event loop.
-     - Initializes controller, motion, and heartbeat tasks.
-     - Runs the UI event loop indefinitely.
+      .. tab-item:: Motion._connect(self)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • Sparky.stop(self)
-     - Cancels all active tasks, resets controller LED, and shuts down executor threads.
+            - Establishes a serial connection to the Teensy motion controller.
 
-ui.py
-~~~~~
+      .. tab-item:: Motion.reconnect(self)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • MainWindow.__init__(self, robot)
-     - Loads the UI layout from `platform.ui`.
-     - Initializes buttons for enabling/disabling the robot and selecting operating modes.
-     - Connects button click events to asynchronous handlers.
+            - Attempts to reconnect indefinitely if serial communication fails.
 
-.. code-block:: none
+      .. tab-item:: Motion._find_serial_dev(self)
 
-   • MainWindow.set_mode_buttons_disabled(self, disabled)
-     - Enables or disables all mode selection buttons based on the `disabled` flag.
+         .. code-block:: none
 
-.. code-block:: none
+            - Scans available ports for a Teensyduino device and returns its path.
 
-   • MainWindow.set_enabled(self, en)
-     - Asynchronously enables or disables the robot by calling `robot.set_enabled(en)`.
-     - Updates the enable/disable button states and mode button interactivity.
+      .. tab-item:: Motion.move(self, rfb, rlr, lfb, llr, rt, lt, dpad_u, dpad_d, dpad_l, dpad_r, triangle, cross, square, circle)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • MainWindow.on_enable(self)
-     - Async slot triggered when the "Enable" button is clicked.
-     - Determines the selected mode and starts the robot in that mode.
+            - Updates current controller state values for transmission to the motion controller.
 
-.. code-block:: none
+      .. tab-item:: Motion.stop(self)
 
-   • MainWindow.on_disable(self)
-     - Async slot triggered when the "Disable" button is clicked.
-     - Calls `set_enabled(False)` to disable the robot safely.
+         .. code-block:: none
 
-.. code-block:: none
+            - Resets all control input values to their neutral state.
 
-   • MainWindow.on_mode_button(self)
-     - Handles mutual exclusivity of mode selection buttons.
-     - Ensures only one mode button can be active at a time.
+      .. tab-item:: Motion.run(self)
 
-.. code-block:: none
+         .. code-block:: none
 
-   • MainWindow.start(cls, robot)
-     - Initializes the PyQt6 application and event loop via `QEventLoop`.
-     - Creates and displays the main window instance connected to the given `Sparky` robot.
+            - Builds FlatBuffers messages with Remote data.
+            - Sends serialized data to the Teensy controller and reads ODrive status responses.
+            - Handles reconnection and serial errors gracefully.
+            - Runs continuously at 10 Hz (approx.) until cancelled.
 
-.. code-block:: none
 
-   • MainWindow.closeEvent(self, event)
-     - Handles window close events.
-     - Stops the robot gracefully when the UI is closed.
+.. dropdown:: sparky.py
+
+   Main robot orchestration file for system initialization and control.
+
+   .. tab-set::
+
+      .. tab-item:: Sparky.__init__(self)
+
+         .. code-block:: none
+
+            - Initializes thread pool executor and sets default mode and enable state.
+
+      .. tab-item:: Sparky.__aenter__(self)
+
+         .. code-block:: none
+
+            - Asynchronous context entry method for use with ``async with``.
+
+      .. tab-item:: Sparky.__aexit__(self, exc_type, exc, tb)
+
+         .. code-block:: none
+
+            - Handles cleanup and exception printing on context exit.
+
+      .. tab-item:: Sparky.set_enabled(self, en)
+
+         .. code-block:: none
+
+            - Dynamically loads and starts a robot mode if ``en`` is True.
+            - Stops motion and active mode if disabled.
+
+      .. tab-item:: Sparky.heartbeat(self)
+
+         .. code-block:: none
+
+            - Controls LED heartbeat pattern to indicate robot enable/disable status.
+
+      .. tab-item:: Sparky.move(self, *args, **kwargs)
+
+         .. code-block:: none
+
+            - Passes movement commands to the motion subsystem.
+
+      .. tab-item:: Sparky.run(self)
+
+         .. code-block:: none
+
+            - Starts UI and main asyncio event loop.
+            - Initializes controller, motion, and heartbeat tasks.
+            - Runs the UI event loop indefinitely.
+
+      .. tab-item:: Sparky.stop(self)
+
+         .. code-block:: none
+
+            - Cancels all active tasks, resets controller LED, and shuts down executor threads.
+
+.. dropdown:: ui.py
+
+   Provides the PyQt6-based graphical user interface for the robot.
+
+   .. tab-set::
+
+      .. tab-item:: MainWindow.__init__(self, robot)
+
+         .. code-block:: none
+
+            - Loads the UI layout from ``platform.ui``.
+            - Initializes buttons for enabling/disabling the robot and selecting operating modes.
+            - Connects button click events to asynchronous handlers.
+
+      .. tab-item:: MainWindow.set_mode_buttons_disabled(self, disabled)
+
+         .. code-block:: none
+
+            - Enables or disables all mode selection buttons based on the ``disabled`` flag.
+
+      .. tab-item:: MainWindow.set_enabled(self, en)
+
+         .. code-block:: none
+
+            - Asynchronously enables or disables the robot by calling ``robot.set_enabled(en)``.
+            - Updates the enable/disable button states and mode button interactivity.
+
+      .. tab-item:: MainWindow.on_enable(self)
+
+         .. code-block:: none
+
+            - Async slot triggered when the "Enable" button is clicked.
+            - Determines the selected mode and starts the robot in that mode.
+
+      .. tab-item:: MainWindow.on_disable(self)
+
+         .. code-block:: none
+
+            - Async slot triggered when the "Disable" button is clicked.
+            - Calls ``set_enabled(False)`` to disable the robot safely.
+
+      .. tab-item:: MainWindow.on_mode_button(self)
+
+         .. code-block:: none
+
+            - Handles mutual exclusivity of mode selection buttons.
+            - Ensures only one mode button can be active at a time.
+
+      .. tab-item:: MainWindow.start(cls, robot)
+
+         .. code-block:: none
+
+            - Initializes the PyQt6 application and event loop via ``QEventLoop``.
+            - Creates and displays the main window instance connected to the given ``Sparky`` robot.
+
+      .. tab-item:: MainWindow.closeEvent(self, event)
+
+         .. code-block:: none
+
+            - Handles window close events.
+            - Stops the robot gracefully when the UI is closed.
