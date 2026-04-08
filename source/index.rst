@@ -35,6 +35,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    :maxdepth: 1
    :caption: Electrical and Hardware
 
+   full-schema
    hardware_doc
    daughterboards
    communication
