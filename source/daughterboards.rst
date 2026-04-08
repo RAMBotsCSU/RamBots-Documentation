@@ -1,4 +1,4 @@
-Daughterboards
+Custom PCBs
 ================
 
 Teensy PCB

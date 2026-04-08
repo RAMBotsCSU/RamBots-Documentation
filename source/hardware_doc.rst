@@ -1,4 +1,4 @@
-Hardware Documentation
+Pinouts and Hardware
 ======================
 
 IMU
@@ -152,6 +152,6 @@ custom-made JST-XH cables.
 Here is a hand-drawn guide to correctly wire the communication wires
 from the Teensy to the ODrives:
 
-.. figure:: hardware-images/image.png
+.. figure:: hardware-images/image4.png
    :alt: Teensy to ODrive Wiring
    :align: center

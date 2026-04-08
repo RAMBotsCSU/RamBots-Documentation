@@ -1,4 +1,4 @@
-RamBOT Electrical Schematics
+Full Electrical Schematics
 -----------------------------
 
 .. figure:: schematic-images/image001.jpg

@@ -1,7 +1,7 @@
-GitHub Repository Overview
-===========================
+Repository Overview
+=================================
 
-Repository Snapshot
+Active Repositories
 -------------------
 
 .. list-table::
