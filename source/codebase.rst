@@ -596,298 +596,235 @@ Platform Low-Level Code Overview
          Type-stub helpers for building a typed Remote object.
 
 
-Robot
-==============
+Platform/Robot Code
+======================
 
 High-Level Code Overview
 ------------------------
 
-audio_manager.py
-~~~~~~~~~~~~~~~~
-Handles audio playback for the robot.  
-Initializes Pygame mixer, loads sound effects and songs, manages volumes, and provides
-methods for playing mode-specific or random sounds.
+.. dropdown:: audio_manager.py
 
-controller.py
-~~~~~~~~~~~~~
-Manages DualShock/PS4 controller input via `evdev`.  
-Reads button and stick states asynchronously, updates LEDs, and communicates input
-state to the robot. Includes asynchronous polling for controller battery status.
+   Handles audio playback for the robot, including mixer initialization, sound/song loading, volume setup, and mode-specific playback.
 
-mode.py
-~~~~~~~
-Defines the base `Mode` class, representing a robot operating mode (e.g., walk, push-up).  
-Provides coroutine management, loop setup, and graceful start/stop task handling.
+.. dropdown:: controller.py
 
-motion.py
-~~~~~~~~~
-Handles serial communication between the robot and the Teensy motion controller.  
-Sends FlatBuffers messages containing remote input data and receives ODrive status responses.  
-Implements connection, reconnection, and command streaming via `aioserial`.
+   Manages DualShock/PS4 controller input via evdev, updates LED state, and streams input state to the robot with asynchronous battery polling.
 
-sparky.py
-~~~~~~~~~
-Main robot orchestration file.  
-Initializes subsystems (UI, controller, motion, and mode).  
-Manages runtime tasks, LED heartbeat indicator, and dynamic mode loading.
+.. dropdown:: mode.py
 
-ui.py
-~~~~~
+   Defines the base Mode class used by robot operating modes and provides coroutine lifecycle handling for start, run, and stop.
 
-Provides the PyQt6-based graphical user interface for the robot.  
-Defines the `MainWindow` class that manages enable/disable buttons, mode selection, and
-asynchronous communication with the `Sparky` backend.  
-Integrates `qasync` to bridge the PyQt6 event loop with asyncio for concurrent UI and
-robot control operation.
+.. dropdown:: motion.py
+
+   Handles serial communication with the Teensy motion controller, including FlatBuffers message sending, status reception, and reconnect logic.
+
+.. dropdown:: sparky.py
+
+   Main orchestration module that initializes controller, motion, mode, and UI subsystems and manages runtime tasks.
+
+.. dropdown:: ui.py
+
+   PyQt6 user interface module defining MainWindow controls for enable/disable, mode selection, and async integration with the Sparky backend.
 
 Low-Level Code Overview
 ------------------------
 
-audio_manager.py
-~~~~~~~~~~~~~~~~
+.. dropdown:: audio_manager.py
 
-.. code-block:: none
+   Contains audio playback setup and utility methods.
 
-   • AudioManager.__init__(self)
-     - Initializes the Pygame mixer and loads all sound effects and songs.
-     - Sets individual volume levels and maps sound keys to audio objects.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: AudioManager.__init__(self)
 
-   • AudioManager.play_sound(self, sound_key)
-     - Plays the sound corresponding to the provided key if audio is enabled.
+         Initializes the pygame mixer, loads sound assets, and sets per-sound volume defaults.
 
-.. code-block:: none
+      .. tab-item:: AudioManager.play_sound(self, sound_key)
 
-   • AudioManager.play_mode_sounds(self, mode)
-     - Maps numeric mode IDs (0–5) to mode switch sounds and plays the associated clip.
+         Plays a sound effect by key when audio is enabled.
 
-.. code-block:: none
+      .. tab-item:: AudioManager.play_mode_sounds(self, mode)
 
-   • AudioManager.play_songs(self, song)
-     - Plays a random or specific song depending on the input argument.
+         Maps mode IDs to mode-switch sounds and plays the mapped clip.
 
+      .. tab-item:: AudioManager.play_songs(self, song)
 
-controller.py
-~~~~~~~~~~~~~
+         Plays a random or specific song based on the input argument.
 
-.. code-block:: none
+.. dropdown:: controller.py
 
-   • ControllerLED.__init__(self, base_path)
-     - Initializes LED color paths (red, green, blue) using the system device path.
+   Contains controller device discovery, LED control, and asynchronous input processing.
 
-.. code-block:: none
+   .. tab-set::
 
-   • ControllerLED._write_color(self, path, value)
-     - Writes a brightness value asynchronously to the LED color file.
+      .. tab-item:: ControllerLED.__init__(self, base_path)
 
-.. code-block:: none
+         Initializes LED file paths for red, green, and blue channels.
 
-   • ControllerLED.set_color(self, color)
-     - Sets LED color by writing RGB values asynchronously.
+      .. tab-item:: ControllerLED._write_color(self, path, value)
 
-.. code-block:: none
+         Writes LED brightness values asynchronously.
 
-   • Controller.__init__(self, robot)
-     - Initializes controller input device and LED.
-     - Reads initial button and axis states.
-     - Creates asyncio event flag `is_ready`.
+      .. tab-item:: ControllerLED.set_color(self, color)
 
-.. code-block:: none
+         Sets RGB LED output values for controller status feedback.
 
-   • Controller._find_controller_dev(self)
-     - Scans available input devices and returns the correct PS4 controller device.
+      .. tab-item:: Controller.__init__(self, robot)
 
-.. code-block:: none
+         Initializes controller state, LED control, and readiness flags.
 
-   • Controller.update_event(self, event)
-     - Updates controller state fields (buttons, sticks, triggers) from evdev input events.
+      .. tab-item:: Controller._find_controller_dev(self)
 
-.. code-block:: none
+         Finds and returns the PS4 controller input device path.
 
-   • Controller.events(self)
-     - Asynchronously reads controller events in real time and updates robot input.
+      .. tab-item:: Controller.update_event(self, event)
 
-.. code-block:: none
+         Updates buttons, sticks, and trigger state from evdev events.
 
-   • Controller.polling(self)
-     - Asynchronously polls controller battery level once per minute.
+      .. tab-item:: Controller.events(self)
 
-.. code-block:: none
+         Asynchronously consumes controller events and updates robot input state.
 
-   • Controller.stop(self)
-     - Placeholder for stopping controller event processing.
+      .. tab-item:: Controller.polling(self)
 
-.. code-block:: none
+         Polls controller battery level on a periodic async interval.
 
-   • Controller.__str__(self)
-     - Returns a formatted string summarizing controller input states.
+      .. tab-item:: Controller.stop(self)
 
+         Placeholder for stopping controller event processing.
 
-mode.py
-~~~~~~~
+      .. tab-item:: Controller.__str__(self)
 
-.. code-block:: none
+         Returns a formatted summary string of current controller state.
 
-   • Mode.__init__(self, robot)
-     - Initializes a Mode with references to the robot and motion subsystem.
+.. dropdown:: mode.py
 
-.. code-block:: none
+   Contains the base mode lifecycle interface for robot behavior modules.
 
-   • Mode.start(self)
-     - Coroutine placeholder to be implemented by derived mode classes.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: Mode.__init__(self, robot)
 
-   • Mode._run(self)
-     - Executes the mode’s coroutine and handles cancellation.
+         Stores references to the robot and motion subsystem.
 
-.. code-block:: none
+      .. tab-item:: Mode.start(self)
 
-   • Mode.run(self)
-     - Creates a new asyncio loop and runs the mode coroutine indefinitely.
+         Coroutine placeholder implemented by concrete mode classes.
 
-.. code-block:: none
+      .. tab-item:: Mode._run(self)
 
-   • Mode.stop(self)
-     - Cancels all running tasks within the mode’s event loop and stops execution.
+         Executes the mode coroutine and handles cancellation behavior.
 
+      .. tab-item:: Mode.run(self)
 
-motion.py
-~~~~~~~~~
+         Creates an event loop and runs the mode coroutine continuously.
 
-.. code-block:: none
+      .. tab-item:: Mode.stop(self)
 
-   • Motion.__init__(self, robot)
-     - Initializes serial communication and sets up remote control state variables.
+         Cancels running mode tasks and stops the mode loop.
 
-.. code-block:: none
+.. dropdown:: motion.py
 
-   • Motion._connect(self)
-     - Establishes a serial connection to the Teensy motion controller.
+   Contains serial transport logic between platform software and Teensy motion firmware.
 
-.. code-block:: none
+   .. tab-set::
 
-   • Motion.reconnect(self)
-     - Attempts to reconnect indefinitely if serial communication fails.
+      .. tab-item:: Motion.__init__(self, robot)
 
-.. code-block:: none
+         Initializes serial state and remote-control field defaults.
 
-   • Motion._find_serial_dev(self)
-     - Scans available ports for a Teensyduino device and returns its path.
+      .. tab-item:: Motion._connect(self)
 
-.. code-block:: none
+         Opens serial communication to the Teensy motion controller.
 
-   • Motion.move(self, rfb, rlr, lfb, llr, rt, lt, dpad_u, dpad_d, dpad_l, dpad_r, triangle, cross, square, circle)
-     - Updates current controller state values for transmission to the motion controller.
+      .. tab-item:: Motion.reconnect(self)
 
-.. code-block:: none
+         Repeatedly attempts reconnection when serial communication fails.
 
-   • Motion.stop(self)
-     - Resets all control input values to their neutral state.
+      .. tab-item:: Motion._find_serial_dev(self)
 
-.. code-block:: none
+         Scans ports and returns the Teensy serial device path.
 
-   • Motion.run(self)
-     - Builds FlatBuffers messages with Remote data.
-     - Sends serialized data to the Teensy controller and reads ODrive status responses.
-     - Handles reconnection and serial errors gracefully.
-     - Runs continuously at 10 Hz (approx.) until cancelled.
+      .. tab-item:: Motion.move(...)
 
+         Updates cached controller values to be transmitted to firmware.
 
-sparky.py
-~~~~~~~~~
+      .. tab-item:: Motion.stop(self)
 
-.. code-block:: none
+         Resets all control values to neutral state.
 
-   • Sparky.__init__(self)
-     - Initializes thread pool executor and sets default mode and enable state.
+      .. tab-item:: Motion.run(self)
 
-.. code-block:: none
+         Builds and sends FlatBuffers messages, receives ODrive status responses, and handles errors/reconnects in a continuous loop.
 
-   • Sparky.__aenter__(self)
-     - Asynchronous context entry method for use with `async with`.
+.. dropdown:: sparky.py
 
-.. code-block:: none
+   Contains top-level runtime orchestration for robot enable state, tasks, and mode transitions.
 
-   • Sparky.__aexit__(self, exc_type, exc, tb)
-     - Handles cleanup and exception printing on context exit.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: Sparky.__init__(self)
 
-   • Sparky.set_enabled(self, en)
-     - Dynamically loads and starts a robot mode if `en` is True.
-     - Stops motion and active mode if disabled.
+         Initializes core runtime fields, default mode, and executor resources.
 
-.. code-block:: none
+      .. tab-item:: Sparky.__aenter__ and __aexit__
 
-   • Sparky.heartbeat(self)
-     - Controls LED heartbeat pattern to indicate robot enable/disable status.
+         Provides async context manager lifecycle hooks and cleanup behavior.
 
-.. code-block:: none
+      .. tab-item:: Sparky.set_enabled(self, en)
 
-   • Sparky.move(self, *args, **kwargs)
-     - Passes movement commands to the motion subsystem.
+         Enables a selected mode or disables active motion and mode tasks.
 
-.. code-block:: none
+      .. tab-item:: Sparky.heartbeat(self)
 
-   • Sparky.run(self)
-     - Starts UI and main asyncio event loop.
-     - Initializes controller, motion, and heartbeat tasks.
-     - Runs the UI event loop indefinitely.
+         Runs LED heartbeat logic reflecting enable and health state.
 
-.. code-block:: none
+      .. tab-item:: Sparky.move(self, *args, **kwargs)
 
-   • Sparky.stop(self)
-     - Cancels all active tasks, resets controller LED, and shuts down executor threads.
+         Forwards movement commands to the motion subsystem.
 
-ui.py
-~~~~~
+      .. tab-item:: Sparky.run(self)
 
-.. code-block:: none
+         Starts UI, controller, motion, and heartbeat tasks and runs the app loop.
 
-   • MainWindow.__init__(self, robot)
-     - Loads the UI layout from `platform.ui`.
-     - Initializes buttons for enabling/disabling the robot and selecting operating modes.
-     - Connects button click events to asynchronous handlers.
+      .. tab-item:: Sparky.stop(self)
 
-.. code-block:: none
+         Cancels tasks, resets LED state, and shuts down executor threads.
 
-   • MainWindow.set_mode_buttons_disabled(self, disabled)
-     - Enables or disables all mode selection buttons based on the `disabled` flag.
+.. dropdown:: ui.py
 
-.. code-block:: none
+   Contains the PyQt6 main window and asynchronous UI handlers for robot control.
 
-   • MainWindow.set_enabled(self, en)
-     - Asynchronously enables or disables the robot by calling `robot.set_enabled(en)`.
-     - Updates the enable/disable button states and mode button interactivity.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: MainWindow.__init__(self, robot)
 
-   • MainWindow.on_enable(self)
-     - Async slot triggered when the "Enable" button is clicked.
-     - Determines the selected mode and starts the robot in that mode.
+         Loads platform UI layout, initializes controls, and connects async button handlers.
 
-.. code-block:: none
+      .. tab-item:: MainWindow.set_mode_buttons_disabled(self, disabled)
 
-   • MainWindow.on_disable(self)
-     - Async slot triggered when the "Disable" button is clicked.
-     - Calls `set_enabled(False)` to disable the robot safely.
+         Enables or disables mode selection controls.
 
-.. code-block:: none
+      .. tab-item:: MainWindow.set_enabled(self, en)
 
-   • MainWindow.on_mode_button(self)
-     - Handles mutual exclusivity of mode selection buttons.
-     - Ensures only one mode button can be active at a time.
+         Calls robot enable/disable flow and updates UI state accordingly.
 
-.. code-block:: none
+      .. tab-item:: MainWindow.on_enable(self)
 
-   • MainWindow.start(cls, robot)
-     - Initializes the PyQt6 application and event loop via `QEventLoop`.
-     - Creates and displays the main window instance connected to the given `Sparky` robot.
+         Handles enable-button action and starts the selected mode.
 
-.. code-block:: none
+      .. tab-item:: MainWindow.on_disable(self)
 
-   • MainWindow.closeEvent(self, event)
-     - Handles window close events.
-     - Stops the robot gracefully when the UI is closed.
+         Handles disable-button action and safely disables the robot.
+
+      .. tab-item:: MainWindow.on_mode_button(self)
+
+         Enforces mode button mutual exclusivity.
+
+      .. tab-item:: MainWindow.start(cls, robot)
+
+         Creates the Qt app and event loop bridge, then launches the main window.
+
+      .. tab-item:: MainWindow.closeEvent(self, event)
+
+         Handles app close and triggers graceful robot shutdown.
