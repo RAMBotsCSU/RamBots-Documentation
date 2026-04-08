@@ -1,10 +1,33 @@
 Motion Repository
 ==================
 
-High-Level Code Overview
--------------------------
+Motion High-Level Code Overview
+---------------------------------
 
-Provides a general overview of each code file, what it does on a high level 
+Upon running setup in main.cpp, the following happens:
+
+* A serial monitor is set up
+
+* sparky.setup() is called
+
+* In sparky.setup(), serial connections are created for all 6 of the ODrives. The IMU is then initialized, and all ODrive connections are made
+
+The majority of functionality occurs in sparky.update(), which is called from main.loop(). The following happen:
+
+* The current time is fetched. If it has been < 10ms since the last update, sparky does not update
+
+* Ensures controller and ODrives are connected
+
+* Checks current mode, then calls the respective method in kinematics.cpp (walk, pushUp, or dance)
+
+* Checks the IMU for current roll/pitch, and stores them in class variables
+
+* Checks for updates to controller state, and stores button values in class variables
+
+* Checks for ODrive errors
+
+Motion Low-Level Code Overview
+---------------------------------
 
 .. dropdown:: Axis.cpp
 
@@ -309,446 +332,268 @@ Provides a general overview of each code file, what it does on a high level
 
          - Smooths motion input by blending previous and current values based on filter weight.
 
-High Level Summary
-~~~~~~~~~~~~~~~~~~
-
-Upon running setup in main.cpp, the following happen:
-
-* A serial monitor is set up
-
-* sparky.setup() is called
-
-* In sparky.setup(), serial connections are created for all 6 of the ODrives. The IMU is then initialized, and all ODrive connections are made
-
-The majority of functionality occurs in sparky.update(), which is called from main.loop(). The following happen:
-
-* The current time is fetched. If it has been < 10ms since the last update, sparky does not update
-
-* Ensures controller and ODrives are connected
-
-* Checks current mode, then calls the respective method in kinematics.cpp (walk, pushUp, or dance)
-
-* Checks the IMU for current roll/pitch, and stores them in class variables
-
-* Checks for updates to controller state, and stores button values in class variables
-
-* Checks for ODrive errors
-
 
 Platform Repository
 ===================
 
-High-Level Code Overview
-------------------------
+Platform High-Level Code Overview
+----------------------------------
 
-Message.py
-~~~~~~~~~~
-Automatically generated FlatBuffers module defining the `Message` object
-for robot communication. Handles serialization and deserialization of
-messages containing type information and optional `Remote` data.
+.. dropdown:: Message.py
 
-Message.pyi
-~~~~~~~~~~~
-Type stub providing signatures and type hints for the generated
-`Message` FlatBuffers class and helper functions.
+   Automatically generated FlatBuffers module defining the Message object for robot communication. Handles serialization and deserialization of messages containing type information and optional Remote data.
 
-MessageType.py
-~~~~~~~~~~~~~~
-Enumerates message types for FlatBuffers communication schema. Defines
-integer constants representing message categories.
+.. dropdown:: Message.pyi
 
-MessageType.pyi
-~~~~~~~~~~~~~~~
-Type stub defining type hints and integer constants for message types.
+   Type stub providing signatures and type hints for the generated Message FlatBuffers class and helper functions.
 
-ODriveStatus.py
-~~~~~~~~~~~~~~~
-Automatically generated FlatBuffers module defining the structure for
-ODrive connection and error reporting across six motor controllers.
-Contains helper functions for FlatBuffers serialization.
+.. dropdown:: MessageType.py
 
-ODriveStatus.pyi
-~~~~~~~~~~~~~~~~
-Type stub defining methods and type hints for the `ODriveStatus` class
-and its FlatBuffers builder helper functions.
+   Enumerates message types for FlatBuffers communication schema. Defines integer constants representing message categories.
 
-Remote.py
-~~~~~~~~~~
+.. dropdown:: MessageType.pyi
 
-Automatically generated FlatBuffers module defining the `Remote` class
-used for representing remote control input state (buttons, sticks, and
-triggers). Includes methods for reading, constructing, and serializing
-controller data fields.
+   Type stub defining type hints and integer constants for message types.
 
-Remote.pyi
-~~~~~~~~~~
+.. dropdown:: ODriveStatus.py
 
-Type stub defining method signatures, field types, and FlatBuffers
-builder helpers for the Remote object.
+   Automatically generated FlatBuffers module defining the structure for ODrive connection and error reporting across six motor controllers. Contains helper functions for FlatBuffers serialization.
 
+.. dropdown:: ODriveStatus.pyi
 
-Low-Level Code Overview
-------------------------
+   Type stub defining methods and type hints for the ODriveStatus class and its FlatBuffers builder helper functions.
 
-Message.py
-~~~~~~~~~~
+.. dropdown:: Remote.py
 
-.. code-block:: none
+   Automatically generated FlatBuffers module defining the Remote class used for representing remote control input state (buttons, sticks, and triggers). Includes methods for reading, constructing, and serializing controller data fields.
 
-   • Message.GetRootAs(buf, offset=0)
-     - Returns a new Message instance from a FlatBuffer, initializing its internal table at the given offset.
+.. dropdown:: Remote.pyi
 
-.. code-block:: none
+   Type stub defining method signatures, field types, and FlatBuffers builder helpers for the Remote object.
 
-   • Message.GetRootAsMessage(buf, offset=0)
-     - Deprecated version of GetRootAs maintained for backward compatibility.
 
-.. code-block:: none
+Platform Low-Level Code Overview
+--------------------------------
 
-   • Message.Init(buf, pos)
-     - Initializes the FlatBuffers table reference for the Message.
+.. dropdown:: Message.py
 
-.. code-block:: none
+   Contains generated FlatBuffers methods for reading, writing, and building Message objects.
 
-   • Message.Type()
-     - Returns the message type as an integer enum (e.g., UNKNOWN, REMOTE).
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: Message.GetRootAs(buf, offset=0)
 
-   • Message.Remote()
-     - Returns a Remote object if present; otherwise returns None.
+         Returns a new Message instance from a FlatBuffer, initializing its internal table at the given offset.
 
-.. code-block:: none
+      .. tab-item:: Message.GetRootAsMessage(buf, offset=0)
 
-   • MessageStart(builder)
-     - Begins FlatBuffers object construction for a Message.
+         Deprecated alias of GetRootAs kept for backward compatibility.
 
-.. code-block:: none
+      .. tab-item:: Message.Init(buf, pos)
 
-   • MessageAddType(builder, type)
-     - Adds the message type field to the FlatBuffer.
+         Initializes the FlatBuffers table reference for the Message.
 
-.. code-block:: none
+      .. tab-item:: Message.Type()
 
-   • MessageAddRemote(builder, remote)
-     - Adds a Remote object reference to the FlatBuffer.
+         Returns the message type as an integer enum value.
 
-.. code-block:: none
+      .. tab-item:: Message.Remote()
 
-   • MessageEnd(builder)
-     - Finishes and returns the offset of the Message object.
+         Returns a Remote object if present; otherwise returns None.
 
+      .. tab-item:: MessageStart(builder)
 
-Message.pyi
-~~~~~~~~~~~
+         Begins FlatBuffers object construction for a Message.
 
-.. code-block:: none
+      .. tab-item:: MessageAddType(builder, type)
 
-   • Message.GetRootAs(buf, offset)
-     - Type-annotated version of GetRootAs that returns a Message instance.
+         Adds the type field to the FlatBuffer.
 
-.. code-block:: none
+      .. tab-item:: MessageAddRemote(builder, remote)
 
-   • Message.Init(buf, pos)
-     - Type-hinted initialization of internal buffer for the Message.
+         Adds a Remote object reference to the FlatBuffer.
 
-.. code-block:: none
+      .. tab-item:: MessageEnd(builder)
 
-   • Message.Type()
-     - Returns a literal type from MessageType (UNKNOWN or REMOTE).
+         Finalizes and returns the Message object offset.
 
-.. code-block:: none
+.. dropdown:: Message.pyi
 
-   • Message.Remote()
-     - Returns a Remote object or None, with type hints applied.
+   Contains type-stub equivalents for Message methods and FlatBuffers builder helpers.
 
-.. code-block:: none
+   .. tab-set::
 
-   • MessageStart(builder)
-     - Type-annotated helper to start FlatBuffer construction.
+      .. tab-item:: Message.GetRootAs(buf, offset)
 
-.. code-block:: none
+         Type-annotated version of GetRootAs returning a Message instance.
 
-   • MessageAddType(builder, type)
-     - Adds the type field with explicit MessageType hint.
+      .. tab-item:: Message.Init(buf, pos)
 
-.. code-block:: none
+         Type-hinted initialization of the internal Message buffer.
 
-   • MessageAddRemote(builder, remote)
-     - Adds a Remote reference using FlatBuffers offset alias.
+      .. tab-item:: Message.Type()
 
+         Returns a literal value from MessageType.
 
-MessageType.py
-~~~~~~~~~~~~~~
+      .. tab-item:: Message.Remote()
 
-.. code-block:: none
+         Returns a typed Remote object or None.
 
-   • MessageType.UNKNOWN
-     - Integer constant (0) representing an unknown message type.
+      .. tab-item:: MessageStart, MessageAddType, MessageAddRemote
 
-.. code-block:: none
+         Type-annotated helper functions used to build Message objects.
 
-   • MessageType.REMOTE
-     - Integer constant (1) representing a remote control message.
+.. dropdown:: MessageType.py
 
+   Contains integer constants for message categories.
 
-MessageType.pyi
-~~~~~~~~~~~~~~~
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: MessageType.UNKNOWN
 
-   • MessageType.UNKNOWN
-     - Type stub constant matching generated FlatBuffers enum.
+         Integer constant 0 for unknown message type.
 
-.. code-block:: none
+      .. tab-item:: MessageType.REMOTE
 
-   • MessageType.REMOTE
-     - Type stub constant representing a remote message type.
+         Integer constant 1 for remote-control message type.
 
+.. dropdown:: MessageType.pyi
 
-ODriveStatus.py
-~~~~~~~~~~~~~~~
+   Contains typed constants matching the generated MessageType enum.
 
-.. code-block:: none
+   .. tab-set::
 
-   • ODriveStatus.GetRootAs(buf, offset=0)
-     - Initializes an ODriveStatus object from FlatBuffer data.
+      .. tab-item:: MessageType.UNKNOWN
 
-.. code-block:: none
+         Type stub constant for unknown message type.
 
-   • ODriveStatus.GetRootAsODriveStatus(buf, offset=0)
-     - Deprecated alias for GetRootAs for backward compatibility.
+      .. tab-item:: MessageType.REMOTE
 
-.. code-block:: none
+         Type stub constant for remote message type.
 
-   • ODriveStatus.Init(buf, pos)
-     - Initializes the internal FlatBuffers table reference.
+.. dropdown:: ODriveStatus.py
 
-.. code-block:: none
+   Contains generated FlatBuffers methods for ODrive connectivity and error status.
 
-   • ODriveStatus.Connected0() through ODriveStatus.Connected5()
-     - Return boolean connection statuses for each of the six ODrives.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.GetRootAs(buf, offset=0)
 
-   • ODriveStatus.Error00() through ODriveStatus.Error51()
-     - Return integer error codes for each of the 12 ODrive axes.
+         Initializes an ODriveStatus object from FlatBuffer data.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.GetRootAsODriveStatus(buf, offset=0)
 
-   • ODriveStatusStart(builder)
-     - Begins FlatBuffers object creation for ODriveStatus.
+         Deprecated alias for backward compatibility.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.Init(buf, pos)
 
-   • ODriveStatusAddConnectedX(builder, connectedX)
-     - Adds boolean connection field X (0–5) to the FlatBuffer.
+         Initializes the internal FlatBuffers table reference.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.Connected0() through Connected5()
 
-   • ODriveStatusAddErrorXY(builder, errorXY)
-     - Adds integer error code field for axis Y of ODrive X.
+         Returns boolean connection flags for all six ODrives.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatus.Error00() through Error51()
 
-   • ODriveStatusEnd(builder)
-     - Finalizes the FlatBuffer construction and returns the offset.
+         Returns integer error codes for all twelve ODrive axes.
 
+      .. tab-item:: ODriveStatusStart(builder)
 
-ODriveStatus.pyi
-~~~~~~~~~~~~~~~~
+         Begins FlatBuffers object creation for ODriveStatus.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatusAddConnectedX(builder, connectedX)
 
-   • ODriveStatus.GetRootAs(buf, offset)
-     - Type-stub version returning ODriveStatus instance.
+         Adds one ODrive connection field (X = 0..5).
 
-.. code-block:: none
+      .. tab-item:: ODriveStatusAddErrorXY(builder, errorXY)
 
-   • ODriveStatus.Init(buf, pos)
-     - Initializes typed FlatBuffers table.
+         Adds one axis error code field.
 
-.. code-block:: none
+      .. tab-item:: ODriveStatusEnd(builder)
 
-   • ODriveStatus.Connected0()–Connected5()
-     - Return typed bool values for ODrive connection flags.
+         Finalizes and returns the ODriveStatus object offset.
 
-.. code-block:: none
+.. dropdown:: ODriveStatus.pyi
 
-   • ODriveStatus.Error00()–Error51()
-     - Return typed int values for error codes.
+   Contains type-stub definitions for ODriveStatus accessors and builder helpers.
 
-.. code-block:: none
+   .. tab-set::
 
-   • ODriveStatusStart(builder)
-     - Type-stub FlatBuffers builder initialization.
+      .. tab-item:: ODriveStatus.GetRootAs and Init
 
-.. code-block:: none
+         Type-stub versions for object construction and initialization.
 
-   • ODriveStatusAddConnectedX(builder, connectedX)
-     - Adds connection field with type annotations.
+      .. tab-item:: ODriveStatus.Connected0() through Connected5()
 
-.. code-block:: none
+         Typed boolean accessors for ODrive connection flags.
 
-   • ODriveStatusAddErrorXY(builder, errorXY)
-     - Adds error fields with proper FlatBuffers slot typing.
+      .. tab-item:: ODriveStatus.Error00() through Error51()
 
-.. code-block:: none
+         Typed integer accessors for axis error codes.
 
-   • ODriveStatusEnd(builder)
-     - Finalizes FlatBuffers construction in the type stub.
+      .. tab-item:: ODriveStatusStart/AddConnectedX/AddErrorXY/End
 
-Remote.py
-~~~~~~~~~~
+         Type-annotated FlatBuffers builder helpers.
 
-.. code-block:: none
+.. dropdown:: Remote.py
 
-   • Remote.GetRootAs(buf, offset=0)
-     - Initializes a Remote object from FlatBuffer data at the given offset.
+   Contains generated FlatBuffers methods for remote state fields and builders.
 
-.. code-block:: none
+   .. tab-set::
 
-   • Remote.GetRootAsRemote(buf, offset=0)
-     - Deprecated alias for GetRootAs, kept for backward compatibility.
+      .. tab-item:: Remote.GetRootAs(buf, offset=0)
 
-.. code-block:: none
+         Initializes a Remote object from FlatBuffer data.
 
-   • Remote.Init(buf, pos)
-     - Initializes FlatBuffers table reference for Remote.
+      .. tab-item:: Remote.GetRootAsRemote(buf, offset=0)
 
-.. code-block:: none
+         Deprecated alias kept for backward compatibility.
 
-   • Remote.Enabled()
-     - Returns True if the remote control is enabled.
+      .. tab-item:: Remote.Init(buf, pos)
 
-.. code-block:: none
+         Initializes the FlatBuffers table reference for Remote.
 
-   • Remote.Mode()
-     - Returns the current operating mode as an integer flag.
+      .. tab-item:: Remote field accessors
 
-.. code-block:: none
+         Enabled, Mode, stick and trigger values, D-pad flags, and button flags return the current remote state values.
 
-   • Remote.Rlr(), Remote.Rfb(), Remote.Rt()
-     - Return signed or unsigned 8-bit integer stick or trigger values for the right side controls.
+      .. tab-item:: RemoteStart(builder)
 
-.. code-block:: none
+         Begins FlatBuffers object creation for Remote.
 
-   • Remote.Llr(), Remote.Lfb(), Remote.Lt()
-     - Return signed or unsigned 8-bit integer stick or trigger values for the left side controls.
+      .. tab-item:: RemoteAddEnabled and RemoteAddMode
 
-.. code-block:: none
+         Adds remote enabled and mode fields to the object.
 
-   • Remote.DpadU(), Remote.DpadD(), Remote.DpadL(), Remote.DpadR()
-     - Return boolean values for each directional pad input.
+      .. tab-item:: RemoteAddRlr/Rfb/Rt and RemoteAddLlr/Lfb/Lt
 
-.. code-block:: none
+         Adds right and left analog inputs to the object.
 
-   • Remote.Triangle(), Remote.Cross(), Remote.Square(), Remote.Circle()
-     - Return boolean values representing button presses.
+      .. tab-item:: RemoteAddDpad* and RemoteAddTriangle/Cross/Square/Circle
 
-.. code-block:: none
+         Adds D-pad and face-button states to the object.
 
-   • RemoteStart(builder)
-     - Begins FlatBuffers object creation for Remote.
+      .. tab-item:: RemoteEnd(builder)
 
-.. code-block:: none
+         Finalizes and returns the Remote object offset.
 
-   • RemoteAddEnabled(builder, enabled)
-     - Adds a boolean indicating whether the remote is active.
+.. dropdown:: Remote.pyi
 
-.. code-block:: none
+   Contains type-stub definitions for Remote accessors and FlatBuffers helper functions.
 
-   • RemoteAddMode(builder, mode)
-     - Adds mode selection field to the FlatBuffer.
+   .. tab-set::
 
-.. code-block:: none
+      .. tab-item:: Remote.GetRootAs and Init
 
-   • RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
-     - Add right stick and trigger fields to the FlatBuffer.
+         Typed construction and initialization methods.
 
-.. code-block:: none
+      .. tab-item:: Remote typed accessors
 
-   • RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
-     - Add left stick and trigger fields to the FlatBuffer.
+         Typed accessors for mode, analog values, D-pad states, and button states.
 
-.. code-block:: none
+      .. tab-item:: RemoteStart/Add*/End
 
-   • RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
-     - Add boolean D-pad state fields to the FlatBuffer.
-
-.. code-block:: none
-
-   • RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
-     - Add boolean button state fields to the FlatBuffer.
-
-.. code-block:: none
-
-   • RemoteEnd(builder)
-     - Finalizes and returns the offset of the Remote object in the FlatBuffer.
-
-
-Remote.pyi
-~~~~~~~~~~
-
-.. code-block:: none
-
-   • Remote.GetRootAs(buf, offset)
-     - Returns a Remote object from a typed buffer.
-
-.. code-block:: none
-
-   • Remote.Init(buf, pos)
-     - Initializes a typed FlatBuffers table reference.
-
-.. code-block:: none
-
-   • Remote.Enabled()
-     - Returns a typed boolean for the enabled state.
-
-.. code-block:: none
-
-   • Remote.Mode(), Rlr(), Rfb(), Rt(), Llr(), Lfb(), Lt()
-     - Typed integer accessors for analog stick and trigger values.
-
-.. code-block:: none
-
-   • Remote.DpadU(), DpadD(), DpadL(), DpadR()
-     - Typed boolean accessors for directional pad inputs.
-
-.. code-block:: none
-
-   • Remote.Triangle(), Cross(), Square(), Circle()
-     - Typed boolean accessors for button inputs.
-
-.. code-block:: none
-
-   • RemoteStart(builder)
-     - Type-stub FlatBuffers builder start helper.
-
-.. code-block:: none
-
-   • RemoteAddEnabled(), RemoteAddMode(), RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
-     - Type-stub helpers for adding right-hand control fields.
-
-.. code-block:: none
-
-   • RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
-     - Type-stub helpers for adding left-hand control fields.
-
-.. code-block:: none
-
-   • RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
-     - Type-stub helpers for D-pad field creation.
-
-.. code-block:: none
-
-   • RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
-     - Type-stub helpers for button field creation.
-
-.. code-block:: none
-
-   • RemoteEnd(builder)
-     - Finalizes the typed FlatBuffers Remote object.
+         Type-stub helpers for building a typed Remote object.
 
 
 Robot
