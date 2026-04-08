@@ -1,39 +1,29 @@
-GitHub and Python on Windows
+Setting up GitHub and Python
 =============================
 
 This is a quick tutorial on windows for getting GitHub working in your terminal. After this guide,
 you should be able to run Python scripts, clone repositories, and use GitHub from the command line. 
 
-Getting GitHub Working on Windows
+Setting up on Windows
 ---------------------------------
-Here's a recommended guide on how to set up GitHub on Windows:
-`GitHub in VS Code <https://code.visualstudio.com/docs/sourcecontrol/github>`_
+1. Here's a recommended guide on how to set up GitHub on Windows: `GitHub in VS Code <https://code.visualstudio.com/docs/sourcecontrol/github>`_
 
-Getting Python Working on Windows
----------------------------------
-Here's a good guide on getting python working on windows:
-`Python on Windows <https://docs.python.org/3/using/windows.html>`_
+2. Here's a good guide on getting python working on windows: `Python on Windows <https://docs.python.org/3/using/windows.html>`_
 
-Using PipFile on Windows
----------------------------------
-Here's a guide on using PipFile on Windows:
-
-1. Install pipenv using pip:
+3. Set up pipfile on windows using these commands: 
 
    .. code-block:: console
 
       py -m pip install pipenv
-
-2. To run a script with the PipFile dependencies, navigate to the directory containing the PipFile and run:
+      py -m pipenv install
 
    .. code-block:: console
 
-      pipenv run python your_script.py
+      py -m pipenv run python your_script.py
 
-3. Alternatively, you can run a custom command prespecified using: 
-    .. code-block:: console
+   .. code-block:: console
     
-        pipenv run your_command
+      py -m pipenv run your_command
 
 Getting Set Up on MacOS
 -----------------------
@@ -58,6 +48,7 @@ Now you should be able to run your Python scripts with the dependencies specifie
 
    python3 -m pipenv run python your_script.py
 
+   
 or
 .. code-block:: console
 
