@@ -11,8 +11,11 @@ RamBots Documentation
    :align: center
 
 Everything you need to know about building, using, and troubleshooting the RamBOT!
+
 `Homepage <https://projects-web.engr.colostate.edu/ece-sr-design/AY25/RamBOTs/>`__
+
 `GitHub <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`__
+
 `YouTube <https://www.youtube.com/@RamBOTsCSU>`__
 
 .. toctree::
