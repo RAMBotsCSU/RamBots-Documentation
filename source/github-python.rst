@@ -41,6 +41,20 @@ The process for getting GitHub and Python working on MacOS is similar to Windows
 
    python3 -m pip install pipenv
    python3 -m pipenv install
+
+Occasionally, running this command may not work, instead, you may need to run:
+
+.. code-block:: console
+
+   python3.13 -m pip install pipenv
+   python3.13 -m pipenv install
+
+or 
+
+.. code-block:: console
+
+   py -m pip install pipenv
+   py -m pipenv install
    
 Now you should be able to run your Python scripts with the dependencies specified in the PipFile using:
 

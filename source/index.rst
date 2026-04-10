@@ -14,7 +14,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
 
 `Homepage <https://projects-web.engr.colostate.edu/ece-sr-design/AY25/RamBOTs/>`__
 
-`GitHub <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`__
+`GitHub <https://github.com/RAMBotsCSU>`__
 
 `YouTube <https://www.youtube.com/@RamBOTsCSU>`__
 
@@ -56,6 +56,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    leg_removal
    leg_disassembly
    check_firmware
+   github-basics
    github-python
    
 .. toctree::
