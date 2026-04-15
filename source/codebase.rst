@@ -339,6 +339,14 @@ Platform Repository
 Platform High-Level Code Overview
 ----------------------------------
 
+.. image:: code-images/classes_rambots.png
+   :alt: Class diagram of motion code
+   :align: center
+
+.. image:: code-images/packages_rambots.png
+   :alt: Dependency diagram of platform code
+   :align: center
+
 .. dropdown:: Message.py
 
    Automatically generated FlatBuffers module defining the Message object for robot communication. Handles serialization and deserialization of messages containing type information and optional Remote data.
