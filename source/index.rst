@@ -29,8 +29,8 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    :maxdepth: 1
    :caption: Codebase
 
-   codebase
    github-overview
+   codebase
    testing_code
 
 
@@ -58,6 +58,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    check_firmware
    github-basics
    github-python
+   plaformio
    
 .. toctree::
    :maxdepth: 1
