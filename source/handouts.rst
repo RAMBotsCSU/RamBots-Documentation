@@ -3,7 +3,7 @@ E-Days Handouts 2026
 
 This page contains handouts for E-Days. These are meant to be printed out and given to students during the event. They are also available in the `handouts` folder of the repository.
 
-.. figure :: handouts/handout-page-0001.jpg
+.. figure :: handouts\handout-page-0001.jpg
     :alt: Handout 1
     :align: center
 
