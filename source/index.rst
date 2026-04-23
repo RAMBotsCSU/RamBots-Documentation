@@ -24,6 +24,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
 
    bootup
    running_tests
+   handouts
 
 .. toctree::
    :maxdepth: 1
