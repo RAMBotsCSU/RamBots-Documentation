@@ -42,6 +42,7 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    hardware_doc
    daughterboards
    communication
+   Armpcb
 
 
 .. toctree::
