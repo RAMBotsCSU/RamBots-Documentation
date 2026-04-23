@@ -6,9 +6,16 @@
 RamBots Documentation 
 ======================
 
+.. image:: rambots-docs-banner.png
+   :alt: RamBots Documentation Banner
+   :align: center
+
 Everything you need to know about building, using, and troubleshooting the RamBOT!
+
 `Homepage <https://projects-web.engr.colostate.edu/ece-sr-design/AY25/RamBOTs/>`__
-`GitHub <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`__
+
+`GitHub <https://github.com/RAMBotsCSU>`__
+
 `YouTube <https://www.youtube.com/@RamBOTsCSU>`__
 
 .. toctree::
@@ -16,11 +23,14 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    :caption: General
 
    bootup
+   running_tests
+   handouts
 
 .. toctree::
    :maxdepth: 1
    :caption: Codebase
 
+   github-overview
    codebase
    testing_code
 
@@ -29,7 +39,11 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    :maxdepth: 1
    :caption: Electrical and Hardware
 
+   full-schema
    hardware_doc
+   daughterboards
+   communication
+   Armpcb
 
 
 .. toctree::
@@ -44,6 +58,9 @@ Everything you need to know about building, using, and troubleshooting the RamBO
    leg_removal
    leg_disassembly
    check_firmware
+   github-basics
+   github-python
+   platformio
    
 .. toctree::
    :maxdepth: 1

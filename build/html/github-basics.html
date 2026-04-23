@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Github Basics &mdash; RamBots_Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Setting up GitHub and Python" href="github-python.html" />
+    <link rel="prev" title="How to Check Firmware Version" href="check_firmware.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1e5e11" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bootup.html">Booting Up the RamBOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_tests.html">Running Test Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handouts.html">E-Days Handouts 2026</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Codebase</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="github-overview.html">Repository Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html">Motion Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-repository">Platform Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-robot-code">Platform/Robot Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing_code.html">Testing Repository</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Electrical and Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="full-schema.html">Full Electrical Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Pinouts and Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daughterboards.html">Custom PCBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication Wires</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-Tos</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">Recalibrating Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg_removal.html">Removing a Leg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg_disassembly.html">Disassembling a Leg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="check_firmware.html">How to Check Firmware Version</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Github Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#to-clone-a-repository">To Clone a Repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#method-a-github-desktop">Method A: Github Desktop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-b-through-the-terminal">Method B: Through the Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#to-verify-the-cloning-process">To Verify the Cloning Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-make-a-branch">To Make a Branch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-upload-changes">To Upload Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-download-new-changes">To Download New Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="github-python.html">Setting up GitHub and Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platformio.html">PlatformIO Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="error_codes.html">Common ODrive Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflash_odrive.html">Reflashing Odrives</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1e5e11" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RamBots_Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Github Basics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/github-basics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="github-basics">
+<h1>Github Basics<a class="headerlink" href="#github-basics" title="Link to this heading"></a></h1>
+<section id="to-clone-a-repository">
+<h2>To Clone a Repository<a class="headerlink" href="#to-clone-a-repository" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<img alt="GitHub Repository Structure" src="_images/image000.png" />
+<figcaption>
+<p><span class="caption-text">Method A and B buttons</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="method-a-github-desktop">
+<h3>Method A: Github Desktop<a class="headerlink" href="#method-a-github-desktop" title="Link to this heading"></a></h3>
+<p>Click the “Code” button on the repository page and select “Open with GitHub Desktop”. This will open the GitHub Desktop application and prompt you to choose a local path to clone the repository to. After selecting the path, click “Clone” to start the cloning process.</p>
+</section>
+<section id="method-b-through-the-terminal">
+<h3>Method B: Through the Terminal<a class="headerlink" href="#method-b-through-the-terminal" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This section is a bit more difficult and requires github terminal authorization, see the “Github Python” how-to for more information on how to set up terminal authorization.</p>
+</div>
+<p>To Clone a Repository using terminal, you can use the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">&lt;repository_url&gt;</span>
+<span class="pre">`</span></code></p>
+<p>For instance, if you want to clone the python Pi Code repository, you would use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/RAMBotsCSU/platform.git</span>
+<span class="pre">`</span></code></p>
+</section>
+</section>
+<section id="to-verify-the-cloning-process">
+<h2>To Verify the Cloning Process<a class="headerlink" href="#to-verify-the-cloning-process" title="Link to this heading"></a></h2>
+<p>After cloning the repository, you can navigate to the cloned directory using the terminal and list the files to verify that the cloning process was successful. Use the following commands:</p>
+<p>In general, to check everything is successful, and to check other things run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">status</span>
+<span class="pre">`</span></code></p>
+</section>
+<section id="to-make-a-branch">
+<h2>To Make a Branch<a class="headerlink" href="#to-make-a-branch" title="Link to this heading"></a></h2>
+<p>To create a new branch, you can use the following command in terminal:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">&lt;branch_name&gt;</span>
+<span class="pre">`</span></code></p>
+<p>For example, if you want to create a branch called “feature-branch”, you would use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">feature-branch</span>
+<span class="pre">`</span></code></p>
+</section>
+<section id="to-upload-changes">
+<h2>To Upload Changes<a class="headerlink" href="#to-upload-changes" title="Link to this heading"></a></h2>
+<p>To upload your changes to the remote repository, you can use the following commands:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span>
+<span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Your</span> <span class="pre">commit</span> <span class="pre">message&quot;</span>
+<span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">&lt;branch_name&gt;</span>
+<span class="pre">`</span></code></p>
+</section>
+<section id="to-download-new-changes">
+<h2>To Download New Changes<a class="headerlink" href="#to-download-new-changes" title="Link to this heading"></a></h2>
+<p>To download new changes from the remote repository, you can use the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">&lt;branch_name&gt;</span>
+<span class="pre">`</span></code></p>
+<p>For example, if you want to pull changes from the “main” branch, you would use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">main</span>
+<span class="pre">`</span></code></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="check_firmware.html" class="btn btn-neutral float-left" title="How to Check Firmware Version" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="github-python.html" class="btn btn-neutral float-right" title="Setting up GitHub and Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Rambots.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

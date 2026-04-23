@@ -1,14 +1,14 @@
-Booting Up the RAMBot
+Booting Up the RamBOT
 ========================
 
 Follow these steps to power up the RAMBot safely and start the onboard startup script.
 
-Power check
+Power Check
 -----------
 - For battery power: use the cell checker and ensure the pack is above 22.1 V (≈ 3.7 V per cell) before connecting.
 - For bench supply: verify the supply is set to the correct voltage and current limit.
 
-Startup steps
+Startup Steps
 -------------
 1. Power the RamBOT using the red switch on the back of the robot.
 2. Power the Raspberry Pi using the black switch in front.

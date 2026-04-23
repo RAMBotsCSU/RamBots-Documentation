@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testing Repository &mdash; RamBots_Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
@@ -16,15 +16,15 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
       <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Hardware Documentation" href="hardware_doc.html" />
+    <link rel="next" title="Full Electrical Schematics" href="full-schema.html" />
     <link rel="prev" title="Motion Repository" href="codebase.html" /> 
 </head>
 
@@ -32,12 +32,13 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: #1e5e11" >
 
           
           
-          <a href="index.html" class="icon icon-home">
-            RamBots_Documentation
+          <a href="index.html">
+            
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,14 +50,16 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="bootup.html">Booting Up the RAMBot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bootup.html">Booting Up the RamBOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_tests.html">Running Test Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handouts.html">E-Days Handouts 2026</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Codebase</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="github-overview.html">Repository Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codebase.html">Motion Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-repository">Platform Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-motionprotocol">platform/MotionProtocol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-robot">platform/robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-robot-code">Platform/Robot Code</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Testing Repository</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#repository-layout">Repository layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#loadcell-leg-strength-testing">LoadCell/Leg-Strength-Testing</a></li>
@@ -72,14 +75,20 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Electrical and Hardware</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Hardware Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full-schema.html">Full Electrical Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Pinouts and Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daughterboards.html">Custom PCBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication Wires</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">How-Tos</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">How to Recalibrate Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">Recalibrating Motors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leg_removal.html">Removing a Leg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leg_disassembly.html">Disassembling a Leg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="check_firmware.html">How to Check Firmware Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github-basics.html">Github Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github-python.html">Setting up GitHub and Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platformio.html">PlatformIO Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
 <ul>
@@ -91,7 +100,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1e5e11" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">RamBots_Documentation</a>
       </nav>
@@ -116,16 +125,43 @@
 <p>This page documents the testing repository used for diagnostics, test code, and archived development artifacts for the RamBOT project.</p>
 <section id="repository-layout">
 <h2>Repository layout<a class="headerlink" href="#repository-layout" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>LoadCell/Leg-Strength-Testing/ — ESP32 code for real-time load-cell data (2024–2025).</p></li>
-<li><p>archive/ — Older code and scripts (2022–2023).</p></li>
-<li><p>lidar/ — Raspberry Pi + LiDAR test scripts (2023–2024).</p></li>
-<li><p>o-drive/ — Calibration and test scripts for ODrive (various years).</p></li>
-<li><p>pi/ — Pi-related scripts: sound, startup testing, archived deployed code (2022–2023).</p></li>
-<li><p>plotter/ — matplotlib tools to plot ODrive current data in real time (2024–2025).</p></li>
-<li><p>single-leg/ — Legacy Python code for the testbench (2023–2024).</p></li>
-<li><p>teensy/ — Legacy Teensy test scripts (2023–2024).</p></li>
-</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LoadCell/Leg-Strength-Testing/</p></td>
+<td><p>ESP32 code for real-time load-cell data (2024–2025).</p></td>
+</tr>
+<tr class="row-odd"><td><p>archive/</p></td>
+<td><p>Older code and scripts (2022–2023).</p></td>
+</tr>
+<tr class="row-even"><td><p>lidar/</p></td>
+<td><p>Raspberry Pi + LiDAR test scripts (2023–2024).</p></td>
+</tr>
+<tr class="row-odd"><td><p>o-drive/</p></td>
+<td><p>Calibration and test scripts for ODrive (various years).</p></td>
+</tr>
+<tr class="row-even"><td><p>pi/</p></td>
+<td><p>Pi-related scripts: sound, startup testing, archived deployed code (2022–2023).</p></td>
+</tr>
+<tr class="row-odd"><td><p>plotter/</p></td>
+<td><p>matplotlib tools to plot ODrive current data in real time (2024–2025).</p></td>
+</tr>
+<tr class="row-even"><td><p>single-leg/</p></td>
+<td><p>Legacy Python code for the testbench (2023–2024).</p></td>
+</tr>
+<tr class="row-odd"><td><p>teensy/</p></td>
+<td><p>Legacy Teensy test scripts (2023–2024).</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="loadcell-leg-strength-testing">
 <h2>LoadCell/Leg-Strength-Testing<a class="headerlink" href="#loadcell-leg-strength-testing" title="Link to this heading"></a></h2>
@@ -134,11 +170,28 @@
 <section id="archive">
 <h2>archive<a class="headerlink" href="#archive" title="Link to this heading"></a></h2>
 <p>Collection of older scripts and projects, including:</p>
-<ul class="simple">
-<li><p>o-drive/SinWave_Test/ — Arduino sketch used to move ODrive in simple tests.</p></li>
-<li><p>pi/ — Iterative Pi scripts testing threading, controller connectivity, and GUI experiments.</p></li>
-<li><p>teensy/ — Older Teensy scripts for gyroscope filtering and ESC tests.</p></li>
-</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>o-drive/SinWave_Test/</p></td>
+<td><p>Arduino sketch used to move ODrive in simple tests.</p></td>
+</tr>
+<tr class="row-odd"><td><p>pi/</p></td>
+<td><p>Iterative Pi scripts testing threading, controller connectivity, and GUI experiments.</p></td>
+</tr>
+<tr class="row-even"><td><p>teensy/</p></td>
+<td><p>Older Teensy scripts for gyroscope filtering and ESC tests.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="lidar">
 <h2>lidar<a class="headerlink" href="#lidar" title="Link to this heading"></a></h2>
@@ -147,43 +200,122 @@
 <section id="o-drive">
 <h2>o-drive<a class="headerlink" href="#o-drive" title="Link to this heading"></a></h2>
 <p>Calibration and support files for ODrive boards, e.g.:</p>
-<ul class="simple">
-<li><p>ConfigFile.py — Calibration utility using odrivetool.</p></li>
-<li><p>Single-Motor-cfg.py — Single-motor calibration helper.</p></li>
-<li><p>firmware_5_5.elf — Firmware image (v5.5) referenced by older deployments.</p></li>
-<li><p>OdriveArduino.zip — Unofficial Arduino helper library (archived).</p></li>
-</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ConfigFile.py</p></td>
+<td><p>Calibration utility using odrivetool.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Single-Motor-cfg.py</p></td>
+<td><p>Single-motor calibration helper.</p></td>
+</tr>
+<tr class="row-even"><td><p>firmware_5_5.elf</p></td>
+<td><p>Firmware image (v5.5) referenced by older deployments.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OdriveArduino.zip</p></td>
+<td><p>Unofficial Arduino helper library (archived).</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="pi">
 <h2>pi<a class="headerlink" href="#pi" title="Link to this heading"></a></h2>
 <p>Scripts related to Raspberry Pi development and testing:</p>
-<ul class="simple">
-<li><p>Sounds — Library of audio files used by legacy code.</p></li>
-<li><p>Startup Testing — Scripts that validate ODrive calibration and startup behavior.</p></li>
-<li><p>pi_edays_demo — Deployed demo code (E-Days 2023).</p></li>
-</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sounds</p></td>
+<td><p>Library of audio files used by legacy code.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Startup Testing</p></td>
+<td><p>Scripts that validate ODrive calibration and startup behavior.</p></td>
+</tr>
+<tr class="row-even"><td><p>pi_edays_demo</p></td>
+<td><p>Deployed demo code (E-Days 2023).</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="plotter">
 <h2>plotter<a class="headerlink" href="#plotter" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>odrive-plotter.py — Matplotlib-based real-time plotting of ODrive currents.</p></li>
-</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>odrive-plotter.py</p></td>
+<td><p>Matplotlib-based real-time plotting of ODrive currents.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="single-leg">
 <h2>single-leg<a class="headerlink" href="#single-leg" title="Link to this heading"></a></h2>
 <p>Legacy single-leg simulation and testbench scripts:</p>
-<ul class="simple">
-<li><p>com_sim.py / com_sim_linux.py — Kinematic simulation and Linux port.</p></li>
-</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>com_sim.py / com_sim_linux.py</p></td>
+<td><p>Kinematic simulation and Linux port.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="teensy">
 <h2>teensy<a class="headerlink" href="#teensy" title="Link to this heading"></a></h2>
 <p>Older Teensy-based calibration and test scripts:</p>
-<ul class="simple">
-<li><p>manual_offset_calibration — Tools for determining leg offsets.</p></li>
-<li><p>single_leg_stand — Testbench code for single-leg standing.</p></li>
-<li><p>assorted deprecated demos and utilities (archived).</p></li>
-</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>manual_offset_calibration</p></td>
+<td><p>Tools for determining leg offsets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>single_leg_stand</p></td>
+<td><p>Testbench code for single-leg standing.</p></td>
+</tr>
+<tr class="row-even"><td><p>assorted deprecated demos and utilities</p></td>
+<td><p>(archived).</p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This page is an overview. Consult individual directories for README files and specific usage instructions.</p>
@@ -196,7 +328,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="codebase.html" class="btn btn-neutral float-left" title="Motion Repository" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="hardware_doc.html" class="btn btn-neutral float-right" title="Hardware Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="full-schema.html" class="btn btn-neutral float-right" title="Full Electrical Schematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

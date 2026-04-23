@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Motion Repository &mdash; RamBots_Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
@@ -16,8 +16,8 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
       <script src="_static/design-tabs.js?v=f930bc37"></script>
@@ -25,19 +25,20 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Testing Repository" href="testing_code.html" />
-    <link rel="prev" title="Booting Up the RAMBot" href="bootup.html" /> 
+    <link rel="prev" title="Repository Overview" href="github-overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: #1e5e11" >
 
           
           
-          <a href="index.html" class="icon icon-home">
-            RamBots_Documentation
+          <a href="index.html">
+            
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,76 +50,46 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="bootup.html">Booting Up the RAMBot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bootup.html">Booting Up the RamBOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_tests.html">Running Test Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handouts.html">E-Days Handouts 2026</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Codebase</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="github-overview.html">Repository Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Motion Repository</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#high-level-code-overview">High-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#high-level-summary">High Level Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motion-high-level-code-overview">Motion High-Level Code Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motion-low-level-code-overview">Motion Low-Level Code Overview</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#platform-repository">Platform Repository</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#platform-high-level-code-overview">Platform High-Level Code Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#platform-low-level-code-overview">Platform Low-Level Code Overview</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#platform-repository">Platform Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#platform-motionprotocol">platform/MotionProtocol</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">High-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#message-py">Message.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#message-pyi">Message.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#messagetype-py">MessageType.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#messagetype-pyi">MessageType.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#odrivestatus-py">ODriveStatus.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#odrivestatus-pyi">ODriveStatus.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#remote-py">Remote.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#remote-pyi">Remote.pyi</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#low-level-code-overview">Low-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Message.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Message.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">MessageType.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">MessageType.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">ODriveStatus.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">ODriveStatus.pyi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Remote.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Remote.pyi</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#platform-robot">platform/robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id10">High-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#audio-manager-py">audio_manager.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#controller-py">controller.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mode-py">mode.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#motion-py">motion.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sparky-py">sparky.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ui-py">ui.py</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">Low-Level Code Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">audio_manager.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">controller.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">mode.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id15">motion.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id16">sparky.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id17">ui.py</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="#platform-robot-code">Platform/Robot Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#high-level-code-overview">High-Level Code Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#low-level-code-overview">Low-Level Code Overview</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="testing_code.html">Testing Repository</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Electrical and Hardware</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Hardware Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full-schema.html">Full Electrical Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Pinouts and Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daughterboards.html">Custom PCBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication Wires</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">How-Tos</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">How to Recalibrate Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">Recalibrating Motors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leg_removal.html">Removing a Leg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leg_disassembly.html">Disassembling a Leg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="check_firmware.html">How to Check Firmware Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github-basics.html">Github Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github-python.html">Setting up GitHub and Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platformio.html">PlatformIO Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
 <ul>
@@ -130,7 +101,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1e5e11" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">RamBots_Documentation</a>
       </nav>
@@ -152,9 +123,26 @@
              
   <section id="motion-repository">
 <h1>Motion Repository<a class="headerlink" href="#motion-repository" title="Link to this heading"></a></h1>
-<section id="high-level-code-overview">
-<h2>High-Level Code Overview<a class="headerlink" href="#high-level-code-overview" title="Link to this heading"></a></h2>
-<p>Provides a general overview of each code file, what it does on a high level</p>
+<section id="motion-high-level-code-overview">
+<h2>Motion High-Level Code Overview<a class="headerlink" href="#motion-high-level-code-overview" title="Link to this heading"></a></h2>
+<p>Upon running setup in main.cpp, the following happens:</p>
+<ul class="simple">
+<li><p>A serial monitor is set up</p></li>
+<li><p>sparky.setup() is called</p></li>
+<li><p>In sparky.setup(), serial connections are created for all 6 of the ODrives. The IMU is then initialized, and all ODrive connections are made</p></li>
+</ul>
+<p>The majority of functionality occurs in sparky.update(), which is called from main.loop(). The following happen:</p>
+<ul class="simple">
+<li><p>The current time is fetched. If it has been &lt; 10ms since the last update, sparky does not update</p></li>
+<li><p>Ensures controller and ODrives are connected</p></li>
+<li><p>Checks current mode, then calls the respective method in kinematics.cpp (walk, pushUp, or dance)</p></li>
+<li><p>Checks the IMU for current roll/pitch, and stores them in class variables</p></li>
+<li><p>Checks for updates to controller state, and stores button values in class variables</p></li>
+<li><p>Checks for ODrive errors</p></li>
+</ul>
+</section>
+<section id="motion-low-level-code-overview">
+<h2>Motion Low-Level Code Overview<a class="headerlink" href="#motion-low-level-code-overview" title="Link to this heading"></a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Axis.cpp</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
@@ -488,624 +476,622 @@ filter()</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-</details><section id="high-level-summary">
-<h3>High Level Summary<a class="headerlink" href="#high-level-summary" title="Link to this heading"></a></h3>
-<p>Upon running setup in main.cpp, the following happen:</p>
-<ul class="simple">
-<li><p>A serial monitor is set up</p></li>
-<li><p>sparky.setup() is called</p></li>
-<li><p>In sparky.setup(), serial connections are created for all 6 of the ODrives. The IMU is then initialized, and all ODrive connections are made</p></li>
-</ul>
-<p>The majority of functionality occurs in sparky.update(), which is called from main.loop(). The following happen:</p>
-<ul class="simple">
-<li><p>The current time is fetched. If it has been &lt; 10ms since the last update, sparky does not update</p></li>
-<li><p>Ensures controller and ODrives are connected</p></li>
-<li><p>Checks current mode, then calls the respective method in kinematics.cpp (walk, pushUp, or dance)</p></li>
-<li><p>Checks the IMU for current roll/pitch, and stores them in class variables</p></li>
-<li><p>Checks for updates to controller state, and stores button values in class variables</p></li>
-<li><p>Checks for ODrive errors</p></li>
-</ul>
-</section>
-</section>
+</details></section>
 </section>
 <section id="platform-repository">
 <h1>Platform Repository<a class="headerlink" href="#platform-repository" title="Link to this heading"></a></h1>
+<section id="platform-high-level-code-overview">
+<h2>Platform High-Level Code Overview<a class="headerlink" href="#platform-high-level-code-overview" title="Link to this heading"></a></h2>
+<img alt="Class diagram of motion code" class="align-center" src="_images/classes_rambots.png" />
+<img alt="Dependency diagram of platform code" class="align-center" src="_images/packages_rambots.png" />
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Message.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Automatically generated FlatBuffers module defining the Message object for robot communication. Handles serialization and deserialization of messages containing type information and optional Remote data.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Message.pyi</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Type stub providing signatures and type hints for the generated Message FlatBuffers class and helper functions.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">MessageType.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Enumerates message types for FlatBuffers communication schema. Defines integer constants representing message categories.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">MessageType.pyi</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Type stub defining type hints and integer constants for message types.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">ODriveStatus.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Automatically generated FlatBuffers module defining the structure for ODrive connection and error reporting across six motor controllers. Contains helper functions for FlatBuffers serialization.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">ODriveStatus.pyi</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Type stub defining methods and type hints for the ODriveStatus class and its FlatBuffers builder helper functions.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Remote.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Automatically generated FlatBuffers module defining the Remote class used for representing remote control input state (buttons, sticks, and triggers). Includes methods for reading, constructing, and serializing controller data fields.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Remote.pyi</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Type stub defining method signatures, field types, and FlatBuffers builder helpers for the Remote object.</p>
+</div>
+</details></section>
+<section id="platform-low-level-code-overview">
+<h2>Platform Low-Level Code Overview<a class="headerlink" href="#platform-low-level-code-overview" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Message.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains generated FlatBuffers methods for reading, writing, and building Message objects.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-27" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-27">
+Message.GetRootAs(buf, offset=0)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Returns a new Message instance from a FlatBuffer, initializing its internal table at the given offset.</p>
+</div>
+<input id="sd-tab-item-28" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-28">
+Message.GetRootAsMessage(buf, offset=0)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Deprecated alias of GetRootAs kept for backward compatibility.</p>
+</div>
+<input id="sd-tab-item-29" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-29">
+Message.Init(buf, pos)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes the FlatBuffers table reference for the Message.</p>
+</div>
+<input id="sd-tab-item-30" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-30">
+Message.Type()</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Returns the message type as an integer enum value.</p>
+</div>
+<input id="sd-tab-item-31" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-31">
+Message.Remote()</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Returns a Remote object if present; otherwise returns None.</p>
+</div>
+<input id="sd-tab-item-32" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-32">
+MessageStart(builder)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Begins FlatBuffers object construction for a Message.</p>
+</div>
+<input id="sd-tab-item-33" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-33">
+MessageAddType(builder, type)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Adds the type field to the FlatBuffer.</p>
+</div>
+<input id="sd-tab-item-34" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-34">
+MessageAddRemote(builder, remote)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Adds a Remote object reference to the FlatBuffer.</p>
+</div>
+<input id="sd-tab-item-35" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-35">
+MessageEnd(builder)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Finalizes and returns the Message object offset.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Message.pyi</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains type-stub equivalents for Message methods and FlatBuffers builder helpers.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-36" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-36">
+Message.GetRootAs(buf, offset)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Type-annotated version of GetRootAs returning a Message instance.</p>
+</div>
+<input id="sd-tab-item-37" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-37">
+Message.Init(buf, pos)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Type-hinted initialization of the internal Message buffer.</p>
+</div>
+<input id="sd-tab-item-38" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-38">
+Message.Type()</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Returns a literal value from MessageType.</p>
+</div>
+<input id="sd-tab-item-39" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-39">
+Message.Remote()</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Returns a typed Remote object or None.</p>
+</div>
+<input id="sd-tab-item-40" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-40">
+MessageStart, MessageAddType, MessageAddRemote</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Type-annotated helper functions used to build Message objects.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">MessageType.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains integer constants for message categories.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-41" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-41">
+MessageType.UNKNOWN</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Integer constant 0 for unknown message type.</p>
+</div>
+<input id="sd-tab-item-42" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-42">
+MessageType.REMOTE</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Integer constant 1 for remote-control message type.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">MessageType.pyi</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains typed constants matching the generated MessageType enum.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-43" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-43">
+MessageType.UNKNOWN</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Type stub constant for unknown message type.</p>
+</div>
+<input id="sd-tab-item-44" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-44">
+MessageType.REMOTE</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Type stub constant for remote message type.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">ODriveStatus.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains generated FlatBuffers methods for ODrive connectivity and error status.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-45" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-45">
+ODriveStatus.GetRootAs(buf, offset=0)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes an ODriveStatus object from FlatBuffer data.</p>
+</div>
+<input id="sd-tab-item-46" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-46">
+ODriveStatus.GetRootAsODriveStatus(buf, offset=0)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Deprecated alias for backward compatibility.</p>
+</div>
+<input id="sd-tab-item-47" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-47">
+ODriveStatus.Init(buf, pos)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes the internal FlatBuffers table reference.</p>
+</div>
+<input id="sd-tab-item-48" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-48">
+ODriveStatus.Connected0() through Connected5()</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Returns boolean connection flags for all six ODrives.</p>
+</div>
+<input id="sd-tab-item-49" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-49">
+ODriveStatus.Error00() through Error51()</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Returns integer error codes for all twelve ODrive axes.</p>
+</div>
+<input id="sd-tab-item-50" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-50">
+ODriveStatusStart(builder)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Begins FlatBuffers object creation for ODriveStatus.</p>
+</div>
+<input id="sd-tab-item-51" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-51">
+ODriveStatusAddConnectedX(builder, connectedX)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Adds one ODrive connection field (X = 0..5).</p>
+</div>
+<input id="sd-tab-item-52" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-52">
+ODriveStatusAddErrorXY(builder, errorXY)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Adds one axis error code field.</p>
+</div>
+<input id="sd-tab-item-53" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-53">
+ODriveStatusEnd(builder)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Finalizes and returns the ODriveStatus object offset.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">ODriveStatus.pyi</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains type-stub definitions for ODriveStatus accessors and builder helpers.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-54" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-54">
+ODriveStatus.GetRootAs and Init</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Type-stub versions for object construction and initialization.</p>
+</div>
+<input id="sd-tab-item-55" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-55">
+ODriveStatus.Connected0() through Connected5()</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Typed boolean accessors for ODrive connection flags.</p>
+</div>
+<input id="sd-tab-item-56" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-56">
+ODriveStatus.Error00() through Error51()</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Typed integer accessors for axis error codes.</p>
+</div>
+<input id="sd-tab-item-57" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-57">
+ODriveStatusStart/AddConnectedX/AddErrorXY/End</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Type-annotated FlatBuffers builder helpers.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Remote.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains generated FlatBuffers methods for remote state fields and builders.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-58" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-58">
+Remote.GetRootAs(buf, offset=0)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes a Remote object from FlatBuffer data.</p>
+</div>
+<input id="sd-tab-item-59" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-59">
+Remote.GetRootAsRemote(buf, offset=0)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Deprecated alias kept for backward compatibility.</p>
+</div>
+<input id="sd-tab-item-60" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-60">
+Remote.Init(buf, pos)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes the FlatBuffers table reference for Remote.</p>
+</div>
+<input id="sd-tab-item-61" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-61">
+Remote field accessors</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Enabled, Mode, stick and trigger values, D-pad flags, and button flags return the current remote state values.</p>
+</div>
+<input id="sd-tab-item-62" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-62">
+RemoteStart(builder)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Begins FlatBuffers object creation for Remote.</p>
+</div>
+<input id="sd-tab-item-63" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-63">
+RemoteAddEnabled and RemoteAddMode</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Adds remote enabled and mode fields to the object.</p>
+</div>
+<input id="sd-tab-item-64" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-64">
+RemoteAddRlr/Rfb/Rt and RemoteAddLlr/Lfb/Lt</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Adds right and left analog inputs to the object.</p>
+</div>
+<input id="sd-tab-item-65" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-65">
+RemoteAddDpad* and RemoteAddTriangle/Cross/Square/Circle</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Adds D-pad and face-button states to the object.</p>
+</div>
+<input id="sd-tab-item-66" name="sd-tab-set-14" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-66">
+RemoteEnd(builder)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Finalizes and returns the Remote object offset.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Remote.pyi</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains type-stub definitions for Remote accessors and FlatBuffers helper functions.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-67" name="sd-tab-set-15" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-67">
+Remote.GetRootAs and Init</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Typed construction and initialization methods.</p>
+</div>
+<input id="sd-tab-item-68" name="sd-tab-set-15" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-68">
+Remote typed accessors</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Typed accessors for mode, analog values, D-pad states, and button states.</p>
+</div>
+<input id="sd-tab-item-69" name="sd-tab-set-15" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-69">
+RemoteStart/Add*/End</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Type-stub helpers for building a typed Remote object.</p>
+</div>
+</div>
+</div>
+</details></section>
 </section>
-<section id="platform-motionprotocol">
-<h1>platform/MotionProtocol<a class="headerlink" href="#platform-motionprotocol" title="Link to this heading"></a></h1>
-<section id="id1">
-<h2>High-Level Code Overview<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<section id="message-py">
-<h3>Message.py<a class="headerlink" href="#message-py" title="Link to this heading"></a></h3>
-<p>Automatically generated FlatBuffers module defining the <cite>Message</cite> object
-for robot communication. Handles serialization and deserialization of
-messages containing type information and optional <cite>Remote</cite> data.</p>
-</section>
-<section id="message-pyi">
-<h3>Message.pyi<a class="headerlink" href="#message-pyi" title="Link to this heading"></a></h3>
-<p>Type stub providing signatures and type hints for the generated
-<cite>Message</cite> FlatBuffers class and helper functions.</p>
-</section>
-<section id="messagetype-py">
-<h3>MessageType.py<a class="headerlink" href="#messagetype-py" title="Link to this heading"></a></h3>
-<p>Enumerates message types for FlatBuffers communication schema. Defines
-integer constants representing message categories.</p>
-</section>
-<section id="messagetype-pyi">
-<h3>MessageType.pyi<a class="headerlink" href="#messagetype-pyi" title="Link to this heading"></a></h3>
-<p>Type stub defining type hints and integer constants for message types.</p>
-</section>
-<section id="odrivestatus-py">
-<h3>ODriveStatus.py<a class="headerlink" href="#odrivestatus-py" title="Link to this heading"></a></h3>
-<p>Automatically generated FlatBuffers module defining the structure for
-ODrive connection and error reporting across six motor controllers.
-Contains helper functions for FlatBuffers serialization.</p>
-</section>
-<section id="odrivestatus-pyi">
-<h3>ODriveStatus.pyi<a class="headerlink" href="#odrivestatus-pyi" title="Link to this heading"></a></h3>
-<p>Type stub defining methods and type hints for the <cite>ODriveStatus</cite> class
-and its FlatBuffers builder helper functions.</p>
-</section>
-<section id="remote-py">
-<h3>Remote.py<a class="headerlink" href="#remote-py" title="Link to this heading"></a></h3>
-<p>Automatically generated FlatBuffers module defining the <cite>Remote</cite> class
-used for representing remote control input state (buttons, sticks, and
-triggers). Includes methods for reading, constructing, and serializing
-controller data fields.</p>
-</section>
-<section id="remote-pyi">
-<h3>Remote.pyi<a class="headerlink" href="#remote-pyi" title="Link to this heading"></a></h3>
-<p>Type stub defining method signatures, field types, and FlatBuffers
-builder helpers for the Remote object.</p>
-</section>
-</section>
+<section id="platform-robot-code">
+<h1>Platform/Robot Code<a class="headerlink" href="#platform-robot-code" title="Link to this heading"></a></h1>
+<section id="high-level-code-overview">
+<h2>High-Level Code Overview<a class="headerlink" href="#high-level-code-overview" title="Link to this heading"></a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">audio_manager.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Handles audio playback for the robot, including mixer initialization, sound/song loading, volume setup, and mode-specific playback.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">controller.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Manages DualShock/PS4 controller input via evdev, updates LED state, and streams input state to the robot with asynchronous battery polling.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">mode.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Defines the base Mode class used by robot operating modes and provides coroutine lifecycle handling for start, run, and stop.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">motion.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Handles serial communication with the Teensy motion controller, including FlatBuffers message sending, status reception, and reconnect logic.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">sparky.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Main orchestration module that initializes controller, motion, mode, and UI subsystems and manages runtime tasks.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">ui.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">PyQt6 user interface module defining MainWindow controls for enable/disable, mode selection, and async integration with the Sparky backend.</p>
+</div>
+</details></section>
 <section id="low-level-code-overview">
 <h2>Low-Level Code Overview<a class="headerlink" href="#low-level-code-overview" title="Link to this heading"></a></h2>
-<section id="id2">
-<h3>Message.py<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAs(buf, offset=0)
-  - Returns a new Message instance from a FlatBuffer, initializing its internal table at the given offset.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAsMessage(buf, offset=0)
-  - Deprecated version of GetRootAs maintained for backward compatibility.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Init(buf, pos)
-  - Initializes the FlatBuffers table reference for the Message.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Type()
-  - Returns the message type as an integer enum (e.g., UNKNOWN, REMOTE).
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Remote()
-  - Returns a Remote object if present; otherwise returns None.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageStart(builder)
-  - Begins FlatBuffers object construction for a Message.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageAddType(builder, type)
-  - Adds the message type field to the FlatBuffer.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageAddRemote(builder, remote)
-  - Adds a Remote object reference to the FlatBuffer.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageEnd(builder)
-  - Finishes and returns the offset of the Message object.
-</pre></div>
-</div>
-</section>
-<section id="id3">
-<h3>Message.pyi<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.GetRootAs(buf, offset)
-  - Type-annotated version of GetRootAs that returns a Message instance.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Init(buf, pos)
-  - Type-hinted initialization of internal buffer for the Message.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Type()
-  - Returns a literal type from MessageType (UNKNOWN or REMOTE).
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Message.Remote()
-  - Returns a Remote object or None, with type hints applied.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageStart(builder)
-  - Type-annotated helper to start FlatBuffer construction.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageAddType(builder, type)
-  - Adds the type field with explicit MessageType hint.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageAddRemote(builder, remote)
-  - Adds a Remote reference using FlatBuffers offset alias.
-</pre></div>
-</div>
-</section>
-<section id="id4">
-<h3>MessageType.py<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.UNKNOWN
-  - Integer constant (0) representing an unknown message type.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.REMOTE
-  - Integer constant (1) representing a remote control message.
-</pre></div>
-</div>
-</section>
-<section id="id5">
-<h3>MessageType.pyi<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.UNKNOWN
-  - Type stub constant matching generated FlatBuffers enum.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MessageType.REMOTE
-  - Type stub constant representing a remote message type.
-</pre></div>
-</div>
-</section>
-<section id="id6">
-<h3>ODriveStatus.py<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAs(buf, offset=0)
-  - Initializes an ODriveStatus object from FlatBuffer data.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAsODriveStatus(buf, offset=0)
-  - Deprecated alias for GetRootAs for backward compatibility.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Init(buf, pos)
-  - Initializes the internal FlatBuffers table reference.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Connected0() through ODriveStatus.Connected5()
-  - Return boolean connection statuses for each of the six ODrives.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Error00() through ODriveStatus.Error51()
-  - Return integer error codes for each of the 12 ODrive axes.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusStart(builder)
-  - Begins FlatBuffers object creation for ODriveStatus.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusAddConnectedX(builder, connectedX)
-  - Adds boolean connection field X (0–5) to the FlatBuffer.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusAddErrorXY(builder, errorXY)
-  - Adds integer error code field for axis Y of ODrive X.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusEnd(builder)
-  - Finalizes the FlatBuffer construction and returns the offset.
-</pre></div>
-</div>
-</section>
-<section id="id7">
-<h3>ODriveStatus.pyi<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.GetRootAs(buf, offset)
-  - Type-stub version returning ODriveStatus instance.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Init(buf, pos)
-  - Initializes typed FlatBuffers table.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Connected0()–Connected5()
-  - Return typed bool values for ODrive connection flags.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatus.Error00()–Error51()
-  - Return typed int values for error codes.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusStart(builder)
-  - Type-stub FlatBuffers builder initialization.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusAddConnectedX(builder, connectedX)
-  - Adds connection field with type annotations.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusAddErrorXY(builder, errorXY)
-  - Adds error fields with proper FlatBuffers slot typing.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ODriveStatusEnd(builder)
-  - Finalizes FlatBuffers construction in the type stub.
-</pre></div>
-</div>
-</section>
-<section id="id8">
-<h3>Remote.py<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAs(buf, offset=0)
-  - Initializes a Remote object from FlatBuffer data at the given offset.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAsRemote(buf, offset=0)
-  - Deprecated alias for GetRootAs, kept for backward compatibility.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Init(buf, pos)
-  - Initializes FlatBuffers table reference for Remote.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Enabled()
-  - Returns True if the remote control is enabled.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Mode()
-  - Returns the current operating mode as an integer flag.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Rlr(), Remote.Rfb(), Remote.Rt()
-  - Return signed or unsigned 8-bit integer stick or trigger values for the right side controls.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Llr(), Remote.Lfb(), Remote.Lt()
-  - Return signed or unsigned 8-bit integer stick or trigger values for the left side controls.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.DpadU(), Remote.DpadD(), Remote.DpadL(), Remote.DpadR()
-  - Return boolean values for each directional pad input.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Triangle(), Remote.Cross(), Remote.Square(), Remote.Circle()
-  - Return boolean values representing button presses.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteStart(builder)
-  - Begins FlatBuffers object creation for Remote.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddEnabled(builder, enabled)
-  - Adds a boolean indicating whether the remote is active.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddMode(builder, mode)
-  - Adds mode selection field to the FlatBuffer.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
-  - Add right stick and trigger fields to the FlatBuffer.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
-  - Add left stick and trigger fields to the FlatBuffer.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
-  - Add boolean D-pad state fields to the FlatBuffer.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
-  - Add boolean button state fields to the FlatBuffer.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteEnd(builder)
-  - Finalizes and returns the offset of the Remote object in the FlatBuffer.
-</pre></div>
-</div>
-</section>
-<section id="id9">
-<h3>Remote.pyi<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.GetRootAs(buf, offset)
-  - Returns a Remote object from a typed buffer.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Init(buf, pos)
-  - Initializes a typed FlatBuffers table reference.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Enabled()
-  - Returns a typed boolean for the enabled state.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Mode(), Rlr(), Rfb(), Rt(), Llr(), Lfb(), Lt()
-  - Typed integer accessors for analog stick and trigger values.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.DpadU(), DpadD(), DpadL(), DpadR()
-  - Typed boolean accessors for directional pad inputs.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Remote.Triangle(), Cross(), Square(), Circle()
-  - Typed boolean accessors for button inputs.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteStart(builder)
-  - Type-stub FlatBuffers builder start helper.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddEnabled(), RemoteAddMode(), RemoteAddRlr(), RemoteAddRfb(), RemoteAddRt()
-  - Type-stub helpers for adding right-hand control fields.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddLlr(), RemoteAddLfb(), RemoteAddLt()
-  - Type-stub helpers for adding left-hand control fields.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddDpadU(), RemoteAddDpadD(), RemoteAddDpadL(), RemoteAddDpadR()
-  - Type-stub helpers for D-pad field creation.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteAddTriangle(), RemoteAddCross(), RemoteAddSquare(), RemoteAddCircle()
-  - Type-stub helpers for button field creation.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• RemoteEnd(builder)
-  - Finalizes the typed FlatBuffers Remote object.
-</pre></div>
-</div>
-</section>
-</section>
-</section>
-<section id="platform-robot">
-<h1>platform/robot<a class="headerlink" href="#platform-robot" title="Link to this heading"></a></h1>
-<section id="id10">
-<h2>High-Level Code Overview<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
-<section id="audio-manager-py">
-<h3>audio_manager.py<a class="headerlink" href="#audio-manager-py" title="Link to this heading"></a></h3>
-<p>Handles audio playback for the robot.
-Initializes Pygame mixer, loads sound effects and songs, manages volumes, and provides
-methods for playing mode-specific or random sounds.</p>
-</section>
-<section id="controller-py">
-<h3>controller.py<a class="headerlink" href="#controller-py" title="Link to this heading"></a></h3>
-<p>Manages DualShock/PS4 controller input via <cite>evdev</cite>.
-Reads button and stick states asynchronously, updates LEDs, and communicates input
-state to the robot. Includes asynchronous polling for controller battery status.</p>
-</section>
-<section id="mode-py">
-<h3>mode.py<a class="headerlink" href="#mode-py" title="Link to this heading"></a></h3>
-<p>Defines the base <cite>Mode</cite> class, representing a robot operating mode (e.g., walk, push-up).
-Provides coroutine management, loop setup, and graceful start/stop task handling.</p>
-</section>
-<section id="motion-py">
-<h3>motion.py<a class="headerlink" href="#motion-py" title="Link to this heading"></a></h3>
-<p>Handles serial communication between the robot and the Teensy motion controller.
-Sends FlatBuffers messages containing remote input data and receives ODrive status responses.
-Implements connection, reconnection, and command streaming via <cite>aioserial</cite>.</p>
-</section>
-<section id="sparky-py">
-<h3>sparky.py<a class="headerlink" href="#sparky-py" title="Link to this heading"></a></h3>
-<p>Main robot orchestration file.
-Initializes subsystems (UI, controller, motion, and mode).
-Manages runtime tasks, LED heartbeat indicator, and dynamic mode loading.</p>
-</section>
-<section id="ui-py">
-<h3>ui.py<a class="headerlink" href="#ui-py" title="Link to this heading"></a></h3>
-<p>Provides the PyQt6-based graphical user interface for the robot.
-Defines the <cite>MainWindow</cite> class that manages enable/disable buttons, mode selection, and
-asynchronous communication with the <cite>Sparky</cite> backend.
-Integrates <cite>qasync</cite> to bridge the PyQt6 event loop with asyncio for concurrent UI and
-robot control operation.</p>
-</section>
-</section>
-<section id="id11">
-<h2>Low-Level Code Overview<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
-<section id="id12">
-<h3>audio_manager.py<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.__init__(self)
-  - Initializes the Pygame mixer and loads all sound effects and songs.
-  - Sets individual volume levels and maps sound keys to audio objects.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.play_sound(self, sound_key)
-  - Plays the sound corresponding to the provided key if audio is enabled.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.play_mode_sounds(self, mode)
-  - Maps numeric mode IDs (0–5) to mode switch sounds and plays the associated clip.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• AudioManager.play_songs(self, song)
-  - Plays a random or specific song depending on the input argument.
-</pre></div>
-</div>
-</section>
-<section id="id13">
-<h3>controller.py<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ControllerLED.__init__(self, base_path)
-  - Initializes LED color paths (red, green, blue) using the system device path.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ControllerLED._write_color(self, path, value)
-  - Writes a brightness value asynchronously to the LED color file.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• ControllerLED.set_color(self, color)
-  - Sets LED color by writing RGB values asynchronously.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.__init__(self, robot)
-  - Initializes controller input device and LED.
-  - Reads initial button and axis states.
-  - Creates asyncio event flag `is_ready`.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller._find_controller_dev(self)
-  - Scans available input devices and returns the correct PS4 controller device.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.update_event(self, event)
-  - Updates controller state fields (buttons, sticks, triggers) from evdev input events.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.events(self)
-  - Asynchronously reads controller events in real time and updates robot input.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.polling(self)
-  - Asynchronously polls controller battery level once per minute.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.stop(self)
-  - Placeholder for stopping controller event processing.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Controller.__str__(self)
-  - Returns a formatted string summarizing controller input states.
-</pre></div>
-</div>
-</section>
-<section id="id14">
-<h3>mode.py<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.__init__(self, robot)
-  - Initializes a Mode with references to the robot and motion subsystem.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.start(self)
-  - Coroutine placeholder to be implemented by derived mode classes.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode._run(self)
-  - Executes the mode’s coroutine and handles cancellation.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.run(self)
-  - Creates a new asyncio loop and runs the mode coroutine indefinitely.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Mode.stop(self)
-  - Cancels all running tasks within the mode’s event loop and stops execution.
-</pre></div>
-</div>
-</section>
-<section id="id15">
-<h3>motion.py<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.__init__(self, robot)
-  - Initializes serial communication and sets up remote control state variables.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion._connect(self)
-  - Establishes a serial connection to the Teensy motion controller.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.reconnect(self)
-  - Attempts to reconnect indefinitely if serial communication fails.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion._find_serial_dev(self)
-  - Scans available ports for a Teensyduino device and returns its path.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.move(self, rfb, rlr, lfb, llr, rt, lt, dpad_u, dpad_d, dpad_l, dpad_r, triangle, cross, square, circle)
-  - Updates current controller state values for transmission to the motion controller.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.stop(self)
-  - Resets all control input values to their neutral state.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Motion.run(self)
-  - Builds FlatBuffers messages with Remote data.
-  - Sends serialized data to the Teensy controller and reads ODrive status responses.
-  - Handles reconnection and serial errors gracefully.
-  - Runs continuously at 10 Hz (approx.) until cancelled.
-</pre></div>
-</div>
-</section>
-<section id="id16">
-<h3>sparky.py<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.__init__(self)
-  - Initializes thread pool executor and sets default mode and enable state.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.__aenter__(self)
-  - Asynchronous context entry method for use with `async with`.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.__aexit__(self, exc_type, exc, tb)
-  - Handles cleanup and exception printing on context exit.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.set_enabled(self, en)
-  - Dynamically loads and starts a robot mode if `en` is True.
-  - Stops motion and active mode if disabled.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.heartbeat(self)
-  - Controls LED heartbeat pattern to indicate robot enable/disable status.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.move(self, *args, **kwargs)
-  - Passes movement commands to the motion subsystem.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.run(self)
-  - Starts UI and main asyncio event loop.
-  - Initializes controller, motion, and heartbeat tasks.
-  - Runs the UI event loop indefinitely.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• Sparky.stop(self)
-  - Cancels all active tasks, resets controller LED, and shuts down executor threads.
-</pre></div>
-</div>
-</section>
-<section id="id17">
-<h3>ui.py<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.__init__(self, robot)
-  - Loads the UI layout from `platform.ui`.
-  - Initializes buttons for enabling/disabling the robot and selecting operating modes.
-  - Connects button click events to asynchronous handlers.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.set_mode_buttons_disabled(self, disabled)
-  - Enables or disables all mode selection buttons based on the `disabled` flag.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.set_enabled(self, en)
-  - Asynchronously enables or disables the robot by calling `robot.set_enabled(en)`.
-  - Updates the enable/disable button states and mode button interactivity.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.on_enable(self)
-  - Async slot triggered when the &quot;Enable&quot; button is clicked.
-  - Determines the selected mode and starts the robot in that mode.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.on_disable(self)
-  - Async slot triggered when the &quot;Disable&quot; button is clicked.
-  - Calls `set_enabled(False)` to disable the robot safely.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.on_mode_button(self)
-  - Handles mutual exclusivity of mode selection buttons.
-  - Ensures only one mode button can be active at a time.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.start(cls, robot)
-  - Initializes the PyQt6 application and event loop via `QEventLoop`.
-  - Creates and displays the main window instance connected to the given `Sparky` robot.
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>• MainWindow.closeEvent(self, event)
-  - Handles window close events.
-  - Stops the robot gracefully when the UI is closed.
-</pre></div>
-</div>
-</section>
-</section>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">audio_manager.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains audio playback setup and utility methods.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-70" name="sd-tab-set-16" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-70">
+AudioManager.__init__(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes the pygame mixer, loads sound assets, and sets per-sound volume defaults.</p>
+</div>
+<input id="sd-tab-item-71" name="sd-tab-set-16" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-71">
+AudioManager.play_sound(self, sound_key)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Plays a sound effect by key when audio is enabled.</p>
+</div>
+<input id="sd-tab-item-72" name="sd-tab-set-16" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-72">
+AudioManager.play_mode_sounds(self, mode)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Maps mode IDs to mode-switch sounds and plays the mapped clip.</p>
+</div>
+<input id="sd-tab-item-73" name="sd-tab-set-16" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-73">
+AudioManager.play_songs(self, song)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Plays a random or specific song based on the input argument.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">controller.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains controller device discovery, LED control, and asynchronous input processing.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-74" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-74">
+ControllerLED.__init__(self, base_path)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes LED file paths for red, green, and blue channels.</p>
+</div>
+<input id="sd-tab-item-75" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-75">
+ControllerLED._write_color(self, path, value)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Writes LED brightness values asynchronously.</p>
+</div>
+<input id="sd-tab-item-76" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-76">
+ControllerLED.set_color(self, color)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Sets RGB LED output values for controller status feedback.</p>
+</div>
+<input id="sd-tab-item-77" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-77">
+Controller.__init__(self, robot)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes controller state, LED control, and readiness flags.</p>
+</div>
+<input id="sd-tab-item-78" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-78">
+Controller._find_controller_dev(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Finds and returns the PS4 controller input device path.</p>
+</div>
+<input id="sd-tab-item-79" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-79">
+Controller.update_event(self, event)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Updates buttons, sticks, and trigger state from evdev events.</p>
+</div>
+<input id="sd-tab-item-80" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-80">
+Controller.events(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Asynchronously consumes controller events and updates robot input state.</p>
+</div>
+<input id="sd-tab-item-81" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-81">
+Controller.polling(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Polls controller battery level on a periodic async interval.</p>
+</div>
+<input id="sd-tab-item-82" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-82">
+Controller.stop(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Placeholder for stopping controller event processing.</p>
+</div>
+<input id="sd-tab-item-83" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-83">
+Controller.__str__(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Returns a formatted summary string of current controller state.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">mode.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains the base mode lifecycle interface for robot behavior modules.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-84" name="sd-tab-set-18" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-84">
+Mode.__init__(self, robot)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Stores references to the robot and motion subsystem.</p>
+</div>
+<input id="sd-tab-item-85" name="sd-tab-set-18" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-85">
+Mode.start(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Coroutine placeholder implemented by concrete mode classes.</p>
+</div>
+<input id="sd-tab-item-86" name="sd-tab-set-18" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-86">
+Mode._run(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Executes the mode coroutine and handles cancellation behavior.</p>
+</div>
+<input id="sd-tab-item-87" name="sd-tab-set-18" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-87">
+Mode.run(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Creates an event loop and runs the mode coroutine continuously.</p>
+</div>
+<input id="sd-tab-item-88" name="sd-tab-set-18" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-88">
+Mode.stop(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Cancels running mode tasks and stops the mode loop.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">motion.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains serial transport logic between platform software and Teensy motion firmware.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-89" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-89">
+Motion.__init__(self, robot)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes serial state and remote-control field defaults.</p>
+</div>
+<input id="sd-tab-item-90" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-90">
+Motion._connect(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Opens serial communication to the Teensy motion controller.</p>
+</div>
+<input id="sd-tab-item-91" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-91">
+Motion.reconnect(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Repeatedly attempts reconnection when serial communication fails.</p>
+</div>
+<input id="sd-tab-item-92" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-92">
+Motion._find_serial_dev(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Scans ports and returns the Teensy serial device path.</p>
+</div>
+<input id="sd-tab-item-93" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-93">
+Motion.move(…)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Updates cached controller values to be transmitted to firmware.</p>
+</div>
+<input id="sd-tab-item-94" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-94">
+Motion.stop(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Resets all control values to neutral state.</p>
+</div>
+<input id="sd-tab-item-95" name="sd-tab-set-19" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-95">
+Motion.run(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Builds and sends FlatBuffers messages, receives ODrive status responses, and handles errors/reconnects in a continuous loop.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">sparky.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains top-level runtime orchestration for robot enable state, tasks, and mode transitions.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-96" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-96">
+Sparky.__init__(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Initializes core runtime fields, default mode, and executor resources.</p>
+</div>
+<input id="sd-tab-item-97" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-97">
+Sparky.__aenter__ and __aexit__</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Provides async context manager lifecycle hooks and cleanup behavior.</p>
+</div>
+<input id="sd-tab-item-98" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-98">
+Sparky.set_enabled(self, en)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Enables a selected mode or disables active motion and mode tasks.</p>
+</div>
+<input id="sd-tab-item-99" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-99">
+Sparky.heartbeat(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Runs LED heartbeat logic reflecting enable and health state.</p>
+</div>
+<input id="sd-tab-item-100" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-100">
+Sparky.move(self, <a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Forwards movement commands to the motion subsystem.</p>
+</div>
+<input id="sd-tab-item-101" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-101">
+Sparky.run(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Starts UI, controller, motion, and heartbeat tasks and runs the app loop.</p>
+</div>
+<input id="sd-tab-item-102" name="sd-tab-set-20" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-102">
+Sparky.stop(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Cancels tasks, resets LED state, and shuts down executor threads.</p>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">ui.py</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contains the PyQt6 main window and asynchronous UI handlers for robot control.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-103" name="sd-tab-set-21" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-103">
+MainWindow.__init__(self, robot)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Loads platform UI layout, initializes controls, and connects async button handlers.</p>
+</div>
+<input id="sd-tab-item-104" name="sd-tab-set-21" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-104">
+MainWindow.set_mode_buttons_disabled(self, disabled)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Enables or disables mode selection controls.</p>
+</div>
+<input id="sd-tab-item-105" name="sd-tab-set-21" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-105">
+MainWindow.set_enabled(self, en)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Calls robot enable/disable flow and updates UI state accordingly.</p>
+</div>
+<input id="sd-tab-item-106" name="sd-tab-set-21" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-106">
+MainWindow.on_enable(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Handles enable-button action and starts the selected mode.</p>
+</div>
+<input id="sd-tab-item-107" name="sd-tab-set-21" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-107">
+MainWindow.on_disable(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Handles disable-button action and safely disables the robot.</p>
+</div>
+<input id="sd-tab-item-108" name="sd-tab-set-21" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-108">
+MainWindow.on_mode_button(self)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Enforces mode button mutual exclusivity.</p>
+</div>
+<input id="sd-tab-item-109" name="sd-tab-set-21" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-109">
+MainWindow.start(cls, robot)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Creates the Qt app and event loop bridge, then launches the main window.</p>
+</div>
+<input id="sd-tab-item-110" name="sd-tab-set-21" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-110">
+MainWindow.closeEvent(self, event)</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Handles app close and triggers graceful robot shutdown.</p>
+</div>
+</div>
+</div>
+</details></section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bootup.html" class="btn btn-neutral float-left" title="Booting Up the RAMBot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="github-overview.html" class="btn btn-neutral float-left" title="Repository Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="testing_code.html" class="btn btn-neutral float-right" title="Testing Repository" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

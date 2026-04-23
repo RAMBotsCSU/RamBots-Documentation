@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Disassembling a Leg &mdash; RamBots_Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
@@ -16,8 +16,8 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
       <script src="_static/design-tabs.js?v=f930bc37"></script>
@@ -32,12 +32,13 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: #1e5e11" >
 
           
           
-          <a href="index.html" class="icon icon-home">
-            RamBots_Documentation
+          <a href="index.html">
+            
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,23 +50,28 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="bootup.html">Booting Up the RAMBot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bootup.html">Booting Up the RamBOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_tests.html">Running Test Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handouts.html">E-Days Handouts 2026</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Codebase</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="github-overview.html">Repository Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codebase.html">Motion Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-repository">Platform Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-motionprotocol">platform/MotionProtocol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-robot">platform/robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codebase.html#platform-robot-code">Platform/Robot Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing_code.html">Testing Repository</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Electrical and Hardware</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Hardware Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="full-schema.html">Full Electrical Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_doc.html">Pinouts and Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="daughterboards.html">Custom PCBs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication Wires</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">How-Tos</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">How to Recalibrate Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motor_calibration.html">Recalibrating Motors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leg_removal.html">Removing a Leg</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Disassembling a Leg</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#tools-needed">Tools Needed</a></li>
@@ -73,6 +79,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="check_firmware.html">How to Check Firmware Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github-basics.html">Github Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github-python.html">Setting up GitHub and Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platformio.html">PlatformIO Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
 <ul>
@@ -84,7 +93,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1e5e11" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">RamBots_Documentation</a>
       </nav>
@@ -126,7 +135,7 @@
 <li><p>Reference the “How-To take off a leg” guide to reach the point where the leg is removed from the robot.</p></li>
 <li><p>Remove the two screws holding the two halves together. On the same side, remove the two screws that hold the tension donuts in place (four screws total).</p>
 <figure class="align-center" id="id1">
-<img alt="screws holding halves and tension donuts" src="_images/image1.png" />
+<img alt="screws holding halves and tension donuts" src="_images/image13.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
@@ -134,19 +143,19 @@
 </li>
 <li><p>Remove the three plates at the top of the leg (each plate has four screws). The location of the plates is shown in Figures 2, 3, and 4. The order of removal does not matter.</p>
 <figure class="align-center" id="id2">
-<img alt="top plate 1" src="_images/image2.png" />
+<img alt="top plate 1" src="_images/image22.png" />
 <figcaption>
 <p><span class="caption-text">Figure 2.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id3">
-<img alt="top plate 2" src="_images/image3.png" />
+<img alt="top plate 2" src="_images/image31.png" />
 <figcaption>
 <p><span class="caption-text">Figure 3.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id4">
-<img alt="top plate 3" src="_images/image4.png" />
+<img alt="top plate 3" src="_images/image41.png" />
 <figcaption>
 <p><span class="caption-text">Figure 4.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
@@ -154,7 +163,7 @@
 </li>
 <li><p>With the plates removed, take off the two halves. The two tension donuts and the foot should come off with the halves; see Figure 5. For the remaining steps we will examine the right half (the foot motor half).</p>
 <figure class="align-center" id="id5">
-<img alt="right half with foot and donuts" src="_images/image5.png" />
+<img alt="right half with foot and donuts" src="_images/image51.png" />
 <figcaption>
 <p><span class="caption-text">Figure 5.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
@@ -204,7 +213,7 @@
 </ol>
 <blockquote>
 <div><figure class="align-center" id="id11">
-<img alt="second gear screws" src="_images/image11.png" />
+<img alt="second gear screws" src="_images/image111.png" />
 <figcaption>
 <p><span class="caption-text">Figure 11.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
@@ -215,7 +224,7 @@
 </ol>
 <blockquote>
 <div><figure class="align-center" id="id12">
-<img alt="motor cage back screws" src="_images/image12.png" />
+<img alt="motor cage back screws" src="_images/image121.png" />
 <figcaption>
 <p><span class="caption-text">Figure 12.</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
@@ -230,7 +239,7 @@
 </ol>
 <blockquote>
 <div><figure class="align-center" id="id13">
-<img alt="second half / shoulder" src="_images/image13.png" />
+<img alt="second half / shoulder" src="_images/image131.png" />
 <figcaption>
 <p><span class="caption-text">Figure 13.</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
 </figcaption>
