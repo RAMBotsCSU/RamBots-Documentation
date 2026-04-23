@@ -1,5 +1,5 @@
 Full Electrical Schematics
------------------------------
+============================
 
 .. figure:: schematic-images/image001.jpg
    :alt: RamBOT Full Schematic 1
